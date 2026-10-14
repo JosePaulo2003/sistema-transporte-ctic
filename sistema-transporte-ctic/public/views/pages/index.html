@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/views/css/style.css">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <!--PAINEL VERDE A ESQUERDA-->
+    <div class="listra-horizontal"></div>
+
+
+<!-- LOGO E INFORMAÇÕES DA UEA -->
+<div class="background">
+    <img src="../img/uea_new_logo_negativo_400.png" alt="Logo da UEA"class="logo">
+    <h1>UEA</h1>
+    <p>Universidade Estadual do Amazonas</p>
+</div>
+
+    
+    <!--FORMULÁRIO DE LOGIN-->
+    <main class="container">
+        <!-- Mudamos o action para login.html -->
+        <form action="login.html" method="POST" id="form-login">
+            <h1>Bem-vindo(a)</h1>
+            <p>Entre com suas credenciais institucionais.</p>
+            
+            <div class="input-box">
+                <p>E-mail institucional</p>
+                <!-- Adicionamos o id="email-input" -->
+                <input placeholder="Usuário" type="email" id="email-input" required>
+                <i class="bx bxs-user"></i>
+            </div>
+
+            <div class="input-box">
+                <p>Senha</p>
+                <input placeholder="Senha" type="password" required>
+                <i class="bx bxs-lock-alt"></i>
+            </div>
+
+            <div class="remember-forgot">
+                <label>
+                    <input type="checkbox">
+                    Lembrar acesso
+                </label>
+            </div>
+            
+            <div class="forgot">
+                <a href="#">Esqueci minha senha</a>
+            </div>
+
+            <button type="submit">Entrar</button>
+            <p>Acesso restrito a usuários autorizados.</p>
+        </form>
+    </main>
+    <script>
+        document.getElementById('form-login').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio automático para salvarmos o nome
+
+            const emailValor = document.getElementById('email-input').value;
+
+            // Transforma o e-mail em um nome (Ex: "ana.martins@uea.edu.br" vira "Ana Martins")
+            let nomeUsuario = emailValor.split('@')[0].replace('.', ' ');
+            nomeUsuario = nomeUsuario.replace(/\b\w/g, l => l.toUpperCase());
+
+            // Cria as iniciais para o avatar (Ex: "Ana Martins" vira "AM")
+            const partes = nomeUsuario.split(' ');
+            let iniciais = partes.length > 1 
+                ? (partes[0][0] + partes[partes.length - 1][0]).toUpperCase() 
+                : partes[0].substring(0, 2).toUpperCase();
+
+            // Salva na memória do navegador
+            localStorage.setItem('nomeLogado', nomeUsuario);
+            localStorage.setItem('iniciaisLogado', iniciais);
+
+            // Redireciona para o painel (login.html)
+            window.location.href = 'login.html';
+        });
+    </script>
+</body>
+
+</html>
