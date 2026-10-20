@@ -4,7 +4,7 @@
 
 Entrada com e-mail e senha cadastrados no banco, sessão PHP, páginas protegidas e saída pelo botão “Sair”. As senhas ficam como hash no banco. A identidade exibida no cabeçalho vem do servidor.
 
-Solicitações, solicitantes, passageiros e revisão continuam como protótipos: os dados de transporte ainda são demonstrativos ou ficam no navegador. Essa parte ainda não usa a API de transporte.
+O fluxo de transporte agora usa a API PHP: dados da viagem, contato do solicitante, passageiros e revisão. O rascunho fica na sessão do servidor e o envio final grava a solicitação, os passageiros e o histórico no MariaDB. Painel e listagem consultam o banco. Dados antigos do localStorage não são importados.
 
 ## Credenciais locais
 
@@ -14,7 +14,7 @@ Os arquivos locais foram gerados com permissão `600` e são ignorados pelo Git.
 
 ## Preparar o ambiente no Arch/Nyarch Linux
 
-PHP e MariaDB não foram encontrados neste ambiente. Execute a instalação no terminal:
+Se PHP e MariaDB ainda não estiverem instalados, execute no terminal do computador:
 
 ```bash
 sudo pacman -Syu php mariadb
@@ -112,8 +112,70 @@ Entrada e saída exigem o cabeçalho `X-CSRF-Token`. As respostas usam `usuario`
 
 O servidor embutido é para desenvolvimento local. Ao hospedar, configure HTTPS e use `public/` como diretório público no Apache com `mod_rewrite` e permissão para as regras do `.htaccess`. Os arquivos de configuração e credenciais devem permanecer fora do diretório público. A hospedagem em subpasta ainda não está configurada.
 
+## Atualizar uma instalação existente
+
+Com o MariaDB ativo, execute na raiz do projeto:
+
+```bash
+./comandos/php.sh comandos/preparar.php
+```
+
+O preparador aplica as migrações SQL em ordem, incluindo `002_solicitacoes.sql`, antes de verificar o administrador. As migrações atuais usam `CREATE TABLE IF NOT EXISTS`: preservam registros e senhas existentes. Esse preparador não é um gerenciador de futuras alterações de colunas.
+
+## Fluxo de solicitações
+
+1. Abra Nova solicitação e preencha os dados da viagem.
+2. Confirme o contato. Nome e e-mail vêm do usuário autenticado.
+3. Adicione de 1 a 50 passageiros e clique em Revisar solicitação para salvar essa etapa.
+4. Confira o resumo, marque a declaração e envie.
+5. Consulte o painel ou a listagem. Clique no código para ver os detalhes e o histórico.
+
+Solicitantes consultam apenas seus pedidos. Administradores consultam todos e podem alterar o status entre pendente, em análise, aprovada, recusada e concluída. Cada mudança efetiva registra o usuário responsável e o estado anterior, na mesma transação. Ainda não existe uma regra de transições obrigatórias entre esses estados.
+
+O rascunho é temporário, compartilhado entre abas da mesma sessão e perdido ao encerrar ou expirar a autenticação. Adições e remoções na tela de passageiros são confirmadas ao avançar para a revisão. O responsável deve ser incluído na lista se também viajar. Cada envio cria passageiros próprios daquela solicitação, sem deduplicação ou catálogo global. Veículos e motoristas ainda não estão implementados.
+
+As datas de viagem usam o horário local de Manaus. As datas de criação e do histórico ficam em UTC. Todos os campos são validados no servidor, e os textos são exibidos no navegador sem interpretação de HTML.
+
+## API de transporte
+
+Todas as rotas exigem autenticação. Operações de escrita também exigem `X-CSRF-Token` e usam JSON quando recebem dados.
+
+| Método | Rota | Finalidade |
+| --- | --- | --- |
+| GET | `/api/solicitacoes` | Listar os pedidos permitidos ao usuário |
+| GET | `/api/solicitacoes/rascunho` | Consultar o rascunho da sessão |
+| PUT | `/api/solicitacoes/rascunho` | Salvar `viagem`, `contato` ou `passageiros` |
+| DELETE | `/api/solicitacoes/rascunho` | Descartar o rascunho |
+| POST | `/api/solicitacoes` | Enviar o rascunho com `{"declaracao": true}` |
+| GET | `/api/solicitacoes/{id}` | Consultar detalhes, passageiros e histórico |
+| PATCH | `/api/solicitacoes/{id}/status` | Administrador altera o status com `{"status": "analise"}` |
+
+O rascunho usa os campos `tipo_deslocamento`, `destino`, `finalidade`, `saida_em`, `retorno_em`, `local_embarque`, `centro_custo` e `justificativa` em `viagem`; `telefone`, `setor` e `vinculo` em `contato`; e uma lista de objetos com `nome`, `setor` e `vinculo` em `passageiros`. As datas devem seguir `AAAA-MM-DDTHH:MM`. O limite de corpo JSON da aplicação é de 16 KiB.
+
+## Testar a etapa de transporte
+
+Validações isoladas, sem alterar o banco:
+
+```bash
+./comandos/php.sh testes/validacao-solicitacoes.php
+```
+
+Com as migrações aplicadas e o servidor iniciado, confira primeiro a autenticação:
+
+```bash
+python3 testes/autenticacao.py
+```
+
+O teste seguinte usa o administrador local e **cria uma solicitação de teste no banco**, com passageiro e histórico. O registro permanece identificado como TESTE AUTOMATIZADO. Execute em banco de desenvolvimento:
+
+```bash
+python3 testes/solicitacoes.py
+```
+
+Ele verifica autenticação, CSRF, datas, rascunho, declaração, envio, bloqueio de reenvio, passageiros, listagem e histórico de status. Para conferir o isolamento entre usuários, entre também com contas de perfil solicitante e verifique que cada uma lista apenas seus próprios pedidos e recebe 404 ao consultar um pedido alheio. O teste automatizado usa apenas o administrador e não cobre esse cenário entre contas.
+
 ## Verificação nesta entrega
 
-Foram realizadas conferências estáticas de JavaScript, scripts de terminal, referências e consistência dos campos e consultas. Os testes de execução PHP/MySQL e de navegador precisam ser executados após instalar as dependências; não foram executados neste ambiente.
+Nesta etapa foram conferidos os scripts de terminal, a sintaxe Python, a leitura dos documentos HTML e as referências do fluxo. O ambiente de edição não disponibiliza PHP, MariaDB ou Node.js: os testes PHP, HTTP e de navegador desta etapa ainda precisam ser executados no computador com o banco ativo.
 
 Código, comentários e documentação seguem as convenções em `AGENTS.md`.
