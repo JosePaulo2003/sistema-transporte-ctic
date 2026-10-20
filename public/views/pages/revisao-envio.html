@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+    <title>Revisão e Envio - Sistema de Transportes - UEA</title>
+    <link rel="stylesheet" href="../css/revisao-envio.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO SUPERIOR -->
+    <header class="cabecalho">
+        <div class="background">
+            <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
+            <div class="logo-textos">
+                <h1>UEA</h1>
+                <p>Universidade do Estado do Amazonas</p>
+            </div>
+        </div>
+
+        <div class="titulo-sistema">
+            <h2>Sistema de Transportes</h2>
+        </div>
+
+        <div class="perfil-usuario">
+            <div class="avatar" id="avatar-usuario">AM</div>
+            <div class="dados-usuario">
+                <strong id="nome-usuario">Ana Martins</strong>
+                <span>CESIT</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="layout">
+        <!-- MENU LATERAL -->
+        <aside class="menu-lateral">
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="login.html"><span class="icone-menu" aria-hidden="true">⌂</span> Visão geral</a></li>
+                    <li class="ativo"><a href="nova-solicitacao.html"><span class="icone-menu" aria-hidden="true">+</span> Nova solicitação</a></li>
+                    <li><a href="solicitacoes.html"><span class="icone-menu" aria-hidden="true">≡</span> Solicitações</a></li>
+                    <li><a href="passageiros.html"><span class="icone-menu" aria-hidden="true">●</span> Passageiros</a></li>
+                </ul>
+                <p class="rotulo-ajuda">AJUDA</p>
+                <ul>
+                    <li><a href="#"><span class="icone-menu" aria-hidden="true">?</span> Como funciona</a></li>
+                </ul>
+            </nav>
+            <footer><small>v1.0 · CESIT/UEA</small></footer>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main>
+            <section class="titulo-pagina">
+                <div class="texto-titulo">
+                    <h1>Revisão e envio</h1>
+                    <p class="texto-desktop">Confira todos os dados antes de enviar para análise.</p>
+                </div>
+            </section>
+
+            <!-- BARRA DE PROGRESSO (ETAPA 4 DE 4: 100%) -->
+            <div class="progresso-etapa">
+                <p>Etapa 4 de 4</p>
+                <div class="barra-progresso">
+                    <div class="progresso-preenchido"></div>
+                </div>
+            </div>
+
+            <!-- CONTAINER DE REVISÃO -->
+            <section class="secao-formulario">
+                <!-- GRID DOS CARDS DE RESUMO (3 COLUNAS) -->
+                <div class="grid-resumo">
+                    <!-- CARD 1: DADOS DA VIAGEM -->
+                    <article class="card-resumo">
+                        <div class="cabecalho-card-resumo">
+                            <h3>Dados da viagem</h3>
+                            <a href="nova-solicitacao.html" class="link-editar">Editar</a>
+                        </div>
+                        <ul class="lista-resumo">
+                            <li>Itacoatiara — AM</li>
+                            <li>12 a 14/09/2026</li>
+                            <li>Visita técnica</li>
+                        </ul>
+                    </article>
+
+                    <!-- CARD 2: SOLICITANTE -->
+                    <article class="card-resumo">
+                        <div class="cabecalho-card-resumo">
+                            <h3>Solicitante</h3>
+                            <a href="solicitantes.html" class="link-editar">Editar</a>
+                        </div>
+                        <ul class="lista-resumo">
+                            <li>Ana Martins · CESIT</li>
+                            <li>ana.martins@uea.edu.br</li>
+                            <li>(92) 99999-2244</li>
+                        </ul>
+                    </article>
+
+                    <!-- CARD 3: PASSAGEIROS -->
+                    <article class="card-resumo">
+                        <div class="cabecalho-card-resumo">
+                            <h3>Passageiros (3)</h3>
+                            <a href="passageiros.html" class="link-editar">Editar</a>
+                        </div>
+                        <ul class="lista-resumo">
+                            <li>Ana Martins</li>
+                            <li>Carlos Nascimento</li>
+                            <li>Marina Souza</li>
+                        </ul>
+                    </article>
+                </div>
+
+                <!-- ALERTA DE AVISO (AMARELO/BEGE) -->
+                <div class="alerta-analise">
+                    <span class="icone-alerta" aria-hidden="true">!</span>
+                    <p>Após o envio, a solicitação ficará aguardando análise da supervisão.</p>
+                </div>
+
+                <!-- CHECKBOX DE DECLARAÇÃO -->
+                <div class="grupo-declaracao">
+                    <label class="container-checkbox">
+                        <input type="checkbox" id="declaracao-normas" required>
+                        <span class="checkmark"></span>
+                        <span class="texto-checkbox">Declaro que as informações estão corretas e estou ciente das normas.</span>
+                    </label>
+                </div>
+
+                <!-- BOTÕES DE AÇÃO -->
+                <div class="botoes-acao">
+                    <a href="passageiros.html" class="btn-voltar">Voltar</a>
+                    <a href="solicitacoes.html" class="btn-continuar" onclick="enviarSolicitacao()">Enviar solicitação</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- NAVEGAÇÃO INFERIOR: CELULAR -->
+    <nav class="mobile-bottom-nav" aria-label="Navegação para celular">
+        <a href="login.html">
+            <span class="nav-icon" aria-hidden="true">⌂</span>
+            <span>Visão geral</span>
+        </a>
+        <a href="nova-solicitacao.html" class="active" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">+</span>
+            <span>Nova</span>
+        </a>
+        <a href="solicitacoes.html">
+            <span class="nav-icon" aria-hidden="true">≡</span>
+            <span>Solicitações</span>
+        </a>
+    </nav>
+
+    <!-- SCRIPT PARA CARREGAR O NOME E ACIONAR O ALERTA DE SUCESSO -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nomeSalvo = window.CTIC_USUARIO?.nome;
+            const iniciaisSalvas = window.CTIC_USUARIO?.nome.trim().split(/\s+/).map(parte => parte[0]).slice(0, 2).join('').toUpperCase();
+
+            if (nomeSalvo) {
+                const elNome = document.getElementById('nome-usuario');
+                const elAvatar = document.getElementById('avatar-usuario');
+
+                if (elNome) elNome.textContent = nomeSalvo;
+                if (elAvatar && iniciaisSalvas) elAvatar.textContent = iniciaisSalvas;
+            }
+        });
+
+        function enviarSolicitacao() {
+            localStorage.setItem('solicitacaoEnviada', 'true');
+        }
+    </script>
+</body>
+</html>

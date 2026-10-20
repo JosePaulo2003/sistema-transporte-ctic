@@ -1,0 +1,8 @@
+/* Complementos da autenticação, preservando o visual do frontend existente. */
+.input-box label { display: block; font-size: 12px; margin-bottom: 5px; }
+.erro-autenticacao { padding: 12px; border: 1px solid #e8c3bf; border-radius: 7px; background: #fff1ef; color: #9b2920; font-size: 12px; }
+button:disabled { cursor: wait; opacity: .65; }
+.ctic-sair { padding: 8px 14px; border: 1px solid #dfe7e2; border-radius: 8px; background: white; color: #006837; font: inherit; font-size: 12px; cursor: pointer; }
+.ctic-sair:hover { background: #e5f4ec; }
+.ctic-sair:focus-visible { outline: 3px solid #7bc7a1; outline-offset: 3px; }
+[hidden] { display: none !important; }
