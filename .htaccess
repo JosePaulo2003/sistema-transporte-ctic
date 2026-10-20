@@ -1,0 +1,4 @@
+Options -Indexes
+RewriteEngine On
+RewriteRule ^public/(assets/.*\.(css|js|svg|png|jpg|jpeg|webp|ico|woff2?)|views/(css|img)/.*\.(css|png|jpg|jpeg|svg|webp))$ - [END,NC]
+RewriteRule ^ public/index.php [END]

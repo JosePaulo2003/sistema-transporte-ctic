@@ -1,0 +1,6 @@
+Options -Indexes
+RewriteEngine On
+# Compatibilidade com caminhos legados, usando public/ como DocumentRoot.
+RewriteRule ^public/(assets/.*\.(css|js|svg|png|jpg|jpeg|webp|ico|woff2?)|views/(css|img)/.*\.(css|png|jpg|jpeg|svg|webp))$ $1 [END,NC]
+RewriteRule ^(assets/.*\.(css|js|svg|png|jpg|jpeg|webp|ico|woff2?)|views/(css|img)/.*\.(css|png|jpg|jpeg|svg|webp))$ - [END,NC]
+RewriteRule ^ index.php [END]

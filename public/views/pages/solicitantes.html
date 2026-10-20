@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+    <title>Solicitante - Sistema de Transportes - UEA</title>
+    <link rel="stylesheet" href="../css/solicitantes.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO SUPERIOR -->
+    <header class="cabecalho">
+        <div class="background">
+            <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
+            <div class="logo-textos">
+                <h1>UEA</h1>
+                <p>Universidade do Estado do Amazonas</p>
+            </div>
+        </div>
+
+        <div class="titulo-sistema">
+            <h2>Sistema de Transportes</h2>
+        </div>
+
+        <div class="perfil-usuario">
+            <div class="avatar" id="avatar-usuario">AM</div>
+            <div class="dados-usuario">
+                <strong id="nome-usuario">Ana Martins</strong>
+                <span>CESIT</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="layout">
+        <!-- MENU LATERAL -->
+        <aside class="menu-lateral">
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="login.html"><span class="icone-menu" aria-hidden="true">⌂</span> Visão geral</a></li>
+                    <li class="ativo"><a href="nova-solicitacao.html"><span class="icone-menu" aria-hidden="true">+</span> Nova solicitação</a></li>
+                    <li><a href="solicitacoes.html"><span class="icone-menu" aria-hidden="true">≡</span> Solicitações</a></li>
+                    <li><a href="passageiros.html"><span class="icone-menu" aria-hidden="true">●</span> Passageiros</a></li>
+                </ul>
+                <p class="rotulo-ajuda">AJUDA</p>
+                <ul>
+                    <li><a href="#"><span class="icone-menu" aria-hidden="true">?</span> Como funciona</a></li>
+                </ul>
+            </nav>
+            <footer><small>v1.0 · CESIT/UEA</small></footer>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main>
+            <section class="titulo-pagina">
+                <div class="texto-titulo">
+                    <h1>Solicitante</h1>
+                    <p class="texto-desktop">Confirme os seus dados e o setor responsável.</p>
+                </div>
+            </section>
+
+            <!-- BARRA DE PROGRESSO -->
+            <div class="progresso-etapa">
+                <p>Etapa 2 de 4</p>
+                <div class="barra-progresso">
+                    <div class="progresso-preenchido"></div>
+                </div>
+            </div>
+
+            <!-- FORMULÁRIO DO SOLICITANTE -->
+            <section class="secao-formulario">
+                <form>
+                    <!-- LINHA 1: NOME COMPLETO E E-MAIL INSTITUCIONAL -->
+                    <div class="linha-inputs duas-colunas-iguais">
+                        <div class="input-grupo">
+                            <label for="nome-completo">Nome completo</label>
+                            <input type="text" id="nome-completo" placeholder="Ana Martins" required>
+                        </div>
+                        <div class="input-grupo">
+                            <label for="email-institucional">E-mail institucional</label>
+                            <input type="email" id="email-institucional" placeholder="ana.martins@uea.edu.br" required>
+                        </div>
+                    </div>
+
+                    <!-- LINHA 2: TELEFONE, SETOR E VÍNCULO -->
+                    <div class="linha-inputs tres-colunas-iguais">
+                        <div class="input-grupo">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" placeholder="(92) 99999-2244" required>
+                        </div>
+                        <div class="input-grupo">
+                            <label for="setor">Setor</label>
+                            <input type="text" id="setor" placeholder="CESIT" required>
+                        </div>
+                        <div class="input-grupo">
+                            <label for="vinculo">Vínculo</label>
+                            <input type="text" id="vinculo" placeholder="Servidora" required>
+                        </div>
+                    </div>
+
+                    <!-- CAIXA INFORMATIVA DE AVISO -->
+                    <div class="caixa-informativa">
+                        <span class="icone-info" aria-hidden="true">i</span>
+                        <p>Esses dados serão usados para contato e acompanhamento da solicitação.</p>
+                    </div>
+
+                    <!-- BOTÕES DE AÇÃO -->
+                    <div class="botoes-acao">
+                        <a href="nova-solicitacao.html" class="btn-voltar">Voltar</a>
+                        <a href="passageiros.html" class="btn-continuar">Continuar</a>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- NAVEGAÇÃO INFERIOR: CELULAR -->
+    <nav class="mobile-bottom-nav" aria-label="Navegação para celular">
+        <a href="login.html">
+            <span class="nav-icon" aria-hidden="true">⌂</span>
+            <span>Visão geral</span>
+        </a>
+        <a href="nova-solicitacao.html" class="active" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">+</span>
+            <span>Nova</span>
+        </a>
+        <a href="solicitacoes.html">
+            <span class="nav-icon" aria-hidden="true">≡</span>
+            <span>Solicitações</span>
+        </a>
+    </nav>
+
+    <!-- SCRIPT PARA CARREGAR O NOME DO USUÁRIO LOGADO -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nomeSalvo = window.CTIC_USUARIO?.nome;
+            const iniciaisSalvas = window.CTIC_USUARIO?.nome.trim().split(/\s+/).map(parte => parte[0]).slice(0, 2).join('').toUpperCase();
+
+            if (nomeSalvo) {
+                const elNome = document.getElementById('nome-usuario');
+                const elAvatar = document.getElementById('avatar-usuario');
+
+                if (elNome) elNome.textContent = nomeSalvo;
+                if (elAvatar && iniciaisSalvas) elAvatar.textContent = iniciaisSalvas;
+            }
+        });
+    </script>
+</body>
+</html>

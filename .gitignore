@@ -1,0 +1,7 @@
+/configuracao/aplicacao.local.php
+/.env
+*.log
+/armazenamento/
+/configuracao/*.local.php
+/configuracao/*.local.sql
+/CREDENCIAIS.local.md
