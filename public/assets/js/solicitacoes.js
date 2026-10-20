@@ -176,25 +176,61 @@ async function mostrarDetalhes(id) {
 }
 
 // Usa textContent para exibir também nomes e destinos sem interpretar HTML recebido do banco.
+// A própria etiqueta abre as ações, preservando o visual sem duplicar o status em um select nativo.
+function fecharMenusStatus() {
+    document.querySelectorAll('.status-container').forEach(recipiente => {
+        const menu = recipiente.querySelector('.menu-interativo');
+        const botao = recipiente.querySelector('button.tag-status');
+        if (menu) menu.hidden = true;
+        if (botao) botao.setAttribute('aria-expanded', 'false');
+    });
+}
+
+document.addEventListener('click', evento => {
+    if (!evento.target.closest('.status-container')) fecharMenusStatus();
+});
+document.addEventListener('keydown', evento => {
+    if (evento.key === 'Escape') {
+        const botao = document.querySelector('.status-container button[aria-expanded="true"]');
+        fecharMenusStatus();
+        if (botao) botao.focus();
+    }
+});
+
 function controleStatus(item) {
-    const recipiente = elementoTransporte('div');
-    recipiente.append(elementoTransporte('span', nomesStatus[item.status], `tag-status status-${item.status}`));
-    if (usuarioTransporte.perfil === 'administrador') {
-        const seletor = elementoTransporte('select');
-        seletor.setAttribute('aria-label', `Status da solicitação ${item.id}`);
+    const recipiente = elementoTransporte('div', undefined, 'status-container');
+    const administrador = usuarioTransporte.perfil === 'administrador';
+    const etiqueta = elementoTransporte(administrador ? 'button' : 'span',
+        nomesStatus[item.status] + (administrador ? ' ▾' : ''), `tag-status status-${item.status}`);
+    recipiente.append(etiqueta);
+    if (administrador) {
+        etiqueta.type = 'button';
+        etiqueta.setAttribute('aria-expanded', 'false');
+        etiqueta.setAttribute('aria-label', `Alterar status da solicitação ${item.id}: ${nomesStatus[item.status]}`);
+        const menu = elementoTransporte('div', undefined, 'menu-interativo');
+        menu.hidden = true;
+        etiqueta.addEventListener('click', () => {
+            const abrir = menu.hidden;
+            fecharMenusStatus();
+            menu.hidden = !abrir;
+            etiqueta.setAttribute('aria-expanded', String(abrir));
+        });
         Object.entries(nomesStatus).forEach(([valor, nome]) => {
-            const opcao = elementoTransporte('option', nome); opcao.value = valor; seletor.append(opcao);
+            if (valor === item.status) return;
+            const opcao = elementoTransporte('button', nome);
+            opcao.type = 'button';
+            opcao.addEventListener('click', async () => {
+                fecharMenusStatus();
+                etiqueta.disabled = true;
+                try {
+                    await consultarTransporte(`/${item.id}/status`, 'PATCH', {status: valor});
+                    await carregarLista();
+                } catch (erro) { avisarTransporte(erro); }
+                finally { etiqueta.disabled = false; }
+            });
+            menu.append(opcao);
         });
-        seletor.value = item.status;
-        seletor.addEventListener('change', async () => {
-            seletor.disabled = true;
-            try {
-                await consultarTransporte(`/${item.id}/status`, 'PATCH', {status: seletor.value});
-                await carregarLista();
-            } catch (erro) { seletor.value = item.status; avisarTransporte(erro); }
-            finally { seletor.disabled = false; }
-        });
-        recipiente.append(seletor);
+        recipiente.append(menu);
     }
     return recipiente;
 }
@@ -222,14 +258,14 @@ function renderizarTransporte() {
     dados.forEach(item => {
         const linha = elementoTransporte('tr');
         const codigo = elementoTransporte('td');
-        const botao = elementoTransporte('button', `#${item.id}`);
+        const botao = elementoTransporte('button', `#${item.id}`, 'link-solicitacao');
         botao.type = 'button'; botao.addEventListener('click', () => mostrarDetalhes(item.id).catch(avisarTransporte));
         codigo.append(botao); linha.append(codigo);
         for (const valor of [item.nome, item.destino, item.saida_em.slice(0, 16)]) linha.append(elementoTransporte('td', valor));
         const celulaStatus = elementoTransporte('td'); celulaStatus.append(controleStatus(item)); linha.append(celulaStatus);
         tabela.append(linha);
         const cartao = elementoTransporte('article', undefined, 'card-solicitacao-item');
-        const detalhes = elementoTransporte('button', `#${item.id} · ${item.nome}`);
+        const detalhes = elementoTransporte('button', `#${item.id} · ${item.nome}`, 'link-solicitacao');
         detalhes.type = 'button'; detalhes.addEventListener('click', () => mostrarDetalhes(item.id).catch(avisarTransporte));
         cartao.append(detalhes, elementoTransporte('p', item.destino), controleStatus(item)); cartoes.append(cartao);
     });
