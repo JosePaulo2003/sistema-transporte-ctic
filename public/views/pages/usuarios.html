@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+    <title>Usuários - Sistema de Transportes - UEA</title>
+    <link rel="stylesheet" href="../css/solicitacoes.css">
+    <link rel="stylesheet" href="../css/usuarios.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO SUPERIOR -->
+    <header class="cabecalho">
+        <div class="background">
+            <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
+            <div class="logo-textos">
+                <h1>UEA</h1>
+                <p>Universidade do Estado do Amazonas</p>
+            </div>
+        </div>
+
+        <div class="titulo-sistema">
+            <h2>Sistema de Transportes</h2>
+        </div>
+
+        <div class="perfil-usuario">
+            <div class="avatar" id="avatar-usuario">AM</div>
+            <div class="dados-usuario">
+                <strong id="nome-usuario">Ana Martins</strong>
+                <span>CESIT</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="layout">
+        <!-- MENU LATERAL -->
+        <aside class="menu-lateral">
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="login.html"><span class="icone-menu" aria-hidden="true">⌂</span> Visão geral</a></li>
+                    <li><a href="nova-solicitacao.html"><span class="icone-menu" aria-hidden="true">+</span> Nova solicitação</a></li>
+                    <li ><a href="solicitacoes.html"><span class="icone-menu" aria-hidden="true">≡</span> Solicitações</a></li>
+                    <li><a href="passageiros.html"><span class="icone-menu" aria-hidden="true">●</span> Passageiros</a></li>
+                </ul>
+                <p class="rotulo-ajuda">AJUDA</p>
+                <ul>
+                    <li><a href="#"><span class="icone-menu" aria-hidden="true">?</span> Como funciona</a></li>
+                </ul>
+            </nav>
+            <footer><small>v1.0 · CESIT/UEA</small></footer>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="pagina-usuarios">
+            <section class="titulo-pagina"><div class="texto-titulo"><h1>Usuários</h1><p>Cadastre e gerencie os acessos ao sistema.</p></div></section>
+            <p id="mensagem-usuarios" role="status" tabindex="-1" hidden></p>
+            <!-- Senhas nunca são preenchidas a partir do cadastro ou exibidas na listagem. -->
+            <section class="painel-usuarios">
+                <h2 id="titulo-formulario">Novo usuário</h2>
+                <form id="formulario-usuario">
+                    <div class="campos-usuarios">
+                        <label>Nome<input id="usuario-nome" maxlength="150" autocomplete="name" required></label>
+                        <label>E-mail<input id="usuario-email" type="email" maxlength="254" autocomplete="email" required></label>
+                        <label>Setor<input id="usuario-setor" maxlength="100" required></label>
+                        <label>Perfil<select id="usuario-perfil"><option value="solicitante">Solicitante</option><option value="administrador">Administrador</option></select></label>
+                        <label id="campo-senha-inicial">Senha inicial<input id="usuario-senha" type="password" minlength="12" maxlength="72" autocomplete="new-password" required><small>De 12 a 72 bytes; caracteres acentuados podem ocupar mais de um byte.</small></label>
+                        <label class="campo-ativo"><input id="usuario-ativo" type="checkbox" checked> Conta ativa</label>
+                    </div>
+                    <div class="acoes-usuarios"><button class="botao-usuario" type="submit">Salvar usuário</button><button class="botao-usuario secundario" id="cancelar-edicao" type="button" hidden>Cancelar edição</button></div>
+                </form>
+            </section>
+            <section class="painel-usuarios" id="painel-senha" hidden>
+                <h2 id="titulo-senha">Redefinir senha</h2>
+                <p>As sessões anteriores dessa conta serão encerradas na próxima requisição.</p>
+                <form id="formulario-senha">
+                    <div class="campos-usuarios"><label>Nova senha<input id="nova-senha" type="password" minlength="12" maxlength="72" autocomplete="new-password" required></label></div>
+                    <div class="acoes-usuarios"><button type="submit" class="botao-usuario">Redefinir senha</button><button type="button" class="botao-usuario secundario" id="cancelar-senha">Cancelar</button></div>
+                </form>
+            </section>
+            <section class="painel-usuarios">
+                <h2>Usuários cadastrados</h2>
+                <label class="busca-usuarios">Buscar por nome, e-mail ou setor<input id="busca-usuarios" type="search"></label>
+                <p id="quantidade-usuarios" aria-live="polite"></p>
+                <div class="rolagem-usuarios"><table class="tabela-usuarios"><thead><tr><th>Nome</th><th>E-mail</th><th>Setor</th><th>Perfil</th><th>Situação</th><th>Ações</th></tr></thead><tbody id="lista-usuarios"></tbody></table></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- NAVEGAÇÃO INFERIOR: CELULAR -->
+    <nav class="mobile-bottom-nav" aria-label="Navegação para celular">
+        <a href="login.html">
+            <span class="nav-icon" aria-hidden="true">⌂</span>
+            <span>Visão geral</span>
+        </a>
+        <a href="nova-solicitacao.html">
+            <span class="nav-icon" aria-hidden="true">+</span>
+            <span>Nova</span>
+        </a>
+        <a href="solicitacoes.html" class="active" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">≡</span>
+            <span>Solicitações</span>
+        </a>
+    </nav>
+
+    <!-- SCRIPT DE INTERATIVIDADE, CARDS E FILTROS -->
+    <!-- O fluxo de transporte é compartilhado entre as etapas. -->
+<script src="/public/assets/js/usuarios.js" defer></script>
+</body>
+</html>

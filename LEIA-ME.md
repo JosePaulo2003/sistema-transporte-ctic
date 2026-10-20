@@ -174,6 +174,43 @@ python3 testes/solicitacoes.py
 
 Ele verifica autenticação, CSRF, datas, rascunho, declaração, envio, bloqueio de reenvio, passageiros, listagem e histórico de status. Para conferir o isolamento entre usuários, entre também com contas de perfil solicitante e verifique que cada uma lista apenas seus próprios pedidos e recebe 404 ao consultar um pedido alheio. O teste automatizado usa apenas o administrador e não cobre esse cenário entre contas.
 
+## Administração de usuários
+
+Entre como administrador e use o link **Usuários** no cabeçalho, ou abra `/usuarios`. A tela permite cadastrar, buscar, editar, ativar/desativar contas e redefinir senhas. A ativação é alterada pela opção Conta ativa no formulário de edição. Os controles usam as cores e a tipografia do sistema.
+
+O cadastro exige nome, e-mail único, setor, perfil e senha inicial de 12 a 72 bytes. O limite é contado em bytes para evitar truncamento pelo bcrypt. Na edição, a senha é alterada somente pelo formulário específico de redefinição. Os hashes nunca são enviados à interface ou à API administrativa.
+
+A página e a API exigem perfil administrador validado no servidor. A própria conta administrativa não pode ser desativada ou rebaixada pelo usuário conectado. As alterações administrativas são serializadas por transação para preservar pelo menos um administrador ativo em alterações concorrentes.
+
+Não há exclusão de contas: a desativação preserva os vínculos e o histórico das solicitações. As sessões de uma conta desativada ou com senha redefinida são recusadas na próxima requisição. Alterações de perfil são verificadas novamente em cada acesso. Ao instalar esta atualização, sessões já abertas sem a nova assinatura de senha exigirão novo login.
+
+A redefinição não envia e-mail nem exige troca obrigatória no primeiro acesso. O administrador informa a nova senha ao titular por um canal apropriado. Se alterar a senha do primeiro administrador, os testes que leem `configuracao/primeiro-usuario.local.php` precisarão que essa configuração local corresponda à nova senha; repetir o preparador não redefine senhas existentes.
+
+| Método | Rota | Finalidade |
+| --- | --- | --- |
+| GET | `/api/usuarios` | Listar cadastros sem senhas ou hashes |
+| POST | `/api/usuarios` | Criar com `nome`, `email`, `setor`, `perfil`, `ativo` e `senha` |
+| PUT | `/api/usuarios/{id}` | Editar `nome`, `email`, `setor`, `perfil` e `ativo` |
+| POST | `/api/usuarios/{id}/senha` | Redefinir com `senha` |
+
+O campo `ativo` deve ser booleano JSON, e o perfil deve ser `administrador` ou `solicitante`. Escritas exigem CSRF. Retornos principais: 401 sem autenticação, 403 sem permissão, 404 para conta inexistente, 409 para e-mail duplicado e 422 para dados inválidos. Esta etapa usa a tabela `usuarios` existente e não exige migração adicional.
+
+Validação isolada, sem banco:
+
+```bash
+./comandos/php.sh testes/validacao-usuarios.php
+```
+
+Com o servidor em `http://127.0.0.1:8080`, execute as regressões e o novo teste:
+
+```bash
+python3 testes/autenticacao.py
+python3 testes/solicitacoes.py
+python3 testes/usuarios.py
+```
+
+O teste `usuarios.py` cria duas contas solicitantes com identificadores aleatórios e um pedido de teste. Verifica cadastro, duplicidade de e-mail, edição, CSRF, bloqueio da administração para solicitantes, isolamento de listagem e detalhes, bloqueio da alteração de status, redefinição de senha, invalidação de sessão, desativação e reativação. As contas são desativadas ao finalizar; os registros permanecem no banco para preservar o histórico. Execute somente no banco de desenvolvimento. Os testes de integração usam a senha do administrador local e não imprimem senhas.
+
 ## Verificação nesta entrega
 
 Nesta etapa foram conferidos os scripts de terminal, a sintaxe Python, a leitura dos documentos HTML e as referências do fluxo. O ambiente de edição não disponibiliza PHP, MariaDB ou Node.js: os testes PHP, HTTP e de navegador desta etapa ainda precisam ser executados no computador com o banco ativo.

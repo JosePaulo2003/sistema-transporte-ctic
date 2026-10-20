@@ -1,0 +1,22 @@
+/* Usa as cores e a tipografia existentes, sem controles com aparência padrão do navegador. */
+.pagina-usuarios .painel-usuarios { background: var(--branco); border: 1px solid var(--borda); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+.painel-usuarios h2 { font-size: 18px; margin-bottom: 16px; }
+.campos-usuarios { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-bottom: 20px; }
+.campos-usuarios label, .busca-usuarios { display: flex; flex-direction: column; gap: 6px; font-size: 13px; font-weight: 500; }
+.campos-usuarios input:not([type="checkbox"]), .campos-usuarios select, .busca-usuarios input { width: 100%; padding: 10px 12px; border: 1px solid var(--borda); border-radius: 8px; background: var(--branco); color: var(--texto); font: inherit; }
+.campos-usuarios .campo-ativo { flex-direction: row; align-items: center; gap: 8px; }
+.campo-ativo input { accent-color: var(--verde); }
+.campos-usuarios small { color: var(--texto-suave); font-weight: 400; }
+.acoes-usuarios { display: flex; flex-wrap: wrap; gap: 10px; }
+.botao-usuario { border: 1px solid var(--verde); border-radius: 8px; padding: 9px 14px; background: var(--verde); color: white; font: inherit; font-size: 13px; cursor: pointer; }
+.botao-usuario.secundario { background: var(--branco); color: var(--verde); }
+.botao-usuario:hover { filter: brightness(.95); }
+.pagina-usuarios :is(button,input,select):focus-visible { outline: 3px solid #7bc7a1; outline-offset: 2px; }
+.rolagem-usuarios { overflow-x: auto; }
+.tabela-usuarios { width: 100%; border-collapse: collapse; font-size: 13px; }
+.tabela-usuarios th, .tabela-usuarios td { text-align: left; padding: 12px; border-bottom: 1px solid var(--borda); vertical-align: top; }
+.tabela-usuarios td .acoes-usuarios { min-width: 170px; }
+.busca-usuarios { margin-bottom: 12px; }
+#mensagem-usuarios { padding: 14px; margin-bottom: 20px; border-radius: 8px; background: var(--verde-claro); color: var(--verde-escuro); }
+#mensagem-usuarios.erro { background: #fff1ef; color: #9b2920; }
+@media (max-width: 700px) { .campos-usuarios { grid-template-columns: 1fr; } .pagina-usuarios .painel-usuarios { padding: 16px; } }

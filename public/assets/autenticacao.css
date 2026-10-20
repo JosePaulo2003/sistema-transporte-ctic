@@ -105,3 +105,6 @@ span.tag-status { cursor: default; }
 }
 .link-solicitacao:hover { text-decoration: underline; }
 .link-solicitacao:focus-visible { outline: 3px solid #7bc7a1; outline-offset: 3px; border-radius: 3px; }
+
+/* O acesso administrativo usa o mesmo acabamento do botão de saída. */
+a.ctic-sair { text-decoration: none; display: inline-block; white-space: nowrap; }
