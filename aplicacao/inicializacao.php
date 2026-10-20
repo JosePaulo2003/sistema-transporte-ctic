@@ -74,6 +74,17 @@ function responder_json(array $dados, int $codigoHttp = 200): never
     exit;
 }
 
+// Verifica o tipo original antes da conversão: {} é um objeto válido, enquanto [] é uma lista.
+function decodificar_objeto_json(string $conteudo): array
+{
+    $objeto = json_decode($conteudo, false, 16, JSON_THROW_ON_ERROR);
+    if (!$objeto instanceof stdClass) {
+        throw new InvalidArgumentException('Envie um objeto JSON.');
+    }
+    // Mantém os objetos internos como arrays, conforme o contrato das validações existentes.
+    return json_decode($conteudo, true, 16, JSON_THROW_ON_ERROR);
+}
+
 // Aceita apenas um objeto JSON e limita o tamanho da entrada recebida.
 function ler_json(): array
 {
@@ -84,12 +95,11 @@ function ler_json(): array
         responder_json(['erro' => 'Dados muito grandes.'], 413);
     }
     try {
-        $dados = json_decode(file_get_contents('php://input', false, null, 0, 16385), true, 16, JSON_THROW_ON_ERROR);
+        $dados = decodificar_objeto_json(file_get_contents('php://input', false, null, 0, 16385));
     } catch (JsonException $erro) {
         responder_json(['erro' => 'JSON inválido.'], 400);
-    }
-    if (!is_array($dados) || array_is_list($dados)) {
-        responder_json(['erro' => 'Envie um objeto JSON.'], 400);
+    } catch (InvalidArgumentException $erro) {
+        responder_json(['erro' => $erro->getMessage()], 400);
     }
     return $dados;
 }
@@ -113,10 +123,11 @@ function usuario_atual(): ?array
         session_regenerate_id(true);
         return null;
     }
-    $consulta = banco()->prepare('SELECT id, nome, email, perfil, setor FROM usuarios WHERE id = ? AND ativo = 1');
+    $consulta = banco()->prepare('SELECT id, nome, email, perfil, setor, hash_senha FROM usuarios WHERE id = ? AND ativo = 1');
     $consulta->execute([$_SESSION['usuario_id']]);
     $usuario = $consulta->fetch();
-    if (!$usuario) {
+    // A assinatura fica somente no servidor e muda quando a senha é redefinida.
+    if (!$usuario || !hash_equals(hash('sha256', $usuario['hash_senha']), $_SESSION['assinatura_senha'] ?? '')) {
         $_SESSION = [];
         session_regenerate_id(true);
         return null;
@@ -162,7 +173,8 @@ function autenticar(array $entrada): array
     }
     if (password_needs_rehash($usuario['hash_senha'], PASSWORD_DEFAULT)) {
         $consulta = $conexao->prepare('UPDATE usuarios SET hash_senha = ? WHERE id = ?');
-        $consulta->execute([password_hash($senha, PASSWORD_DEFAULT), $usuario['id']]);
+        $usuario['hash_senha'] = password_hash($senha, PASSWORD_DEFAULT);
+        $consulta->execute([$usuario['hash_senha'], $usuario['id']]);
     }
     $consulta = $conexao->prepare('UPDATE usuarios SET ultimo_acesso_em = UTC_TIMESTAMP() WHERE id = ?');
     $consulta->execute([$usuario['id']]);
@@ -170,7 +182,7 @@ function autenticar(array $entrada): array
     $consulta->execute([$chaveEmail, $chaveIp]);
     session_regenerate_id(true);
     $_SESSION = ['usuario_id' => $usuario['id'], 'autenticado_em' => time(), 'ultima_atividade' => time(),
-        'csrf' => bin2hex(random_bytes(32))];
+        'csrf' => bin2hex(random_bytes(32)), 'assinatura_senha' => hash('sha256', $usuario['hash_senha'])];
     return ['codigo_http' => 200, 'usuario' => dados_publicos_usuario($usuario), 'csrf' => token_csrf()];
 }
 
