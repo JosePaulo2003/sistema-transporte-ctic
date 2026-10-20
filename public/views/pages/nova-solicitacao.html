@@ -69,7 +69,7 @@
 
             <!-- FORMULÁRIO DE DADOS DA VIAGEM -->
             <section class="secao-formulario">
-                <form id="form-nova-solicitacao" novalidate>
+                <form id="form-nova-solicitacao">
                     <div class="linha-inputs tres-colunas">
                         <div class="input-grupo">
                             <label for="tipo-deslocamento">Tipo de deslocamento</label>
@@ -148,118 +148,7 @@
     </nav>
 
     <!-- SCRIPT DE VALIDAÇÃO BLINDADA -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const nomeSalvo = window.CTIC_USUARIO?.nome;
-            const iniciaisSalvas = window.CTIC_USUARIO?.nome.trim().split(/\s+/).map(parte => parte[0]).slice(0, 2).join('').toUpperCase();
-
-            if (nomeSalvo) {
-                const elNome = document.getElementById('nome-usuario');
-                const elAvatar = document.getElementById('avatar-usuario');
-
-                if (elNome) elNome.textContent = nomeSalvo;
-                if (elAvatar && iniciaisSalvas) elAvatar.textContent = iniciaisSalvas;
-            }
-
-            const formulario = document.getElementById('form-nova-solicitacao');
-
-            formulario.addEventListener('submit', function(event) {
-                event.preventDefault(); // Impede o envio padrão
-
-                const campos = {
-                    tipoDeslocamento: document.getElementById('tipo-deslocamento').value.trim(),
-                    destino: document.getElementById('destino').value.trim(),
-                    finalidade: document.getElementById('finalidade').value.trim(),
-                    dataSaida: document.getElementById('data-saida').value,
-                    horaSaida: document.getElementById('hora-saida').value,
-                    dataRetorno: document.getElementById('data-retorno').value,
-                    horaRetorno: document.getElementById('hora-retorno').value,
-                    localEmbarque: document.getElementById('local-embarque').value.trim(),
-                    centroCusto: document.getElementById('centro-custo').value.trim(),
-                    justificativa: document.getElementById('justificativa').value.trim()
-                };
-
-                // 1. Verifica se há algum campo totalmente em branco ou preenchido só com espaços
-                for (let chave in campos) {
-                    if (!campos[chave]) {
-                        alert('Atenção: Todos os campos do formulário são obrigatórios e não podem conter apenas espaços em branco.');
-                        document.getElementById(chave.replace(/([A-Z])/g, "-$1").toLowerCase()).focus();
-                        return;
-                    }
-                }
-
-                // VALIDAÇÃO ANTIRRUÍDO (Evita textos aleatórios ou repetições sem sentido no destino)
-                const textoDestino = campos.destino.toLowerCase();
-                
-                // Detecta repetição excessiva da mesma letra consecutiva (ex: "affafafa", "ggggg")
-                const contemLetrasRepetidas = /(.)\1{3,}/.test(textoDestino);
-                
-                // Lista simples de padrões aleatórios comuns que o usuário digita para testar
-                const padroesInvalidos = ['asdf', 'qwer', 'zxcv', 'teste', 'xxxx', 'ffff'];
-                const contemPadraoInvalido = padroesInvalidos.some(padrao => textoDestino.includes(padrao) && textoDestino.length < 7);
-
-                if (contemLetrasRepetidas || contemPadraoInvalido || textoDestino.length < 3) {
-                    alert('Por favor, informe um destino válido (ex: Nome de uma cidade, campus ou município do Amazonas).');
-                    document.getElementById('destino').focus();
-                    return;
-                }
-
-                // 2. Validação lógica de datas (Retorno não pode ser anterior à saída)
-                const saidaObj = new Date(`${campos.dataSaida}T${campos.horaSaida}`);
-                const retornoObj = new Date(`${campos.dataRetorno}T${campos.horaRetorno}`);
-
-                if (retornoObj < saidaObj) {
-                    alert('Erro de validação: A data e horário de retorno não podem ser anteriores à data e horário de saída.');
-                    document.getElementById('data-retorno').focus();
-                    return;
-                }
-
-                // 3. Sanitização contra injeção de scripts (XSS básico)
-                const sanitizar = (texto) => {
-                    const div = document.createElement('div');
-                    div.textContent = texto;
-                    return div.innerHTML;
-                };
-
-                const destinoLimpo = sanitizar(campos.destino);
-                const nomeUsuarioAtual = window.CTIC_USUARIO?.nome || 'Usuário';
-
-                // 4. Criação segura do ID e dados formatados
-                const novoId = '#' + Math.floor(1000 + Math.random() * 9000);
-
-                const meses = ['jan.', 'fev.', 'mar.', 'abr.', 'mai.', 'jun.', 'jul.', 'ago.', 'set.', 'out.', 'nov.', 'dez.'];
-                const dSaida = new Date(campos.dataSaida + 'T00:00:00');
-                const dataFormatada = `${dSaida.getDate()} ${meses[dSaida.getMonth()]}`;
-
-                const novaSolicitacao = {
-                    id: novoId,
-                    nome: nomeUsuarioAtual,
-                    destino: destinoLimpo,
-                    data: dataFormatada,
-                    dataIso: campos.dataSaida,
-                    status: 'pendente',
-                    textoStatus: 'Pendente'
-                };
-
-                // 5. Salva de forma segura no localStorage
-                let listaSolicitacoes = [];
-                if (localStorage.getItem('dadosSolicitacoes')) {
-                    try {
-                        listaSolicitacoes = JSON.parse(localStorage.getItem('dadosSolicitacoes'));
-                        if (!Array.isArray(listaSolicitacoes)) listaSolicitacoes = [];
-                    } catch (e) {
-                        listaSolicitacoes = [];
-                    }
-                }
-
-                listaSolicitacoes.unshift(novaSolicitacao);
-                localStorage.setItem('dadosSolicitacoes', JSON.stringify(listaSolicitacoes));
-                localStorage.setItem('solicitacaoEnviada', 'true');
-
-                // 6. Redireciona com sucesso
-                window.location.href = '/solicitacoes';
-            });
-        });
-    </script>
+    <!-- O fluxo de transporte é compartilhado entre as etapas. -->
+<script src="/public/assets/js/solicitacoes.js" defer></script>
 </body>
 </html>

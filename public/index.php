@@ -11,6 +11,11 @@ $ehApi = str_starts_with($caminho, '/api/');
 try {
     iniciar_sessao();
     if ($ehApi) {
+        // As rotas de transporte compartilham a autenticação e a sessão existentes.
+        if ($caminho === '/api/solicitacoes' || str_starts_with($caminho, '/api/solicitacoes/')) {
+            require __DIR__ . '/../aplicacao/solicitacoes.php';
+            atender_solicitacoes($caminho, $metodo);
+        }
         $rotas = ['/api/autenticacao/csrf' => 'GET', '/api/autenticacao/entrar' => 'POST',
             '/api/autenticacao/usuario' => 'GET', '/api/autenticacao/sair' => 'POST'];
         if (!isset($rotas[$caminho])) {

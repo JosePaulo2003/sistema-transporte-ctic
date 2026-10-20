@@ -17,10 +17,14 @@ try {
         throw new RuntimeException('Preencha nome, e-mail válido e senha com pelo menos 12 caracteres.');
     }
     $conexao = banco();
-    // A migração inicial pode ser repetida sem apagar tabelas ou dados existentes.
-    $migracao = file_get_contents(RAIZ_PROJETO . '/banco-de-dados/migracoes/001_autenticacao.sql');
-    foreach (explode(';', $migracao) as $instrucao) {
-        if (trim($instrucao) !== '') $conexao->exec($instrucao);
+    // Aplica as estruturas em ordem antes de verificar o administrador existente.
+    $arquivos = glob(RAIZ_PROJETO . '/banco-de-dados/migracoes/*.sql');
+    sort($arquivos);
+    foreach ($arquivos as $arquivo) {
+        $migracao = file_get_contents($arquivo);
+        foreach (explode(';', $migracao) as $instrucao) {
+            if (trim($instrucao) !== '') $conexao->exec($instrucao);
+        }
     }
     $consulta = $conexao->prepare('SELECT id FROM usuarios WHERE email = ?');
     $consulta->execute([strtolower(trim($usuario['email']))]);

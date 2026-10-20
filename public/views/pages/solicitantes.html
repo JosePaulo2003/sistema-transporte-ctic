@@ -69,7 +69,7 @@
 
             <!-- FORMULÁRIO DO SOLICITANTE -->
             <section class="secao-formulario">
-                <form>
+                <form id="form-solicitante">
                     <!-- LINHA 1: NOME COMPLETO E E-MAIL INSTITUCIONAL -->
                     <div class="linha-inputs duas-colunas-iguais">
                         <div class="input-grupo">
@@ -107,7 +107,7 @@
                     <!-- BOTÕES DE AÇÃO -->
                     <div class="botoes-acao">
                         <a href="nova-solicitacao.html" class="btn-voltar">Voltar</a>
-                        <a href="passageiros.html" class="btn-continuar">Continuar</a>
+                        <button type="submit" class="btn-continuar">Continuar</button>
                     </div>
                 </form>
             </section>
@@ -131,19 +131,7 @@
     </nav>
 
     <!-- SCRIPT PARA CARREGAR O NOME DO USUÁRIO LOGADO -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const nomeSalvo = window.CTIC_USUARIO?.nome;
-            const iniciaisSalvas = window.CTIC_USUARIO?.nome.trim().split(/\s+/).map(parte => parte[0]).slice(0, 2).join('').toUpperCase();
-
-            if (nomeSalvo) {
-                const elNome = document.getElementById('nome-usuario');
-                const elAvatar = document.getElementById('avatar-usuario');
-
-                if (elNome) elNome.textContent = nomeSalvo;
-                if (elAvatar && iniciaisSalvas) elAvatar.textContent = iniciaisSalvas;
-            }
-        });
-    </script>
+    <!-- O fluxo de transporte é compartilhado entre as etapas. -->
+<script src="/public/assets/js/solicitacoes.js" defer></script>
 </body>
 </html>

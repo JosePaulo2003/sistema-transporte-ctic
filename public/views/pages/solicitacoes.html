@@ -85,7 +85,7 @@
                         <option value="">Todos</option>
                         <option value="pendente">Pendente</option>
                         <option value="aprovada">Aprovada</option>
-                        <option value="em-analise">Em análise</option>
+                        <option value="analise">Em análise</option>
                         <option value="concluida">Concluída</option>
                         <option value="recusada">Recusada</option>
                     </select>
@@ -106,7 +106,7 @@
             <section class="secao-tabela">
                 <div class="cabecalho-tabela">
                     <h2>Solicitações</h2>
-                    <span class="contador-registros" id="contador-registros">4 registros</span>
+                    <span class="contador-registros" id="contador-registros">0 registros</span>
                 </div>
 
                 <!-- Tabela Tradicional (Desktop) -->
@@ -143,178 +143,7 @@
     </nav>
 
     <!-- SCRIPT DE INTERATIVIDADE, CARDS E FILTROS -->
-    <script>
-        let listaSolicitacoes = [
-            { id: '#0241', nome: 'Ana Martins', destino: 'Itacoatiara', data: '12 set.', dataIso: '2026-09-12', status: 'pendente', textoStatus: 'Pendente' },
-            { id: '#0240', nome: 'João Lima', destino: 'Manacapuru', data: '10 set.', dataIso: '2026-09-10', status: 'aprovada', textoStatus: 'Aprovada' },
-            { id: '#0239', nome: 'Rita Alves', destino: 'Parintins', data: '08 set.', dataIso: '2026-08-15', status: 'analise', textoStatus: 'Em análise' },
-            { id: '#0238', nome: 'Carlos N.', destino: 'Rio Preto', data: '05 set.', dataIso: '2026-06-20', status: 'concluida', textoStatus: 'Concluída' }
-        ];
-
-        if (localStorage.getItem('dadosSolicitacoes')) {
-            listaSolicitacoes = JSON.parse(localStorage.getItem('dadosSolicitacoes'));
-        }
-
-        function renderizarTabela(dados) {
-            const tbody = document.getElementById('tabela-corpo');
-            const containerCards = document.getElementById('cards-mobile-corpo');
-            
-            tbody.innerHTML = '';
-            containerCards.innerHTML = '';
-
-            dados.forEach((item, index) => {
-                let classeTag = '';
-                if (item.status === 'pendente') classeTag = 'status-pendente';
-                else if (item.status === 'aprovada') classeTag = 'status-aprovada';
-                else if (item.status === 'analise') classeTag = 'status-analise';
-                else if (item.status === 'concluida') classeTag = 'status-concluida';
-                else if (item.status === 'recusada') classeTag = 'status-recusada';
-
-                const statusDesktopHTML = `
-                    <div class="status-container">
-                        <span class="tag-status ${classeTag}" data-index="desk-${index}">${item.textoStatus} ▾</span>
-                        <div class="menu-interativo" id="menu-desk-${index}">
-                            ${item.status !== 'pendente' ? `<button type="button" onclick="mudarStatus(${index}, 'pendente', 'Pendente')">Tornar Pendente</button>` : ''}
-                            ${item.status !== 'analise' ? `<button type="button" onclick="mudarStatus(${index}, 'analise', 'Em análise')">Colocar em Análise</button>` : ''}
-                            ${item.status !== 'aprovada' ? `<button type="button" onclick="mudarStatus(${index}, 'aprovada', 'Aprovada')">Aprovar</button>` : ''}
-                            ${item.status !== 'recusada' ? `<button type="button" onclick="mudarStatus(${index}, 'recusada', 'Recusada')">Recusar</button>` : ''}
-                            ${item.status !== 'concluida' ? `<button type="button" onclick="mudarStatus(${index}, 'concluida', 'Concluída')">Concluir</button>` : ''}
-                        </div>
-                    </div>
-                `;
-
-                const statusMobileHTML = `
-                    <div class="status-container">
-                        <span class="tag-status ${classeTag}" data-index="mob-${index}">${item.textoStatus} ▾</span>
-                        <div class="menu-interativo" id="menu-mob-${index}">
-                            ${item.status !== 'pendente' ? `<button type="button" onclick="mudarStatus(${index}, 'pendente', 'Pendente')">Tornar Pendente</button>` : ''}
-                            ${item.status !== 'analise' ? `<button type="button" onclick="mudarStatus(${index}, 'analise', 'Em análise')">Colocar em Análise</button>` : ''}
-                            ${item.status !== 'aprovada' ? `<button type="button" onclick="mudarStatus(${index}, 'aprovada', 'Aprovada')">Aprovar</button>` : ''}
-                            ${item.status !== 'recusada' ? `<button type="button" onclick="mudarStatus(${index}, 'recusada', 'Recusada')">Recusar</button>` : ''}
-                            ${item.status !== 'concluida' ? `<button type="button" onclick="mudarStatus(${index}, 'concluida', 'Concluída')">Concluir</button>` : ''}
-                        </div>
-                    </div>
-                `;
-
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td class="col-codigo"><a href="#">${item.id}</a></td>
-                    <td class="col-nome">${item.nome}</td>
-                    <td class="col-destino">${item.destino}</td>
-                    <td class="col-data">${item.data}</td>
-                    <td class="col-status" style="text-align: right;">${statusDesktopHTML}</td>
-                `;
-                tbody.appendChild(tr);
-
-                const cardDiv = document.createElement('div');
-                cardDiv.className = 'card-solicitacao-item';
-                cardDiv.innerHTML = `
-                    <div class="card-topo">
-                        <span class="col-codigo"><a href="#">${item.id}</a></span>
-                        <span class="col-nome">${item.nome}</span>
-                    </div>
-                    <div class="card-rodape">
-                        <span class="col-destino">${item.destino}</span>
-                        <span class="col-status">${statusMobileHTML}</span>
-                    </div>
-                `;
-                containerCards.appendChild(cardDiv);
-            });
-
-            document.getElementById('contador-registros').textContent = `${dados.length} registros`;
-        }
-
-        document.addEventListener('click', function(event) {
-            const tagStatus = event.target.closest('.tag-status');
-            
-            if (!event.target.closest('.status-container')) {
-                document.querySelectorAll('.menu-interativo').forEach(m => m.style.display = 'none');
-                return;
-            }
-
-            if (tagStatus) {
-                const dataIndex = tagStatus.getAttribute('data-index');
-                const menu = document.getElementById(`menu-${dataIndex}`);
-                
-                document.querySelectorAll('.menu-interativo').forEach(m => {
-                    if (m !== menu) m.style.display = 'none';
-                });
-
-                if (menu) {
-                    menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-                }
-            }
-        });
-
-        function mudarStatus(index, novoStatus, novoTexto) {
-            listaSolicitacoes[index].status = novoStatus;
-            listaSolicitacoes[index].textoStatus = novoTexto;
-            localStorage.setItem('dadosSolicitacoes', JSON.stringify(listaSolicitacoes));
-            aplicarFiltros();
-        }
-
-        function aplicarFiltros() {
-            const termoBusca = document.getElementById('input-busca').value.toLowerCase();
-            const selectStatus = document.getElementById('filtro-status');
-            const statusFiltro = selectStatus ? selectStatus.value : '';
-            const selectPeriodo = document.getElementById('filtro-periodo');
-            const diasPeriodo = selectPeriodo && selectPeriodo.value ? parseInt(selectPeriodo.value) : null;
-
-            const hoje = new Date();
-
-            const filtrados = listaSolicitacoes.filter(item => {
-                const matchBusca = item.id.toLowerCase().includes(termoBusca) ||
-                                   item.nome.toLowerCase().includes(termoBusca) ||
-                                   item.destino.toLowerCase().includes(termoBusca);
-                
-                const matchStatus = statusFiltro === '' || item.status === statusFiltro;
-
-                let matchPeriodo = true;
-                if (diasPeriodo && item.dataIso) {
-                    const dataItem = new Date(item.dataIso);
-                    const diferencaTempo = hoje - dataItem;
-                    const diferencaDias = diferencaTempo / (1000 * 60 * 60 * 24);
-                    matchPeriodo = diferencaDias <= diasPeriodo;
-                }
-
-                return matchBusca && matchStatus && matchPeriodo;
-            });
-
-            renderizarTabela(filtrados);
-        }
-
-        document.getElementById('input-busca').addEventListener('input', aplicarFiltros);
-        const selStatus = document.getElementById('filtro-status');
-        if (selStatus) selStatus.addEventListener('change', aplicarFiltros);
-        const selPeriodo = document.getElementById('filtro-periodo');
-        if (selPeriodo) selPeriodo.addEventListener('change', aplicarFiltros);
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const nomeSalvo = window.CTIC_USUARIO?.nome;
-            const iniciaisSalvas = window.CTIC_USUARIO?.nome.trim().split(/\s+/).map(parte => parte[0]).slice(0, 2).join('').toUpperCase();
-            if (nomeSalvo) {
-                const elNome = document.getElementById('nome-usuario');
-                const elAvatar = document.getElementById('avatar-usuario');
-                if (elNome) elNome.textContent = nomeSalvo;
-                if (elAvatar && iniciaisSalvas) elAvatar.textContent = iniciaisSalvas;
-            }
-
-            const solEnviada = localStorage.getItem('solicitacaoEnviada');
-            const elSucesso = document.getElementById('mensagem-sucesso');
-            if (solEnviada === 'true' && elSucesso) {
-                elSucesso.style.display = 'flex';
-                setTimeout(function() {
-                    elSucesso.style.opacity = '0';
-                    elSucesso.style.transition = 'opacity 0.5s ease';
-                    setTimeout(function() {
-                        elSucesso.style.display = 'none';
-                        localStorage.removeItem('solicitacaoEnviada');
-                    }, 500);
-                }, 6000);
-            }
-
-            renderizarTabela(listaSolicitacoes);
-        });
-    </script>
+    <!-- O fluxo de transporte é compartilhado entre as etapas. -->
+<script src="/public/assets/js/solicitacoes.js" defer></script>
 </body>
 </html>

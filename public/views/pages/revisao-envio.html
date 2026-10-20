@@ -77,11 +77,7 @@
                             <h3>Dados da viagem</h3>
                             <a href="nova-solicitacao.html" class="link-editar">Editar</a>
                         </div>
-                        <ul class="lista-resumo">
-                            <li>Itacoatiara — AM</li>
-                            <li>12 a 14/09/2026</li>
-                            <li>Visita técnica</li>
-                        </ul>
+                        <ul class="lista-resumo"><li>Carregando dados da sessão…</li></ul>
                     </article>
 
                     <!-- CARD 2: SOLICITANTE -->
@@ -90,24 +86,16 @@
                             <h3>Solicitante</h3>
                             <a href="solicitantes.html" class="link-editar">Editar</a>
                         </div>
-                        <ul class="lista-resumo">
-                            <li>Ana Martins · CESIT</li>
-                            <li>ana.martins@uea.edu.br</li>
-                            <li>(92) 99999-2244</li>
-                        </ul>
+                        <ul class="lista-resumo"><li>Carregando dados da sessão…</li></ul>
                     </article>
 
                     <!-- CARD 3: PASSAGEIROS -->
                     <article class="card-resumo">
                         <div class="cabecalho-card-resumo">
-                            <h3>Passageiros (3)</h3>
+                            <h3>Passageiros</h3>
                             <a href="passageiros.html" class="link-editar">Editar</a>
                         </div>
-                        <ul class="lista-resumo">
-                            <li>Ana Martins</li>
-                            <li>Carlos Nascimento</li>
-                            <li>Marina Souza</li>
-                        </ul>
+                        <ul class="lista-resumo"><li>Carregando dados da sessão…</li></ul>
                     </article>
                 </div>
 
@@ -129,7 +117,7 @@
                 <!-- BOTÕES DE AÇÃO -->
                 <div class="botoes-acao">
                     <a href="passageiros.html" class="btn-voltar">Voltar</a>
-                    <a href="solicitacoes.html" class="btn-continuar" onclick="enviarSolicitacao()">Enviar solicitação</a>
+                    <button type="button" id="enviar-solicitacao" class="btn-continuar">Enviar solicitação</button>
                 </div>
             </section>
         </main>
@@ -152,23 +140,7 @@
     </nav>
 
     <!-- SCRIPT PARA CARREGAR O NOME E ACIONAR O ALERTA DE SUCESSO -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const nomeSalvo = window.CTIC_USUARIO?.nome;
-            const iniciaisSalvas = window.CTIC_USUARIO?.nome.trim().split(/\s+/).map(parte => parte[0]).slice(0, 2).join('').toUpperCase();
-
-            if (nomeSalvo) {
-                const elNome = document.getElementById('nome-usuario');
-                const elAvatar = document.getElementById('avatar-usuario');
-
-                if (elNome) elNome.textContent = nomeSalvo;
-                if (elAvatar && iniciaisSalvas) elAvatar.textContent = iniciaisSalvas;
-            }
-        });
-
-        function enviarSolicitacao() {
-            localStorage.setItem('solicitacaoEnviada', 'true');
-        }
-    </script>
+    <!-- O fluxo de transporte é compartilhado entre as etapas. -->
+<script src="/public/assets/js/solicitacoes.js" defer></script>
 </body>
 </html>

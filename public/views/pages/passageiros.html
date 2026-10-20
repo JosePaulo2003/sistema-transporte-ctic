@@ -71,45 +71,20 @@
             <section class="secao-formulario">
                 <div class="cabecalho-passageiros">
                     <h2>Passageiros adicionados</h2>
-                    <a href="solicitantes.html" class="btn-adicionar-passageiro">+ Adicionar passageiro</a>
+
                 </div>
 
                 <!-- LISTA DE CARDS DOS PASSAGEIROS -->
-                <div class="lista-passageiros">
-                    <article class="card-passageiro">
-                        <div class="info-passageiro">
-                            <div class="avatar-passageiro">AM</div>
-                            <div class="detalhes-passageiro">
-                                <strong>Ana Martins</strong>
-                                <span>092.***.***-14 · CESIT · Solicitante</span>
-                            </div>
-                        </div>
-                        <button type="button" class="btn-opcoes" aria-label="Opções do passageiro">•••</button>
-                    </article>
-
-                    <article class="card-passageiro">
-                        <div class="info-passageiro">
-                            <div class="avatar-passageiro">CN</div>
-                            <div class="detalhes-passageiro">
-                                <strong>Carlos Nascimento</strong>
-                                <span>084.***.***-06 · NTI · Servidor</span>
-                            </div>
-                        </div>
-                        <button type="button" class="btn-opcoes" aria-label="Opções do passageiro">•••</button>
-                    </article>
-
-                    <article class="card-passageiro">
-                        <div class="info-passageiro">
-                            <div class="avatar-passageiro">MS</div>
-                            <div class="detalhes-passageiro">
-                                <strong>Marina Souza</strong>
-                                <span>106.***.***-72 · CESIT · Colaboradora</span>
-                            </div>
-                        </div>
-                        <button type="button" class="btn-opcoes" aria-label="Opções do passageiro">•••</button>
-                    </article>
-                </div>
-
+                <!-- Os passageiros só são gravados definitivamente no envio da revisão. -->
+                <form id="form-passageiro">
+                    <div class="linha-inputs">
+                        <div class="input-grupo"><label for="passageiro-nome">Nome completo</label><input id="passageiro-nome" maxlength="150" required></div>
+                        <div class="input-grupo"><label for="passageiro-setor">Setor</label><input id="passageiro-setor" maxlength="100" required></div>
+                        <div class="input-grupo"><label for="passageiro-vinculo">Vínculo</label><input id="passageiro-vinculo" maxlength="100" required></div>
+                    </div>
+                    <button type="submit" class="btn-continuar">Adicionar passageiro</button>
+                </form>
+                <div class="lista-passageiros" aria-live="polite"></div>
                 <!-- BOTÕES DE AÇÃO -->
                 <div class="botoes-acao">
                     <a href="solicitantes.html" class="btn-voltar">Voltar</a>
@@ -136,19 +111,7 @@
     </nav>
 
     <!-- SCRIPT PARA CARREGAR O NOME DO USUÁRIO LOGADO -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const nomeSalvo = window.CTIC_USUARIO?.nome;
-            const iniciaisSalvas = window.CTIC_USUARIO?.nome.trim().split(/\s+/).map(parte => parte[0]).slice(0, 2).join('').toUpperCase();
-
-            if (nomeSalvo) {
-                const elNome = document.getElementById('nome-usuario');
-                const elAvatar = document.getElementById('avatar-usuario');
-
-                if (elNome) elNome.textContent = nomeSalvo;
-                if (elAvatar && iniciaisSalvas) elAvatar.textContent = iniciaisSalvas;
-            }
-        });
-    </script>
+    <!-- O fluxo de transporte é compartilhado entre as etapas. -->
+<script src="/public/assets/js/solicitacoes.js" defer></script>
 </body>
 </html>
