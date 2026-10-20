@@ -1,143 +1,884 @@
-/* Medidas incluem o preenchimento e as bordas. */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+/* =========================
+    1. CONFIGURAÇÕES GERAIS
+   ========================= */
+:root {
+    --verde: #006837;
+    --verde-escuro: #00522b;
+    --verde-claro: #e5f4ec;
+    --texto: #202923;
+    --texto-suave: #647269;
+    --borda: #dfe7e2;
+    --fundo: #f5f8f6;
+    --branco: #ffffff;
+}
+
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
+html {
+    min-width: 280px;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    color: #202b25;
-    background: #ffffff;
-}
-
-/* Duas áreas lado a lado, ocupando a altura da tela. */
-.flexbox-login {
-    display: flex;
     min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    font-family: "Poppins", Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--texto);
+    background: var(--fundo);
 }
 
-.grade-flexbox-login {
-    width: 39%;
-    padding: 40px 32px;
-    background: #004d32;
-    color: #ffffff;
+button, a {
+    -webkit-tap-highlight-color: transparent;
 }
 
-.grade-flexbox-login small {
+button {
+    font: inherit;
+}
+
+/* =========================
+    2. CABEÇALHO — DESKTOP
+   ========================= */
+.cabecalho {
+    width: 100%;
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 12px clamp(16px, 2vw, 32px);
+    background: var(--branco);
+    border-bottom: 1px solid var(--borda);
+}
+
+.background {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    min-width: 0;
+}
+
+.logo {
     display: block;
-    margin-top: 4px;
-    font-size: 10px;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
-.area-login {
+.logo-textos h1 {
+    color: #176b45;
+    font-size: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.logo-textos p {
+    color: var(--texto-suave);
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.titulo-sistema {
     flex: 1;
     min-width: 0;
+    padding-left: clamp(8px, 3vw, 48px);
+}
+
+.titulo-sistema h2 {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.perfil-usuario {
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 32px;
-}
-
-.caixa-login {
-    width: 100%;
-    max-width: 340px;
-    padding: 32px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px #00000014;
-}
-
-h1 {
-    margin: 0 0 8px;
-    font-size: 24px;
-}
-
-.caixa-login p {
-    margin: 0 0 28px;
-    font-size: 12px;
-    color: #6d7b73;
-}
-
-.caixa-login label {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 12px;
-}
-
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 24px;
-    border: 1px solid #dce4df;
-    border-radius: 8px;
-    font: inherit;
-    font-size: 12px;
-}
-
-.opcoes-login {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
     gap: 12px;
+    padding: 6px 14px 6px 6px;
+    border: 1px solid #eaeaea;
+    border-radius: 30px;
+    background: #fafbfc;
+    flex-shrink: 0;
+}
+
+.avatar {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--verde);
+    color: var(--branco);
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.dados-usuario {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.35;
+}
+
+.dados-usuario strong {
+    font-size: 13px;
+}
+
+.dados-usuario span {
+    color: var(--texto-suave);
+    font-size: 11px;
+}
+
+/* =========================
+    3. ESTRUTURA PRINCIPAL
+   ========================= */
+.layout {
+    display: flex;
+    flex: 1;
+    min-height: 0;
+}
+
+.menu-lateral {
+    width: 260px;
+    flex: 0 0 260px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px 16px;
+    background: var(--branco);
+    border-right: 1px solid var(--borda);
+}
+
+.menu-lateral ul {
+    list-style: none;
+    margin-bottom: 24px;
+}
+
+.menu-lateral li {
+    margin-bottom: 4px;
+}
+
+.menu-lateral a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 10px 14px;
+    border-radius: 9px;
+    color: #55635a;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background-color .2s ease, color .2s ease;
+}
+
+.menu-lateral a:hover,
+.menu-lateral li.ativo a {
+    background: #e0f4e9;
+    color: #075b37;
+}
+
+.menu-lateral li.ativo a {
+    font-weight: 600;
+}
+
+.icone-menu {
+    width: 18px;
+    flex-shrink: 0;
+    text-align: center;
+    font-size: 15px;
+}
+
+.menu-lateral .rotulo-ajuda {
+    margin: 16px 0 8px 14px;
+    color: #829087;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.menu-lateral footer {
+    padding-left: 14px;
+    color: #829087;
+    font-size: 11px;
+}
+
+main {
+    flex: 1;
+    min-width: 0;
+    padding: clamp(24px, 3.3vw, 52px);
+    background: #f8faf9;
+}
+
+/* =========================
+    4. TÍTULO E BOTÃO
+   ========================= */
+.titulo-pagina {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
     margin-bottom: 28px;
 }
 
-.opcoes-login .lembrar-acesso {
+.texto-titulo {
+    min-width: 0;
+}
+
+.texto-titulo h1 {
+    margin-bottom: 4px;
+    color: #17231c;
+    font-size: clamp(24px, 2vw, 30px);
+    font-weight: 700;
+    line-height: 1.25;
+}
+
+.texto-titulo p {
+    color: #6b7770;
+    font-size: 14px;
+}
+
+.btn-nova-solicitacao {
+    display: inline-block; /* Importante para o link aceitar largura, altura e padding corretamente */
+    text-decoration: none; /* <-- Adicione esta linha para remover o sublinhado */
+    
+    /* O restante dos estilos que você já tem: */
+    min-height: 48px;
+    padding: 12px 22px;
+    border: 0;
+    border-radius: 10px;
+    background: var(--verde);
+    color: var(--branco);
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color .2s ease;
+}
+
+.btn-nova-solicitacao:hover {
+    background: var(--verde-escuro);
+}
+
+.btn-nova-solicitacao:focus-visible,
+a:focus-visible {
+    outline: 3px solid #7bc7a1;
+    outline-offset: 3px;
+}
+
+/* =========================
+    5. CARDS DE ESTATÍSTICAS
+   ========================= */
+.cards-estatisticas {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.card-estatistica {
+    min-width: 0;
+    padding: 22px;
+    border: 1px solid var(--borda);
+    border-radius: 15px;
+    background: var(--branco);
+    box-shadow: 0 3px 9px rgb(24 54 38 / 5%);
+}
+
+.card-topo {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    min-width: 0;
+}
+
+.card-icone {
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
-    gap: 6px;
-    margin: 0;
-    font-size: 10px;
+    justify-content: center;
+    flex: 0 0 48px;
+    border-radius: 12px;
+    background: #ddf3e7;
+    color: var(--verde);
+    font-size: 18px;
 }
 
-input[type="checkbox"] {
-    margin: 0;
-    accent-color: #007344;
+.card-info {
+    min-width: 0;
 }
 
-.recuperar-senha {
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: #007344;
-    font-size: 10px;
+.card-info p:first-child {
+    margin-bottom: 5px;
+    color: var(--texto-suave);
+    font-size: 13px;
+    overflow-wrap: anywhere;
 }
 
-.botao-entrar {
+.card-info .numero-estatistica {
+    color: #17231c;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.card-estatistica a {
+    display: inline-block;
+    margin-top: 16px;
+    color: var(--verde);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.card-estatistica a:hover,
+.cabecalho-solicitacoes > a:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+    6. SOLICITAÇÕES E TABELA
+   ========================= */
+.secao-solicitacoes {
+    min-width: 0;
+    padding: 22px 24px;
+    border: 1px solid var(--borda);
+    border-radius: 15px;
+    background: var(--branco);
+    box-shadow: 0 3px 9px rgb(24 54 38 / 5%);
+}
+
+.cabecalho-solicitacoes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--borda);
+}
+
+.cabecalho-solicitacoes h2 {
+    color: #1a2620;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+.cabecalho-solicitacoes > a {
+    color: var(--verde);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.tabela-desktop {
     width: 100%;
+    overflow-x: auto;
+}
+
+.secao-solicitacoes table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.secao-solicitacoes th {
     padding: 12px;
-    border: 0;
-    border-radius: 6px;
-    background: #007344;
-    color: #ffffff;
-    font-weight: bold;
+    background: #f8faf9;
+    color: var(--texto-suave);
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
 }
 
-button:disabled {
-    cursor: not-allowed;
+.secao-solicitacoes td {
+    padding: 18px 12px;
+    border-bottom: 1px solid #edf0ed;
+    font-size: 13px;
+    white-space: nowrap;
 }
 
-.aviso {
-    display: block;
-    margin-top: 24px;
+.secao-solicitacoes tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.secao-solicitacoes td strong {
+    color: var(--verde);
+}
+
+.status {
+    display: inline-block;
+    max-width: 100%;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
     text-align: center;
-    font-size: 10px;
-    color: #6d7b73;
+    white-space: nowrap;
 }
 
-/* Em telas pequenas, a faixa verde fica acima do formulário. */
-@media (max-width: 600px) {
-    .flexbox-login {
-        flex-direction: column;
+.status.pendente {
+    background: #fff5d9;
+    color: #936000;
+}
+
+.status.aprovada {
+    background: #ddf3e7;
+    color: #087445;
+}
+
+.status.concluida {
+    background: #e6f3ed;
+    color: #075b37;
+}
+
+/* Cards e textos alternativos só aparecem no celular */
+.texto-mobile,
+.titulo-card-mobile,
+.titulo-secao-mobile,
+.lista-cards-mobile,
+.mobile-bottom-nav {
+    display: none;
+}
+
+.card-solicitacao-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-width: 0;
+    padding: 16px;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    background: var(--branco);
+}
+
+.card-solicitacao-info {
+    min-width: 0;
+}
+
+.codigo-solicitacao {
+    color: var(--verde);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.card-solicitacao-info h3 {
+    margin-top: 3px;
+    color: #1a2620;
+    font-size: 15px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+/* =========================
+    7. NOTEBOOKS E TELAS MÉDIAS
+    Mantém o menu lateral, mas
+    reduz espaçamentos se necessário.
+   ========================= */
+@media (min-width: 769px) and (max-width: 1100px) {
+    .menu-lateral {
+        width: 220px;
+        flex-basis: 220px;
     }
 
-    .grade-flexbox-login {
+    main {
+        padding: 28px 24px;
+    }
+
+    .cards-estatisticas {
+        gap: 14px;
+    }
+
+    .card-estatistica {
+        padding: 16px;
+    }
+
+    .card-topo {
+        gap: 10px;
+    }
+
+    .card-icone {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
+    }
+
+    .secao-solicitacoes {
+        padding: 18px;
+    }
+
+    .secao-solicitacoes th,
+    .secao-solicitacoes td {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
+}
+
+/* =========================
+    8. CELULARES E TELAS ESTREITAS
+   ========================= */
+@media (max-width: 768px) {
+    .cabecalho {
+        min-height: 70px;
+        gap: 8px;
+        padding: 10px 14px;
+    }
+
+    .background {
+        gap: 0;
+    }
+
+    .logo {
+        width: clamp(38px, 10vw, 48px);
+        height: clamp(38px, 10vw, 48px);
+    }
+
+    .background .logo-textos {
+        display: none;
+    }
+
+    .titulo-sistema {
+        flex: 1;
+        padding-left: 8px;
+    }
+
+    .titulo-sistema h2 {
+        font-size: clamp(12px, 3.5vw, 16px);
+        font-weight: 700;
+        white-space: normal;
+        line-height: 1.25;
+    }
+
+    .perfil-usuario {
+        padding: 0;
+        border: 0;
+        background: transparent;
+    }
+
+    .dados-usuario {
+        display: none;
+    }
+
+    .avatar {
+        width: clamp(32px, 8vw, 38px);
+        height: clamp(32px, 8vw, 38px);
+        font-size: 11px;
+    }
+
+    .menu-lateral {
+        display: none;
+    }
+
+    .layout {
         width: 100%;
-        padding: 24px;
     }
 
-    .area-login {
-        padding: 24px 16px;
+    main {
+        width: 100%;
+        padding: clamp(14px, 4vw, 22px);
+        padding-bottom: calc(92px + env(safe-area-inset-bottom));
+    }
+
+    .texto-desktop {
+        display: none;
+    }
+
+    .texto-mobile {
+        display: block;
+        font-size: clamp(12px, 3.5vw, 14px);
+        color: var(--texto-suave);
+    }
+
+    .titulo-pagina {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 14px;
+        margin-bottom: 22px;
+    }
+
+    .texto-titulo h1 {
+        font-size: clamp(23px, 6vw, 30px);
+    }
+
+    .btn-nova-solicitacao {
+        width: 100%;
+        min-height: 48px;
+        padding: 12px 14px;
+        border-radius: 12px;
+        font-size: clamp(14px, 3.8vw, 16px);
+        white-space: normal;
+    }
+
+    .cards-estatisticas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: clamp(8px, 2.5vw, 12px);
+        margin-bottom: 22px;
+    }
+
+    .card-3-desktop {
+        display: none;
+    }
+
+    .card-estatistica {
+        padding: clamp(10px, 3vw, 16px);
+        border-radius: 14px;
+    }
+
+    .card-topo {
+        align-items: center;
+        gap: clamp(7px, 2vw, 10px);
+    }
+
+    .card-icone {
+        width: clamp(30px, 8vw, 40px);
+        height: clamp(30px, 8vw, 40px);
+        flex-basis: clamp(30px, 8vw, 40px);
+        border-radius: 10px;
+        font-size: 13px;
+    }
+
+    .titulo-card-desktop {
+        display: none;
+    }
+
+    .card-info .titulo-card-mobile {
+        display: block;
+        margin-bottom: 3px;
+        color: var(--texto-suave);
+        font-size: clamp(10px, 3vw, 13px);
+        line-height: 1.3;
+        overflow-wrap: anywhere;
+    }
+
+    .card-info .numero-estatistica {
+        font-size: clamp(22px, 6vw, 28px);
+    }
+
+    .card-estatistica a {
+        margin-top: 12px;
+        font-size: clamp(10px, 3vw, 12px);
+    }
+
+    .secao-solicitacoes {
+        padding: clamp(12px, 3.5vw, 18px);
+        border-radius: 14px;
+    }
+
+    .cabecalho-solicitacoes {
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+    }
+
+    .titulo-secao-desktop,
+    .tabela-desktop {
+        display: none;
+    }
+
+    .cabecalho-solicitacoes .titulo-secao-mobile {
+        display: block;
+        font-size: clamp(15px, 4vw, 18px);
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
+    .lista-cards-mobile {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .card-solicitacao-mobile {
+        padding: clamp(12px, 3.5vw, 16px);
+        gap: 8px;
+    }
+
+    .codigo-solicitacao {
+        font-size: clamp(11px, 3.2vw, 13px);
+    }
+
+    .card-solicitacao-info h3 {
+        font-size: clamp(12px, 3.6vw, 15px);
+    }
+
+    .status {
+        padding: 5px 8px;
+        font-size: clamp(10px, 2.8vw, 12px);
+    }
+
+    .mobile-bottom-nav {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        display: flex;
+        justify-content: space-around;
+        align-items: stretch;
+        width: 100%;
+        padding: 8px 4px calc(8px + env(safe-area-inset-bottom));
+        border-top: 1px solid var(--borda);
+        background: rgb(255 255 255 / 97%);
+        box-shadow: 0 -2px 8px rgb(0 0 0 / 5%);
+    }
+
+    .mobile-bottom-nav a {
+        position: relative;
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        min-width: 0;
+        min-height: 48px;
+        padding: 2px 4px;
+        color: var(--texto-suave);
+        text-align: center;
+        text-decoration: none;
+        font-size: clamp(9px, 2.8vw, 11px);
+        line-height: 1.25;
+    }
+
+    .mobile-bottom-nav .nav-icon {
+        font-size: clamp(16px, 4.5vw, 20px);
+        line-height: 1.2;
+    }
+
+    .mobile-bottom-nav a.active {
+        color: var(--verde);
+        font-weight: 600;
+    }
+
+    .mobile-bottom-nav a.active::before {
+        position: absolute;
+        top: -8px;
+        width: 38px;
+        height: 3px;
+        border-radius: 0 0 3px 3px;
+        background: var(--verde);
+        content: "";
+    }
+}
+
+/* =========================
+    9. CELULARES MUITO ESTREITOS
+   ========================= */
+@media (max-width: 360px) {
+    .cabecalho {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .titulo-sistema {
+        padding-left: 6px;
+    }
+
+    .titulo-sistema h2 {
+        font-size: 12px;
+    }
+
+    main {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .cards-estatisticas {
+        gap: 7px;
+    }
+
+    .card-estatistica {
+        padding: 9px 8px;
+    }
+
+    .card-topo {
+        gap: 6px;
+    }
+
+    .card-icone {
+        width: 28px;
+        height: 28px;
+        flex-basis: 28px;
+        font-size: 12px;
+    }
+
+    .card-info .titulo-card-mobile {
+        font-size: 10px;
+    }
+
+    .card-info .numero-estatistica {
+        font-size: 21px;
+    }
+
+    .card-estatistica a {
+        font-size: 10px;
+    }
+
+    .secao-solicitacoes {
+        padding: 10px;
+    }
+
+    .card-solicitacao-mobile {
+        padding: 11px 9px;
+    }
+
+    .status {
+        padding: 4px 6px;
+        font-size: 10px;
+    }
+}
+
+/* =========================
+    10. CELULAR NA HORIZONTAL
+   ========================= */
+@media (max-width: 768px) and (orientation: landscape) {
+    .cabecalho {
+        min-height: 60px;
+    }
+
+    .logo {
+        width: 36px;
+        height: 36px;
+    }
+
+    main {
+        padding-top: 16px;
+    }
+
+    .titulo-pagina {
+        gap: 10px;
+    }
+
+    .mobile-bottom-nav a {
+        min-height: 42px;
+    }
+}
+
+/* Respeita quem prefere menos animações */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }

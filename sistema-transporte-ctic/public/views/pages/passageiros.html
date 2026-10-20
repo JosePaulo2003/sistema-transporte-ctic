@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+    <title>Passageiros - Sistema de Transportes - UEA</title>
+    <link rel="stylesheet" href="../css/passageiros.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO SUPERIOR -->
+    <header class="cabecalho">
+        <div class="background">
+            <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
+            <div class="logo-textos">
+                <h1>UEA</h1>
+                <p>Universidade do Estado do Amazonas</p>
+            </div>
+        </div>
+
+        <div class="titulo-sistema">
+            <h2>Sistema de Transportes</h2>
+        </div>
+
+        <div class="perfil-usuario">
+            <div class="avatar" id="avatar-usuario">AM</div>
+            <div class="dados-usuario">
+                <strong id="nome-usuario">Ana Martins</strong>
+                <span>CESIT</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="layout">
+        <!-- MENU LATERAL -->
+        <aside class="menu-lateral">
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="login.html"><span class="icone-menu" aria-hidden="true">⌂</span> Visão geral</a></li>
+                    <li><a href="nova-solicitacao.html"><span class="icone-menu" aria-hidden="true">+</span> Nova solicitação</a></li>
+                    <li><a href="solicitacoes.html"><span class="icone-menu" aria-hidden="true">≡</span> Solicitações</a></li>
+                    <li class="ativo"><a href="passageiros.html"><span class="icone-menu" aria-hidden="true">●</span> Passageiros</a></li>
+                </ul>
+                <p class="rotulo-ajuda">AJUDA</p>
+                <ul>
+                    <li><a href="#"><span class="icone-menu" aria-hidden="true">?</span> Como funciona</a></li>
+                </ul>
+            </nav>
+            <footer><small>v1.0 · CESIT/UEA</small></footer>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main>
+            <section class="titulo-pagina">
+                <div class="texto-titulo">
+                    <h1>Passageiros</h1>
+                    <p class="texto-desktop">Adicione as pessoas que participarão do deslocamento.</p>
+                </div>
+            </section>
+
+            <!-- BARRA DE PROGRESSO -->
+            <div class="progresso-etapa">
+                <p>Etapa 3 de 4</p>
+                <div class="barra-progresso">
+                    <div class="progresso-preenchido"></div>
+                </div>
+            </div>
+
+            <!-- CONTAINER DE PASSAGEIROS -->
+            <section class="secao-formulario">
+                <div class="cabecalho-passageiros">
+                    <h2>Passageiros adicionados</h2>
+                    <a href="solicitantes.html" class="btn-adicionar-passageiro">+ Adicionar passageiro</a>
+                </div>
+
+                <!-- LISTA DE CARDS DOS PASSAGEIROS -->
+                <div class="lista-passageiros">
+                    <article class="card-passageiro">
+                        <div class="info-passageiro">
+                            <div class="avatar-passageiro">AM</div>
+                            <div class="detalhes-passageiro">
+                                <strong>Ana Martins</strong>
+                                <span>092.***.***-14 · CESIT · Solicitante</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-opcoes" aria-label="Opções do passageiro">•••</button>
+                    </article>
+
+                    <article class="card-passageiro">
+                        <div class="info-passageiro">
+                            <div class="avatar-passageiro">CN</div>
+                            <div class="detalhes-passageiro">
+                                <strong>Carlos Nascimento</strong>
+                                <span>084.***.***-06 · NTI · Servidor</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-opcoes" aria-label="Opções do passageiro">•••</button>
+                    </article>
+
+                    <article class="card-passageiro">
+                        <div class="info-passageiro">
+                            <div class="avatar-passageiro">MS</div>
+                            <div class="detalhes-passageiro">
+                                <strong>Marina Souza</strong>
+                                <span>106.***.***-72 · CESIT · Colaboradora</span>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-opcoes" aria-label="Opções do passageiro">•••</button>
+                    </article>
+                </div>
+
+                <!-- BOTÕES DE AÇÃO -->
+                <div class="botoes-acao">
+                    <a href="solicitantes.html" class="btn-voltar">Voltar</a>
+                    <a href="revisao-envio.html" class="btn-continuar">Revisar solicitação</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- NAVEGAÇÃO INFERIOR: CELULAR -->
+    <nav class="mobile-bottom-nav" aria-label="Navegação para celular">
+        <a href="login.html">
+            <span class="nav-icon" aria-hidden="true">⌂</span>
+            <span>Visão geral</span>
+        </a>
+        <a href="nova-solicitacao.html" class="active" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">+</span>
+            <span>Nova</span>
+        </a>
+        <a href="solicitacoes.html">
+            <span class="nav-icon" aria-hidden="true">≡</span>
+            <span>Solicitações</span>
+        </a>
+    </nav>
+
+    <!-- SCRIPT PARA CARREGAR O NOME DO USUÁRIO LOGADO -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nomeSalvo = localStorage.getItem('nomeLogado');
+            const iniciaisSalvas = localStorage.getItem('iniciaisLogado');
+
+            if (nomeSalvo) {
+                const elNome = document.getElementById('nome-usuario');
+                const elAvatar = document.getElementById('avatar-usuario');
+
+                if (elNome) elNome.textContent = nomeSalvo;
+                if (elAvatar && iniciaisSalvas) elAvatar.textContent = iniciaisSalvas;
+            }
+        });
+    </script>
+</body>
+</html>
