@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+    <title>Como funciona - UEA</title>
+    <link rel="stylesheet" href="../css/nova-solicitacao.css">
+    <link rel="stylesheet" href="../css/como-funciona.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="background">
+            <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
+            <div class="logo-textos">
+                <h1>UEA</h1>
+                <p>Universidade do Estado do Amazonas</p>
+            </div>
+        </div>
+        <div class="titulo-sistema"><h2>Sistema de Transportes</h2></div>
+        <a href="minha-conta.html" class="perfil-usuario" aria-label="Minha conta">
+            <div class="avatar" id="avatar-usuario">AM</div>
+            <div class="dados-usuario">
+                <strong id="nome-usuario">Ana Martins</strong>
+                <span>CESIT</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="layout">
+        <aside class="menu-lateral">
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="login.html"><span class="icone-menu">⌂</span> Visão geral</a></li>
+                    <li><a href="nova-solicitacao.html"><span class="icone-menu">+</span> Nova solicitação</a></li>
+                    <li><a href="solicitacoes.html"><span class="icone-menu">≡</span> Solicitações</a></li>
+                    <li><a href="passageiros-cadastrados.html"><span class="icone-menu">●</span> Passageiros</a></li>
+                </ul>
+                <p class="rotulo-ajuda">AJUDA</p>
+                <ul>
+                    <li class="ativo"><a href="como-funciona.html"><span class="icone-menu">?</span> Como funciona</a></li>
+                </ul>
+            </nav>
+            <footer><small>v1.0 · CESIT/UEA</small></footer>
+        </aside>
+
+        <main>
+            <section class="titulo-pagina">
+                <div class="texto-titulo">
+                    <h1>Como funciona</h1>
+                    <p>Entenda o fluxo de solicitação de transporte institucional.</p>
+                </div>
+            </section>
+
+            <section class="secao-formulario">
+                <div class="grid-passos">
+                    <article class="passo">
+                        <div class="numero-passo">1</div>
+                        <h3>Informe a viagem</h3>
+                        <p>Preencha destino, datas, horários, embarque e justificativa.</p>
+                    </article>
+                    <article class="passo">
+                        <div class="numero-passo">2</div>
+                        <h3>Confira os participantes</h3>
+                        <p>Confirme seus dados e cadastre os passageiros do deslocamento.</p>
+                    </article>
+                    <article class="passo">
+                        <div class="numero-passo">3</div>
+                        <h3>Revise e envie</h3>
+                        <p>Confira as informações antes de encaminhar para análise.</p>
+                    </article>
+                    <article class="passo">
+                        <div class="numero-passo">4</div>
+                        <h3>Acompanhe a solicitação</h3>
+                        <p>Consulte os detalhes e o histórico. A supervisão analisa e registra a decisão.</p>
+                    </article>
+                </div>
+
+                <div class="situacao-pedido">
+                    <h3>Situação do pedido</h3>
+                    <p>
+                        <strong>Pendente</strong> → <strong>Em análise</strong> → <strong>Aprovada</strong> → <strong>Concluída</strong>.
+                        Pedidos recusados ou cancelados apresentam o motivo no histórico.
+                    </p>
+                </div>
+
+                <div class="botoes-acao">
+                    <a href="nova-solicitacao.html" class="btn-continuar">Nova solicitação</a>
+                    <a href="login.html" class="btn-cancelar">Voltar à visão geral</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <nav class="mobile-bottom-nav">
+        <a href="login.html"><span class="nav-icon">⌂</span><span>Visão geral</span></a>
+        <a href="nova-solicitacao.html"><span class="nav-icon">+</span><span>Nova</span></a>
+        <a href="solicitacoes.html"><span class="nav-icon">≡</span><span>Solicitações</span></a>
+        <a href="passageiros-cadastrados.html"><span class="nav-icon">●</span><span>Passageiros</span></a>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const nome = localStorage.getItem('nomeLogado');
+            const iniciais = localStorage.getItem('iniciaisLogado');
+            if (nome) document.getElementById('nome-usuario').textContent = nome;
+            if (iniciais) document.getElementById('avatar-usuario').textContent = iniciais;
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+    <title>Editar passageiro - UEA</title>
+    <link rel="stylesheet" href="../css/nova-solicitacao.css">
+    <link rel="stylesheet" href="../css/adicionar-passageiro.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="background">
+            <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
+            <div class="logo-textos">
+                <h1>UEA</h1>
+                <p>Universidade do Estado do Amazonas</p>
+            </div>
+        </div>
+        <div class="titulo-sistema"><h2>Sistema de Transportes</h2></div>
+        <a href="minha-conta.html" class="perfil-usuario" aria-label="Minha conta">
+            <div class="avatar" id="avatar-usuario">AM</div>
+            <div class="dados-usuario">
+                <strong id="nome-usuario">Ana Martins</strong>
+                <span>CESIT</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="layout">
+        <aside class="menu-lateral">
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="login.html"><span class="icone-menu">⌂</span> Visão geral</a></li>
+                    <li><a href="nova-solicitacao.html"><span class="icone-menu">+</span> Nova solicitação</a></li>
+                    <li><a href="solicitacoes.html"><span class="icone-menu">≡</span> Solicitações</a></li>
+                    <li class="ativo"><a href="passageiros-cadastrados.html"><span class="icone-menu">●</span> Passageiros</a></li>
+                </ul>
+                <p class="rotulo-ajuda">AJUDA</p>
+                <ul>
+                    <li><a href="como-funciona.html"><span class="icone-menu">?</span> Como funciona</a></li>
+                </ul>
+            </nav>
+            <footer><small>v1.0 · CESIT/UEA</small></footer>
+        </aside>
+
+        <main>
+            <section class="titulo-pagina">
+                <div class="texto-titulo">
+                    <h1>Editar passageiro</h1>
+                    <p>Os dados serão utilizados na identificação dos participantes.</p>
+                </div>
+            </section>
+
+            <section class="secao-formulario">
+                <form id="form-edicao" novalidate>
+                    <input type="hidden" id="indice-passageiro" value="">
+
+                    <div class="linha-inputs">
+                        <div class="input-grupo">
+                            <label for="nome-completo">Nome completo</label>
+                            <input type="text" id="nome-completo" required>
+                        </div>
+                    </div>
+
+                    <div class="linha-inputs">
+                        <div class="input-grupo">
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" maxlength="14" inputmode="numeric" required>
+                        </div>
+                    </div>
+
+                    <div class="linha-inputs">
+                        <div class="input-grupo">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" maxlength="15" inputmode="tel" required>
+                        </div>
+                    </div>
+
+                    <div class="linha-inputs">
+                        <div class="input-grupo">
+                            <label for="setor">Setor</label>
+                            <select id="setor" required>
+                                <option value="">Selecione o setor</option>
+                                <option value="NTI">NTI</option>
+                                <option value="CESIT">CESIT</option>
+                                <option value="Administração">Administração</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="linha-inputs">
+                        <div class="input-grupo">
+                            <label for="vinculo">Vínculo</label>
+                            <select id="vinculo" required>
+                                <option value="">Selecione o vínculo</option>
+                                <option value="Servidor">Servidor</option>
+                                <option value="Colaborador">Colaborador</option>
+                                <option value="Estudante">Estudante</option>
+                                <option value="Solicitante">Solicitante</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <p id="mensagem-erro" role="alert"></p>
+
+                    <div class="botoes-acao">
+                        <button type="submit" class="btn-continuar">Salvar passageiro</button>
+                        <a href="passageiros-cadastrados.html" class="btn-cancelar">Cancelar</a>
+                        <button type="button" class="btn-cancelar" id="remover-passageiro">Remover passageiro</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <nav class="mobile-bottom-nav">
+        <a href="login.html"><span class="nav-icon">⌂</span><span>Visão geral</span></a>
+        <a href="nova-solicitacao.html"><span class="nav-icon">+</span><span>Nova</span></a>
+        <a href="solicitacoes.html"><span class="nav-icon">≡</span><span>Solicitações</span></a>
+        <a href="passageiros-cadastrados.html" class="active"><span class="nav-icon">●</span><span>Passageiros</span></a>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const nome = localStorage.getItem('nomeLogado');
+            const iniciais = localStorage.getItem('iniciaisLogado');
+            if (nome) document.getElementById('nome-usuario').textContent = nome;
+            if (iniciais) document.getElementById('avatar-usuario').textContent = iniciais;
+
+            // Carrega passageiro selecionado
+            const passageiroSel = JSON.parse(localStorage.getItem('passageiroSelecionado') || 'null');
+            if (!passageiroSel) {
+                alert('Nenhum passageiro selecionado.');
+                window.location.href = 'passageiros-cadastrados.html';
+                return;
+            }
+
+            document.getElementById('nome-completo').value = passageiroSel.nome || '';
+            document.getElementById('cpf').value = passageiroSel.cpf || '';
+            document.getElementById('telefone').value = passageiroSel.telefone || '';
+            document.getElementById('setor').value = passageiroSel.setor || '';
+            document.getElementById('vinculo').value = passageiroSel.vinculo || '';
+
+            // Máscara CPF
+            const cpf = document.getElementById('cpf');
+            cpf.addEventListener('input', function () {
+                let v = cpf.value.replace(/\D/g, '').slice(0, 11);
+                v = v.replace(/(\d{3})(\d)/, '$1.$2');
+                v = v.replace(/(\d{3})(\d)/, '$1.$2');
+                v = v.replace(/(\d{3})(\d{1,2})$/, '$1-$2');
+                cpf.value = v;
+            });
+
+            // Máscara telefone
+            const tel = document.getElementById('telefone');
+            tel.addEventListener('input', function () {
+                let v = tel.value.replace(/\D/g, '').slice(0, 11);
+                if (v.length > 10) {
+                    v = v.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3');
+                } else if (v.length > 6) {
+                    v = v.replace(/(\d{2})(\d{4})(\d{0,4})/, '($1) $2-$3');
+                } else if (v.length > 2) {
+                    v = v.replace(/(\d{2})(\d+)/, '($1) $2');
+                }
+                tel.value = v;
+            });
+
+            document.getElementById('remover-passageiro').addEventListener('click', function () {
+                if (!confirm('Deseja realmente remover este passageiro?')) return;
+
+                const passageiros = JSON.parse(localStorage.getItem('passageirosCadastrados') || '[]');
+                const restantes = passageiros.filter(p =>
+                    !(p.cpf === passageiroSel.cpf && p.nome === passageiroSel.nome)
+                );
+
+                localStorage.setItem('passageirosCadastrados', JSON.stringify(restantes));
+                localStorage.setItem('ultimoRemovido', passageiroSel.nome);
+                localStorage.removeItem('passageiroSelecionado');
+                window.location.href = 'passageiro-removido.html';
+            });
+
+            document.getElementById('form-edicao').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const erro = document.getElementById('mensagem-erro');
+                erro.textContent = '';
+
+                const nomeVal = document.getElementById('nome-completo').value.trim();
+                const cpfVal = document.getElementById('cpf').value;
+                const telVal = document.getElementById('telefone').value;
+                const setorVal = document.getElementById('setor').value;
+                const vinculoVal = document.getElementById('vinculo').value;
+
+                if (!nomeVal || !cpfVal || !telVal || !setorVal || !vinculoVal) {
+                    erro.textContent = 'Preencha todos os campos.';
+                    return;
+                }
+
+                if (cpfVal.replace(/\D/g, '').length !== 11) {
+                    erro.textContent = 'Informe um CPF válido.';
+                    return;
+                }
+
+                const passageiros = JSON.parse(localStorage.getItem('passageirosCadastrados') || '[]');
+                const idx = passageiros.findIndex(p =>
+                    p.cpf === passageiroSel.cpf && p.nome === passageiroSel.nome
+                );
+
+                const atualizado = {
+                    nome: nomeVal, cpf: cpfVal, telefone: telVal, setor: setorVal, vinculo: vinculoVal
+                };
+
+                if (idx >= 0) passageiros[idx] = atualizado;
+                else passageiros.push(atualizado);
+
+                localStorage.setItem('passageirosCadastrados', JSON.stringify(passageiros));
+                localStorage.removeItem('passageiroSelecionado');
+
+                alert('Passageiro atualizado com sucesso!');
+                window.location.href = 'passageiro-salvo.html';
+            });
+        });
+    </script>
+
+</body>
+</html>

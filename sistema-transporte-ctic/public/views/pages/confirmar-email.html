@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+    <title>Confirmar e-mail - Sistema de Transportes - UEA</title>
+    <link rel="stylesheet" href="../css/confirmar-email.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <a class="identidade-uea" href="login.html" aria-label="Página inicial da UEA">
+            <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
+            <span class="logo-textos">
+                <strong>UEA</strong>
+                <small>Universidade do Estado do Amazonas</small>
+            </span>
+        </a>
+        <div class="titulo-sistema">
+            <h1>Sistema de Transportes</h1>
+        </div>
+    </header>
+
+    <main class="conteudo">
+        <section class="area-central" aria-labelledby="titulo-pagina">
+            <div class="introducao">
+                <h2 id="titulo-pagina">Confira seu e-mail</h2>
+                <p>O próximo passo está na sua caixa de entrada.</p>
+            </div>
+
+            <div class="cartao">
+                <div class="aviso-sucesso" role="status" aria-live="polite">
+                    <strong>Link enviado</strong>
+                    <p>Se o e-mail estiver cadastrado, você receberá as instruções de recuperação.</p>
+                </div>
+
+                <div class="acoes">
+                    <a href="recuperar-senha.html" class="botao botao-secundario">Usar outro e-mail</a>
+                    <a href="index.html" class="botao botao-principal">Voltar ao acesso</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Mantém o e-mail usado disponível para a próxima etapa,
+        // caso a integração com o serviço de recuperação seja adicionada.
+        const emailRecuperacao = sessionStorage.getItem('emailRecuperacao');
+        if (emailRecuperacao) {
+            document.body.dataset.emailInformado = 'true';
+        }
+    </script>
+</body>
+</html>

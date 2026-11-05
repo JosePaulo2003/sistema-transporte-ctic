@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+    <title>Solicitação enviada - UEA</title>
+    <link rel="stylesheet" href="../css/nova-solicitacao.css">
+    <link rel="stylesheet" href="../css/solicitacao-enviada.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="background">
+            <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
+            <div class="logo-textos">
+                <h1>UEA</h1>
+                <p>Universidade do Estado do Amazonas</p>
+            </div>
+        </div>
+        <div class="titulo-sistema"><h2>Sistema de Transportes</h2></div>
+        <a href="minha-conta.html" class="perfil-usuario" aria-label="Minha conta">
+            <div class="avatar" id="avatar-usuario">AM</div>
+            <div class="dados-usuario">
+                <strong id="nome-usuario">Ana Martins</strong>
+                <span>CESIT</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="layout">
+        <aside class="menu-lateral">
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="login.html"><span class="icone-menu">⌂</span> Visão geral</a></li>
+                    <li><a href="nova-solicitacao.html"><span class="icone-menu">+</span> Nova solicitação</a></li>
+                    <li class="ativo"><a href="solicitacoes.html"><span class="icone-menu">≡</span> Solicitações</a></li>
+                    <li><a href="passageiros-cadastrados.html"><span class="icone-menu">●</span> Passageiros</a></li>
+                </ul>
+                <p class="rotulo-ajuda">AJUDA</p>
+                <ul>
+                    <li><a href="como-funciona.html"><span class="icone-menu">?</span> Como funciona</a></li>
+                </ul>
+            </nav>
+            <footer><small>v1.0 · CESIT/UEA</small></footer>
+        </aside>
+
+        <main>
+            <section class="titulo-pagina">
+                <div class="texto-titulo">
+                    <h1>Solicitação enviada</h1>
+                    <p>Seu pedido foi registrado e encaminhado para análise.</p>
+                </div>
+            </section>
+
+            <section class="secao-formulario">
+                <div class="caixa-sucesso">
+                    <div class="icone-sucesso">✓</div>
+                    <div>
+                        <strong>Protocolo <span id="protocolo">#0241</span></strong>
+                        <p id="resumo-solicitacao">Itacoatiara - 12 a 14/09/2026 · Situação: Pendente</p>
+                    </div>
+                </div>
+
+                <div class="info-adicional">
+                    <p>Acompanhe o andamento na lista de solicitações. A aprovação depende da análise da supervisão.</p>
+                </div>
+
+                <div class="botoes-acao">
+                    <a href="detalhes-solicitacao.html" class="btn-continuar">
+                        Ver solicitação
+                    </a>
+                    <a href="solicitacoes.html" class="btn-cancelar">
+                        Ir para solicitações
+                    </a>
+                    <a href="login.html" class="btn-cancelar">
+                        Voltar à visão geral
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <nav class="mobile-bottom-nav">
+        <a href="login.html"><span class="nav-icon">⌂</span><span>Visão geral</span></a>
+        <a href="nova-solicitacao.html"><span class="nav-icon">+</span><span>Nova</span></a>
+        <a href="solicitacoes.html" class="active" aria-current="page"><span class="nav-icon">≡</span><span>Solicitações</span></a>
+        <a href="passageiros-cadastrados.html"><span class="nav-icon">●</span><span>Passageiros</span></a>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const nome = localStorage.getItem('nomeLogado');
+            const iniciais = localStorage.getItem('iniciaisLogado');
+            if (nome) document.getElementById('nome-usuario').textContent = nome;
+            if (iniciais) document.getElementById('avatar-usuario').textContent = iniciais;
+
+            const lista = JSON.parse(localStorage.getItem('dadosSolicitacoes') || '[]');
+            if (lista.length > 0) {
+                const ultima = lista[0];
+                document.getElementById('protocolo').textContent = ultima.id;
+                document.getElementById('resumo-solicitacao').textContent =
+                    `${ultima.destino} - ${ultima.data} · Situação: ${ultima.textoStatus}`;
+            }
+        });
+    </script>
+
+</body>
+</html>

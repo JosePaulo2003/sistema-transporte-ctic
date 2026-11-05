@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+    <title>Minha conta - UEA</title>
+    <link rel="stylesheet" href="../css/nova-solicitacao.css">
+    <link rel="stylesheet" href="../css/minha-conta.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="background">
+            <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
+            <div class="logo-textos">
+                <h1>UEA</h1>
+                <p>Universidade do Estado do Amazonas</p>
+            </div>
+        </div>
+        <div class="titulo-sistema"><h2>Sistema de Transportes</h2></div>
+        <a href="minha-conta.html" class="perfil-usuario" aria-label="Minha conta">
+            <div class="avatar" id="avatar-usuario">AM</div>
+            <div class="dados-usuario">
+                <strong id="nome-usuario">Ana Martins</strong>
+                <span>CESIT</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="layout">
+        <aside class="menu-lateral">
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li class="ativo"><a href="login.html"><span class="icone-menu">⌂</span> Visão geral</a></li>
+                    <li><a href="nova-solicitacao.html"><span class="icone-menu">+</span> Nova solicitação</a></li>
+                    <li><a href="solicitacoes.html"><span class="icone-menu">≡</span> Solicitações</a></li>
+                    <li><a href="passageiros-cadastrados.html"><span class="icone-menu">●</span> Passageiros</a></li>
+                </ul>
+                <p class="rotulo-ajuda">AJUDA</p>
+                <ul>
+                    <li><a href="como-funciona.html"><span class="icone-menu">?</span> Como funciona</a></li>
+                </ul>
+            </nav>
+            <footer><small>v1.0 · CESIT/UEA</small></footer>
+        </aside>
+
+        <main>
+            <section class="titulo-pagina">
+                <div class="texto-titulo">
+                    <h1>Minha conta</h1>
+                    <p>Dados do seu acesso institucional.</p>
+                </div>
+            </section>
+
+            <section class="secao-formulario">
+                <div class="perfil-cartao">
+                    <div class="avatar-grande" id="avatar-grande">AM</div>
+                    <div class="dados-conta">
+                        <strong id="nome-conta">Ana Martins</strong>
+                        <p id="email-conta">ana.martins@uea.edu.br</p>
+                        <p><span id="setor-conta">CESIT</span> · Universidade do Estado do Amazonas</p>
+                    </div>
+                </div>
+
+                <div class="acoes-conta">
+                    <a href="passageiros-cadastrados.html" class="btn-conta">
+                        <span>Passageiros cadastrados</span>
+                        <span class="seta">›</span>
+                    </a>
+                    <a href="como-funciona.html" class="btn-conta">
+                        <span>Como funciona</span>
+                        <span class="seta">›</span>
+                    </a>
+                    <a href="sair-da-conta.html" class="btn-conta btn-sair">
+                        <span>Sair da conta</span>
+                        <span class="seta">›</span>
+                    </a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <nav class="mobile-bottom-nav">
+        <a href="login.html" class="active" aria-current="page"><span class="nav-icon">⌂</span><span>Visão geral</span></a>
+        <a href="nova-solicitacao.html"><span class="nav-icon">+</span><span>Nova</span></a>
+        <a href="solicitacoes.html"><span class="nav-icon">≡</span><span>Solicitações</span></a>
+        <a href="passageiros-cadastrados.html"><span class="nav-icon">●</span><span>Passageiros</span></a>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const nome = localStorage.getItem('nomeLogado');
+            const iniciais = localStorage.getItem('iniciaisLogado');
+            const email = localStorage.getItem('emailLogado');
+
+            if (nome) {
+                document.getElementById('nome-usuario').textContent = nome;
+                document.getElementById('nome-conta').textContent = nome;
+            }
+            if (iniciais) {
+                document.getElementById('avatar-usuario').textContent = iniciais;
+                document.getElementById('avatar-grande').textContent = iniciais;
+            }
+            if (email) document.getElementById('email-conta').textContent = email;
+        });
+    </script>
+
+</body>
+</html>
