@@ -21,6 +21,7 @@
 }
 
 html {
+    scrollbar-gutter: stable;
     min-width: 280px;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
@@ -100,6 +101,11 @@ button {
     font-size: 16px;
     font-weight: 600;
     line-height: 1.3;
+}
+
+a.perfil-usuario {
+    color: inherit;
+    text-decoration: none;
 }
 
 .perfil-usuario {
@@ -621,4 +627,183 @@ main {
         background: var(--verde);
         content: "";
     }
+}
+
+/* =========================
+   REVISÃO E ENVIO
+   ========================= */
+
+.secao-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* CARDS DE RESUMO */
+.card-resumo {
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+}
+
+.cabecalho-card-resumo {
+    margin-bottom: 16px;
+}
+
+.cabecalho-card-resumo h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--texto);
+}
+
+.lista-resumo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-bottom: 20px;
+}
+
+.lista-resumo p {
+    font-size: 14px;
+    color: #45534a;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.lista-resumo p strong {
+    font-weight: 600;
+    color: var(--texto);
+}
+
+/* AÇÕES DENTRO DO CARD (Botão editar) */
+.acoes-card {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 8px;
+}
+
+.acoes-card .btn-voltar {
+    min-height: 40px;
+    padding: 8px 24px;
+    font-size: 13px;
+    width: auto; 
+}
+
+/* ALERTA DE ANÁLISE */
+.alerta-analise {
+    display: flex;
+    align-items: flex-start;
+    padding: 20px 24px;
+    background: #e5f4ec;
+    border-radius: 12px;
+    color: #00522b;
+    margin-top: 4px;
+}
+
+/* CHECKBOX DE DECLARAÇÃO */
+.grupo-declaracao {
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.container-checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+    font-size: 14px;
+    color: var(--texto);
+    font-weight: 500;
+}
+
+.container-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    height: 20px;
+    width: 20px;
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.container-checkbox:hover input ~ .checkmark {
+    border-color: var(--verde);
+}
+
+.container-checkbox input:checked ~ .checkmark {
+    background-color: var(--verde);
+    border-color: var(--verde);
+}
+
+.checkmark:after {
+    content: "";
+    position: relative;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+    display: none;
+}
+
+.container-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* =========================
+   BOTÕES FINAIS (FORÇANDO O PADRÃO DA IMAGEM)
+   ========================= */
+
+/* Força a caixa dos botões a empilhar um embaixo do outro */
+.botoes-acao {
+    display: flex;
+    flex-direction: column-reverse; /* Enviar em cima, Voltar embaixo */
+    gap: 12px;
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Configuração idêntica para os dois botões */
+.botoes-acao .btn-voltar,
+.botoes-acao .btn-continuar {
+    width: 100%;
+    min-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o texto no meio */
+    text-align: center;      /* Garante o texto no meio caso quebre linha */
+    font-size: 15px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ESTADO BLOQUEADO (Verde clarinho da imagem) */
+.botoes-acao button.btn-continuar:disabled {
+    background-color: #8ebfa4 !important; /* Verde "apagado" */
+    border-color: #8ebfa4 !important;
+    color: #ffffff !important;
+    cursor: not-allowed;
+}
+
+/* ESTADO HABILITADO (Verde escuro normal) */
+.botoes-acao button.btn-continuar:not(:disabled) {
+    background-color: var(--verde);
+    border-color: var(--verde);
+    color: var(--branco);
+    cursor: pointer;
 }

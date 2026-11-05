@@ -1,0 +1,75 @@
+/* =========================
+   CANCELAR SOLICITAÇÃO
+   ========================= */
+
+.secao-formulario {
+    max-width: 700px;
+    padding: clamp(20px, 3vw, 32px);
+}
+
+.caixa-status {
+    padding: 18px 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.caixa-status strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.caixa-status p { font-size: 12px; }
+
+.pendente {
+    background: #fff7df;
+    border: 1px solid #f3e7bd;
+    color: #a86400;
+}
+
+.input-grupo textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--texto);
+    outline: none;
+    resize: vertical;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-grupo textarea:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 0 3px rgb(0 104 55 / 10%);
+}
+
+#mensagem-erro {
+    color: #b42318;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+#mensagem-erro:empty { display: none; }
+
+.botoes-acao {
+    display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.botoes-acao button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .secao-formulario { padding: 16px; }
+    .botoes-acao { flex-direction: column; }
+    .botoes-acao button,
+    .botoes-acao a { width: 100%; min-height: 48px; }
+}

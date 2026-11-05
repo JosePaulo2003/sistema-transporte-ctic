@@ -1,0 +1,168 @@
+/* =========================
+   ANALISAR SOLICITAÇÃO
+   ========================= */
+
+.secao-formulario {
+    max-width: 1000px;
+    padding: 24px;
+}
+
+/* STATUS */
+
+.caixa-status {
+    padding: 18px 20px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+}
+
+.caixa-status strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.caixa-status p {
+    font-size: 12px;
+}
+
+.em-analise {
+    background: #f2f6f8;
+    border: 1px solid #e2e9e8;
+    color: #1762b4;
+}
+
+/* INFORMAÇÕES DA VIAGEM */
+
+.grupo-detalhes {
+    margin-bottom: 16px;
+}
+
+.grupo-detalhes h2 {
+    margin-bottom: 8px;
+    color: var(--texto);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.informacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.informacoes p {
+    color: #45534a;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* HISTÓRICO */
+
+.historico {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.etapa-concluida {
+    color: var(--verde);
+    font-weight: 500;
+}
+
+.etapa-atual {
+    color: #1762b4;
+    font-weight: 600;
+}
+
+.seta-historico {
+    color: #89958e;
+    font-size: 17px;
+}
+
+/* FORMULÁRIO DE ANÁLISE */
+
+#form-analise {
+    margin-top: 18px;
+}
+
+#form-analise .linha-inputs {
+    grid-template-columns: 1fr;
+    margin-bottom: 14px;
+}
+
+#form-analise .input-grupo select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background: var(--branco);
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+}
+
+#form-analise .input-grupo select:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 0 3px rgb(0 104 55 / 10%);
+}
+
+#mensagem-erro {
+    color: #b42318;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+#mensagem-erro:empty {
+    display: none;
+}
+
+/* BOTÕES */
+
+#form-analise .botoes-acao {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    border-top: none;
+    padding-top: 0;
+}
+
+#form-analise button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    .secao-formulario {
+        padding: 15px;
+    }
+
+    .caixa-status {
+        padding: 14px;
+    }
+
+    .grupo-detalhes h2 {
+        font-size: 13px;
+    }
+
+    .informacoes p {
+        font-size: 12px;
+    }
+
+    .historico {
+        line-height: 1.8;
+    }
+
+    #form-analise .botoes-acao {
+        flex-direction: column;
+    }
+
+    #form-analise .botoes-acao button,
+    #form-analise .botoes-acao a {
+        width: 100%;
+        min-height: 46px;
+    }
+
+}

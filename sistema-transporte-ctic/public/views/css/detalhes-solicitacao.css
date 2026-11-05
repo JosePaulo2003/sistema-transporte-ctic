@@ -1,0 +1,129 @@
+/* =========================
+   DETALHES DA SOLICITAÇÃO
+   ========================= */
+
+.secao-formulario {
+    max-width: 1000px;
+    padding: 24px;
+}
+
+/* STATUS */
+
+.caixa-status {
+    padding: 18px 20px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+}
+
+.caixa-status strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.caixa-status p {
+    font-size: 12px;
+}
+
+.pendente {
+    background: #fff7df;
+    border: 1px solid #f3e7bd;
+    color: #a86400;
+}
+
+/* GRUPOS DE INFORMAÇÕES */
+
+.grupo-detalhes {
+    margin-bottom: 16px;
+}
+
+.grupo-detalhes h2 {
+    margin-bottom: 8px;
+    color: var(--texto);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.informacoes {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.informacoes p {
+    color: #45534a;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* HISTÓRICO */
+
+.historico {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.etapa-concluida {
+    color: var(--verde);
+    font-weight: 500;
+}
+
+.etapa-atual {
+    color: var(--texto-suave);
+    font-weight: 500;
+}
+
+.seta-historico {
+    color: #89958e;
+    font-size: 17px;
+}
+
+/* BOTÕES */
+
+.botoes-acao {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.botoes-acao button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    .secao-formulario {
+        padding: 15px;
+    }
+
+    .caixa-status {
+        padding: 14px;
+    }
+
+    .grupo-detalhes h2 {
+        font-size: 13px;
+    }
+
+    .informacoes p {
+        font-size: 12px;
+    }
+
+    .historico {
+        align-items: flex-start;
+        line-height: 1.8;
+    }
+
+    .botoes-acao {
+        flex-direction: column;
+    }
+
+    .botoes-acao a,
+    .botoes-acao button {
+        width: 100%;
+        min-height: 46px;
+    }
+
+}

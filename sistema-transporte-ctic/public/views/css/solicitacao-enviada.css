@@ -1,0 +1,73 @@
+/* =========================
+   SOLICITAÇÃO ENVIADA
+   ========================= */
+
+.secao-formulario {
+    max-width: 800px;
+    padding: clamp(20px, 3vw, 32px);
+}
+
+.caixa-sucesso {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 24px 28px;
+    background: var(--verde-claro);
+    border: 1px solid #c8e8d5;
+    border-radius: 14px;
+    margin-bottom: 20px;
+}
+
+.icone-sucesso {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--verde);
+    color: var(--branco);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.caixa-sucesso strong {
+    display: block;
+    font-size: 16px;
+    color: #00522b;
+    margin-bottom: 4px;
+}
+
+.caixa-sucesso p {
+    font-size: 13px;
+    color: #2b593e;
+    margin: 0;
+}
+
+.info-adicional {
+    padding: 16px 20px;
+    background: #fff8e7;
+    border-radius: 10px;
+    margin-bottom: 24px;
+}
+
+.info-adicional p {
+    font-size: 13px;
+    color: #855d00;
+    margin: 0;
+}
+
+.botoes-acao {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .secao-formulario { padding: 16px; }
+    .caixa-sucesso { padding: 18px; gap: 14px; }
+    .icone-sucesso { width: 40px; height: 40px; font-size: 18px; }
+    .botoes-acao { flex-direction: column; }
+    .botoes-acao a { width: 100%; min-height: 46px; text-align: center; justify-content: center; }
+}
