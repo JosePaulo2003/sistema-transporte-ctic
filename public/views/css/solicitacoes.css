@@ -21,6 +21,7 @@
 }
 
 html {
+    scrollbar-gutter: stable;
     min-width: 280px;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
@@ -100,6 +101,11 @@ button {
     font-size: 16px;
     font-weight: 600;
     line-height: 1.3;
+}
+
+a.perfil-usuario {
+    color: inherit;
+    text-decoration: none;
 }
 
 .perfil-usuario {
@@ -358,6 +364,23 @@ main {
     color: #17231c;
 }
 
+.acoes-tabela {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.link-filtradas {
+    color: var(--verde);
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.link-filtradas:hover {
+    text-decoration: underline;
+}
+
 .contador-registros {
     font-size: 12px;
     color: var(--texto-suave);
@@ -483,6 +506,19 @@ main {
 /* =========================
     7. ADAPTAÇÃO MOBILE
    ========================= */
+
+@media (min-width: 769px) and (max-width: 1100px) {
+    .menu-lateral {
+        width: 220px;
+        flex-basis: 220px;
+    }
+
+    main {
+        padding: 28px 24px;
+    }
+}
+
+
 .cards-solicitacoes-mobile {
     display: none;
 }

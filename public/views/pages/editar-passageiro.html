@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+    <title>Editar passageiro - UEA</title>
+    <link rel="stylesheet" href="../css/nova-solicitacao.css">
+    <link rel="stylesheet" href="../css/adicionar-passageiro.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="background">
+            <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
+            <div class="logo-textos">
+                <h1>UEA</h1>
+                <p>Universidade do Estado do Amazonas</p>
+            </div>
+        </div>
+        <div class="titulo-sistema"><h2>Sistema de Transportes</h2></div>
+        <a href="minha-conta.html" class="perfil-usuario" aria-label="Minha conta">
+            <div class="avatar" id="avatar-usuario">AM</div>
+            <div class="dados-usuario">
+                <strong id="nome-usuario">Ana Martins</strong>
+                <span>CESIT</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="layout">
+        <aside class="menu-lateral">
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="login.html"><span class="icone-menu">⌂</span> Visão geral</a></li>
+                    <li><a href="nova-solicitacao.html"><span class="icone-menu">+</span> Nova solicitação</a></li>
+                    <li><a href="solicitacoes.html"><span class="icone-menu">≡</span> Solicitações</a></li>
+                    <li class="ativo"><a href="passageiros-cadastrados.html"><span class="icone-menu">●</span> Passageiros</a></li>
+                </ul>
+                <p class="rotulo-ajuda">AJUDA</p>
+                <ul>
+                    <li><a href="como-funciona.html"><span class="icone-menu">?</span> Como funciona</a></li>
+                </ul>
+            </nav>
+            <footer><small>v1.0 · CESIT/UEA</small></footer>
+        </aside>
+
+        <main>
+            <section class="titulo-pagina">
+                <div class="texto-titulo">
+                    <h1>Editar passageiro</h1>
+                    <p>Os dados serão utilizados na identificação dos participantes.</p>
+                </div>
+            </section>
+
+            <section class="secao-formulario">
+                <form id="form-edicao">
+                    <input type="hidden" id="indice-passageiro" value="">
+
+                    <div class="linha-inputs">
+                        <div class="input-grupo">
+                            <label for="nome-completo">Nome completo</label>
+                            <input type="text" id="nome-completo" required>
+                        </div>
+                    </div>
+
+                    <div class="linha-inputs">
+                        <div class="input-grupo">
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" maxlength="14" inputmode="numeric" required>
+                        </div>
+                    </div>
+
+                    <div class="linha-inputs">
+                        <div class="input-grupo">
+                            <label for="telefone">Telefone</label>
+                            <input type="tel" id="telefone" maxlength="15" inputmode="tel" required>
+                        </div>
+                    </div>
+
+                    <div class="linha-inputs">
+                        <div class="input-grupo">
+                            <label for="setor">Setor</label>
+                            <select id="setor" required>
+                                <option value="">Selecione o setor</option>
+                                <option value="NTI">NTI</option>
+                                <option value="CESIT">CESIT</option>
+                                <option value="Administração">Administração</option>
+                                <option value="Outro">Outro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="linha-inputs">
+                        <div class="input-grupo">
+                            <label for="vinculo">Vínculo</label>
+                            <select id="vinculo" required>
+                                <option value="">Selecione o vínculo</option>
+                                <option value="Servidor">Servidor</option>
+                                <option value="Colaborador">Colaborador</option>
+                                <option value="Estudante">Estudante</option>
+                                <option value="Solicitante">Solicitante</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <p id="mensagem-erro" role="alert"></p>
+
+                    <div class="botoes-acao">
+                        <button type="submit" class="btn-continuar">Salvar passageiro</button>
+                        <a href="passageiros-cadastrados.html" class="btn-cancelar">Cancelar</a>
+                        <button type="button" class="btn-cancelar" id="remover-passageiro">Remover passageiro</button>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <nav class="mobile-bottom-nav">
+        <a href="login.html"><span class="nav-icon">⌂</span><span>Visão geral</span></a>
+        <a href="nova-solicitacao.html"><span class="nav-icon">+</span><span>Nova</span></a>
+        <a href="solicitacoes.html"><span class="nav-icon">≡</span><span>Solicitações</span></a>
+        <a href="passageiros-cadastrados.html" class="active"><span class="nav-icon">●</span><span>Passageiros</span></a>
+    </nav>
+
+</body>
+</html>

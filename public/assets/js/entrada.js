@@ -24,7 +24,7 @@ formularioEntrada.addEventListener('submit', async evento => {
         });
         const dados = await resposta.json();
         if (!resposta.ok) {
-            // Uma sessão antiga pode ter perdido o token; atualiza-o para a próxima tentativa.
+            // Eu renovo o token perdido para não mandar a pessoa recarregar a tela e depois me abrir um chamado.
             if (resposta.status === 419) {
                 const respostaToken = await fetch('/api/autenticacao/csrf');
                 if (respostaToken.ok) {
@@ -34,7 +34,7 @@ formularioEntrada.addEventListener('submit', async evento => {
             }
             throw new Error(dados.erro || 'Não foi possível entrar.');
         }
-        // A identidade vem da sessão no servidor; não fica gravada no armazenamento local.
+        // Eu uso a identidade do servidor e limpo a demonstração antiga para não perseguir nome errado pelo mesmo salário.
         localStorage.removeItem('nomeLogado');
         localStorage.removeItem('iniciaisLogado');
         window.location.assign('/painel');

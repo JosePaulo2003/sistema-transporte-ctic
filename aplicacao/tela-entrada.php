@@ -1,5 +1,5 @@
 <?php
-// A sessão já foi iniciada pelo controlador; o token vincula o envio a este navegador.
+// Eu reaproveito a sessão do controlador e vinculo o formulário ao navegador, sem inventar turno extra.
 $tokenFormulario = htmlspecialchars(token_csrf(), ENT_QUOTES, 'UTF-8');
 ?>
 <!DOCTYPE html>
@@ -33,6 +33,7 @@ $tokenFormulario = htmlspecialchars(token_csrf(), ENT_QUOTES, 'UTF-8');
             </div>
             <div id="erro-entrada" class="erro-autenticacao" role="alert" hidden></div>
             <button id="botao-entrar" type="submit">Entrar</button>
+            <p><a href="/recuperar-senha">Esqueci minha senha</a></p>
             <p>Acesso restrito a usuários autorizados.</p>
             <noscript>Habilite o JavaScript para entrar no sistema.</noscript>
         </form>

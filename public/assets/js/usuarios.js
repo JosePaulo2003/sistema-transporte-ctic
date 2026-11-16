@@ -16,22 +16,10 @@ function informarUsuarios(texto, erro = false) {
 }
 
 async function requisitarUsuarios(caminho = '', metodo = 'GET', dados) {
-    const cabecalhos = {};
-    if (metodo !== 'GET') {
-        const respostaToken = await fetch('/api/autenticacao/csrf', {credentials: 'same-origin'});
-        if (!respostaToken.ok) throw new Error('Não foi possível validar a sessão.');
-        cabecalhos['X-CSRF-Token'] = (await respostaToken.json()).csrf;
-        cabecalhos['Content-Type'] = 'application/json';
-    }
-    const resposta = await fetch('/api/usuarios' + caminho, {method: metodo, credentials: 'same-origin',
-        headers: cabecalhos, body: dados === undefined ? undefined : JSON.stringify(dados)});
-    const resultado = await resposta.json();
-    if (resposta.status === 401) window.location.replace('/entrar');
-    if (!resposta.ok) throw new Error(resultado.erro || 'Não foi possível concluir a operação.');
-    return resultado;
+    return CTIC.requisitar('/api/usuarios' + caminho, metodo, dados);
 }
 
-// Cria textos e ações pelo DOM para que os dados cadastrados nunca sejam interpretados como HTML.
+// Eu crio texto pelo DOM para não transformar cadastro em HTML e ganhar mais problema do que salário.
 function criarElementoUsuario(tipo, texto, classe) {
     const elemento = document.createElement(tipo);
     if (texto !== undefined) elemento.textContent = texto;
@@ -101,7 +89,7 @@ async function carregarUsuarios() {
     renderizarUsuarios();
 }
 
-// Desabilita as ações do cadastro durante a gravação, evitando dois envios concorrentes pela tela.
+// Eu bloqueio o formulário durante a gravação para não tratar clique duplicado como hora extra.
 function prepararFormularioUsuario(formulario, acao) {
     formulario.addEventListener('submit', async evento => {
         evento.preventDefault();
@@ -118,7 +106,7 @@ prepararFormularioUsuario(formularioUsuario, async () => {
     dados.ativo = document.getElementById('usuario-ativo').checked;
     if (identificadorEdicao === null) dados.senha = document.getElementById('usuario-senha').value;
     const resultado = await requisitarUsuarios(identificadorEdicao === null ? '' : `/${identificadorEdicao}`, identificadorEdicao === null ? 'POST' : 'PUT', dados);
-    // Limpa a senha assim que o servidor confirma o cadastro, mesmo se a atualização da lista falhar.
+    // Eu limpo a senha logo após salvar para não deixá-la na tela enquanto resolvo o resto.
     cancelarEdicaoUsuario();
     informarUsuarios(resultado.mensagem);
     await carregarUsuarios();
@@ -134,4 +122,4 @@ document.getElementById('cancelar-senha').addEventListener('click', () => { form
 document.getElementById('busca-usuarios').addEventListener('input', renderizarUsuarios);
 document.getElementById('nome-usuario').textContent = window.CTIC_USUARIO.nome;
 document.getElementById('avatar-usuario').textContent = window.CTIC_USUARIO.nome.trim().split(/\s+/).map(parte => parte[0]).slice(0, 2).join('').toUpperCase();
-carregarUsuarios().catch(erro => informarUsuarios(erro.message, true));
+carregarUsuarios().catch(erro => informarUsuarios(erro.message, true)).finally(() => document.querySelector('main').setAttribute('aria-busy', 'false'));

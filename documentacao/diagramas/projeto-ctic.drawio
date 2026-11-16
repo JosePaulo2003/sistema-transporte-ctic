@@ -1,0 +1,1255 @@
+<mxfile host="Electron" agent="CTIC" compressed="false" pages="12">
+  <diagram id="ctic-1" name="01 Contexto e implantação">
+    <mxGraphModel dx="2049" dy="1233" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ctic-2" name="02 Componentes do código">
+    <mxGraphModel dx="1700" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p2-n2" value="02  /  COMPONENTES DO CÓDIGO" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#075C35;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="24" width="1610" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n3" value="Responsabilidade de cada módulo e dependências internas. O projeto não utiliza um framework de aplicação." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#56665F;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="78" width="1610" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n4" value="CTIC  •  Sistema de Transportes  •  Estado documentado em 16/11/2026  •  Sem dados ou credenciais da instalação" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontColor=#657786;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1055" width="1610" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n5" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="55" y="170" width="300" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n6" value="Entradas" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p2-n5">
+          <mxGeometry x="16" y="12" width="268" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n7" value="index.php → public/index.php&#xa;roteador.php (servidor local)&#xa;.htaccess / public/.htaccess" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p2-n5">
+          <mxGeometry x="16" y="54" width="268" height="81" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n8" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="475" y="170" width="350" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n9" value="public/index.php" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p2-n8">
+          <mxGeometry x="16" y="12" width="318" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n10" value="Despacha páginas e APIs&#xa;Preserva links antigos&#xa;Injeta identidade e scripts&#xa;Bloqueia páginas administrativas" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p2-n8">
+          <mxGeometry x="16" y="54" width="318" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n11" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="995" y="170" width="625" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n12" value="aplicacao/inicializacao.php" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p2-n11">
+          <mxGeometry x="16" y="12" width="593" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n13" value="Configuração + PDO + sessão + CSRF&#xa;Login, limites de tentativa, resposta JSON e identidade pública&#xa;Verifica usuário ativo e assinatura da senha em cada acesso" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p2-n11">
+          <mxGeometry x="16" y="54" width="593" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n14" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="55" y="460" width="335" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n15" value="solicitacoes.php" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p2-n14">
+          <mxGeometry x="16" y="12" width="303" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n16" value="Validação dos campos&#xa;Datas locais e passageiros" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p2-n14">
+          <mxGeometry x="16" y="54" width="303" height="81" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n17" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="450" y="460" width="335" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n18" value="fluxo-solicitacoes.php" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p2-n17">
+          <mxGeometry x="16" y="12" width="303" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n19" value="Rascunho e envio&#xa;Consulta, status e histórico" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p2-n17">
+          <mxGeometry x="16" y="54" width="303" height="81" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n20" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="845" y="460" width="335" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n21" value="passageiros.php" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p2-n20">
+          <mxGeometry x="16" y="12" width="303" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n22" value="CPF e cadastro reutilizável&#xa;Seleção somente pelo dono" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p2-n20">
+          <mxGeometry x="16" y="54" width="303" height="81" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n23" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="460" width="335" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n24" value="usuarios.php / conta.php" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p2-n23">
+          <mxGeometry x="16" y="12" width="303" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n25" value="Administração e perfil próprio&#xa;Senha e recuperação" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p2-n23">
+          <mxGeometry x="16" y="54" width="303" height="81" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n26" value="" edge="1" parent="1" source="p2-n5" target="p2-n8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n27" value="serviços compartilhados" edge="1" parent="1" source="p2-n8" target="p2-n11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n28" value="API" edge="1" parent="1" source="p2-n8" target="p2-n14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="385" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p2-n29" value="API" edge="1" parent="1" source="p2-n8" target="p2-n17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="385" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p2-n30" value="API" edge="1" parent="1" source="p2-n8" target="p2-n20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="385" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p2-n31" value="API" edge="1" parent="1" source="p2-n8" target="p2-n23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="650" y="385" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p2-n32" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="55" y="780" width="460" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n33" value="Frontend" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p2-n32">
+          <mxGeometry x="16" y="12" width="428" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n34" value="views/pages/ + views/css/&#xa;api.js: requisições e CSRF&#xa;sessao.js: identidade e saída&#xa;telas.js: fluxo e cadastros&#xa;usuarios.js / entrada.js / recuperacao.js" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p2-n32">
+          <mxGeometry x="16" y="54" width="428" height="136" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n35" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#F0F3F5;strokeColor=#657786;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="605" y="780" width="460" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n36" value="Operação" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p2-n35">
+          <mxGeometry x="16" y="12" width="428" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n37" value="configurar.php / configurar.ps1&#xa;preparar.php → migrar.php&#xa;banco-de-dados/migracoes/*.sql&#xa;php.ps1 / php.sh / iniciar.*" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p2-n35">
+          <mxGeometry x="16" y="54" width="428" height="136" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n38" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#FFF5D8;strokeColor=#A77B16;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1155" y="780" width="460" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n39" value="Qualidade e entrega" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p2-n38">
+          <mxGeometry x="16" y="12" width="428" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p2-n40" value="testes/*.php e *.py&#xa;entrega.py + entrega.json&#xa;.githooks/pre-commit e pre-push&#xa;documentacao/ e diagramas" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p2-n38">
+          <mxGeometry x="16" y="54" width="428" height="136" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ctic-3" name="03 Modelo físico de dados">
+    <mxGraphModel dx="1940" dy="1530" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1940" pageHeight="1530" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p3-n2" value="03  /  MODELO FÍSICO DE DADOS" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#075C35;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="24" width="1850" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n3" value="PK = chave primária; FK = chave estrangeira; UK = unicidade. Relações representam as restrições reais do banco." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#56665F;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="78" width="1850" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n4" value="CTIC  •  Sistema de Transportes  •  Estado documentado em 16/11/2026  •  Sem dados ou credenciais da instalação" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontColor=#657786;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1485" width="1850" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n5" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="50" y="160" width="350" height="335" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n6" value="usuarios" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p3-n5">
+          <mxGeometry x="16" y="12" width="318" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n7" value="PK id  BIGINT UNSIGNED&#xa;    nome  VARCHAR(150)&#xa;    email  VARCHAR(254)&#xa;    hash_senha  VARCHAR(255)&#xa;    perfil  ENUM(&#39;administrador&#39;,&#xa;&#39;solicitante&#39;)&#xa;    setor  VARCHAR(100)&#xa;    ativo  TINYINT(1)&#xa;    ultimo_acesso_em  DATETIME&#xa;    criado_em  DATETIME&#xa;    atualizado_em  DATETIME" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p3-n5">
+          <mxGeometry x="16" y="54" width="318" height="271" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n8" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="545" y="160" width="400" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n9" value="solicitacoes" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p3-n8">
+          <mxGeometry x="16" y="12" width="368" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n10" value="PK id  BIGINT UNSIGNED&#xa;FK usuario_id  BIGINT UNSIGNED&#xa;    tipo_deslocamento  VARCHAR(100)&#xa;    destino  VARCHAR(200)&#xa;    finalidade  VARCHAR(200)&#xa;    saida_em  DATETIME&#xa;    retorno_em  DATETIME&#xa;    local_embarque  VARCHAR(200)&#xa;    centro_custo  VARCHAR(100)&#xa;    justificativa  TEXT&#xa;    telefone  VARCHAR(30)&#xa;    setor  VARCHAR(100)&#xa;    vinculo  VARCHAR(100)&#xa;    status  ENUM (inclui cancelada após 003)&#xa;    criado_em  DATETIME&#xa;    atualizado_em  DATETIME" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p3-n8">
+          <mxGeometry x="16" y="54" width="368" height="536" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n11" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#AAB8B1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="160" width="350" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n12" value="passageiros" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p3-n11">
+          <mxGeometry x="16" y="12" width="318" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n13" value="PK id  BIGINT UNSIGNED&#xa;FK usuario_id  BIGINT UNSIGNED&#xa;    nome  VARCHAR(150)&#xa;    setor  VARCHAR(100)&#xa;    vinculo  VARCHAR(100)" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p3-n11">
+          <mxGeometry x="16" y="54" width="318" height="166" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n14" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#AAB8B1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="515" width="350" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n15" value="solicitacao_passageiros" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p3-n14">
+          <mxGeometry x="16" y="12" width="318" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n16" value="FK solicitacao_id  BIGINT UNSIGNED&#xa;FK passageiro_id  BIGINT UNSIGNED&#xa;PK composta: solicitacao_id +&#xa;passageiro_id" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p3-n14">
+          <mxGeometry x="16" y="54" width="318" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n17" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#AAB8B1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1530" y="160" width="350" height="285" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n18" value="historico_solicitacoes" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p3-n17">
+          <mxGeometry x="16" y="12" width="318" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n19" value="PK id  BIGINT UNSIGNED&#xa;FK solicitacao_id  BIGINT UNSIGNED&#xa;FK usuario_id  BIGINT UNSIGNED&#xa;    status_anterior  VARCHAR(20)&#xa;    status_novo  VARCHAR(20)&#xa;    criado_em  DATETIME" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p3-n17">
+          <mxGeometry x="16" y="54" width="318" height="221" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n20" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#AAB8B1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1530" y="555" width="350" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n21" value="observacoes_historico" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p3-n20">
+          <mxGeometry x="16" y="12" width="318" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n22" value="PK/FK historico_id  BIGINT UNSIGNED&#xa;    observacao  VARCHAR(2400)" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p3-n20">
+          <mxGeometry x="16" y="54" width="318" height="81" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n23" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#AAB8B1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="50" y="640" width="350" height="385" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n24" value="cadastros_passageiros" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p3-n23">
+          <mxGeometry x="16" y="12" width="318" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n25" value="PK id  BIGINT UNSIGNED&#xa;FK usuario_id  BIGINT UNSIGNED&#xa;    nome  VARCHAR(150)&#xa;    cpf  CHAR(11)&#xa;    telefone  VARCHAR(30)&#xa;    setor  VARCHAR(100)&#xa;    vinculo  VARCHAR(100)&#xa;    ativo  TINYINT(1)&#xa;    criado_em  DATETIME&#xa;    atualizado_em  DATETIME&#xa;    cpf_ativo  CHAR(11) gerado; UK com&#xa;usuario_id" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p3-n23">
+          <mxGeometry x="16" y="54" width="318" height="321" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n26" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#AAB8B1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="545" y="885" width="400" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n27" value="atendimentos_solicitacoes" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p3-n26">
+          <mxGeometry x="16" y="12" width="368" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n28" value="PK/FK solicitacao_id  BIGINT UNSIGNED&#xa;    veiculo  VARCHAR(150)&#xa;    motorista  VARCHAR(150)&#xa;    motivo_cancelamento  VARCHAR(2000)" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p3-n26">
+          <mxGeometry x="16" y="54" width="368" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n29" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#AAB8B1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="50" y="1140" width="350" height="255" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n30" value="recuperacoes_senha" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p3-n29">
+          <mxGeometry x="16" y="12" width="318" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n31" value="PK id  BIGINT UNSIGNED&#xa;FK usuario_id  BIGINT UNSIGNED&#xa;    hash_token  CHAR(64)&#xa;    assinatura_senha  CHAR(64)&#xa;    expira_em  DATETIME&#xa;    usado_em  DATETIME&#xa;    criado_em  DATETIME" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p3-n29">
+          <mxGeometry x="16" y="54" width="318" height="191" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n32" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#AAB8B1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="1130" width="350" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n33" value="tentativas_acesso" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p3-n32">
+          <mxGeometry x="16" y="12" width="318" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n34" value="PK id  BIGINT UNSIGNED&#xa;    chave_email  CHAR(64)&#xa;    chave_ip  CHAR(64)&#xa;    tentativa_em  DATETIME" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p3-n32">
+          <mxGeometry x="16" y="54" width="318" height="126" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n35" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#AAB8B1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1530" y="1130" width="350" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n36" value="tentativas_recuperacao" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p3-n35">
+          <mxGeometry x="16" y="12" width="318" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n37" value="PK id  BIGINT UNSIGNED&#xa;    chave_email  CHAR(64)&#xa;    chave_ip  CHAR(64)&#xa;    criado_em  DATETIME" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p3-n35">
+          <mxGeometry x="16" y="54" width="318" height="126" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n38" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#FFFFFF;strokeColor=#AAB8B1;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="545" y="1205" width="400" height="165" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n39" value="migracoes_aplicadas" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p3-n38">
+          <mxGeometry x="16" y="12" width="368" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n40" value="PK nome VARCHAR(190)&#xa;    resumo CHAR(64)&#xa;    aplicada_em DATETIME&#xa;Criada por comandos/migrar.php" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p3-n38">
+          <mxGeometry x="16" y="54" width="368" height="101" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n41" value="1 → 0..N" edge="1" parent="1" source="p3-n5" target="p3-n8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.5;entryX=0;entryY=0.25;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n42" value="1 → 0..N" edge="1" parent="1" source="p3-n5" target="p3-n23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n43" value="1 → 0..N" edge="1" parent="1" source="p3-n5" target="p3-n29" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0;exitY=0.8;entryX=0.5;entryY=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="20" y="428" />
+              <mxPoint x="20" y="1110" />
+              <mxPoint x="225" y="1110" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p3-n44" value="1 → 0..N" edge="1" parent="1" source="p3-n5" target="p3-n11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.12;entryX=0.5;entryY=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="450" y="200" />
+              <mxPoint x="450" y="130" />
+              <mxPoint x="1255" y="130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p3-n45" value="1 → 0..N (autor)" edge="1" parent="1" source="p3-n5" target="p3-n17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.3;entryX=0.5;entryY=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="470" y="260" />
+              <mxPoint x="470" y="145" />
+              <mxPoint x="1705" y="145" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p3-n46" value="1 → 0..N" edge="1" parent="1" source="p3-n8" target="p3-n14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.68;entryX=0;entryY=0.4;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n47" value="1 → 0..N" edge="1" parent="1" source="p3-n11" target="p3-n14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n48" value="1 → 0..N" edge="1" parent="1" source="p3-n8" target="p3-n17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=1;exitY=0.45;entryX=0;entryY=0.5;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1000" y="430" />
+              <mxPoint x="1470" y="430" />
+              <mxPoint x="1470" y="300" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p3-n49" value="1 → 0..1" edge="1" parent="1" source="p3-n8" target="p3-n26" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n50" value="1 → 0..1" edge="1" parent="1" source="p3-n17" target="p3-n20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1;entryX=0.5;entryY=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3-n51" value="SEM FK DIRETA: cadastros_passageiros → passageiros. O envio copia nome, setor e vínculo para&#xa;preservar a viagem.&#xa;&#xa;Tentativas e migrações são tabelas independentes. CPF ativo é único por usuário; e-mail de usuário&#xa;e hash_token também são únicos." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#213D30;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="1080" y="800" width="800" height="160" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ctic-4" name="04 Autenticação e sessão">
+    <mxGraphModel dx="1700" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p4-n2" value="04  /  AUTENTICAÇÃO E SESSÃO" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#075C35;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="24" width="1610" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n3" value="Sequência do login e verificações posteriores; as setas numeradas indicam a ordem." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#56665F;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="78" width="1610" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n4" value="CTIC  •  Sistema de Transportes  •  Estado documentado em 16/11/2026  •  Sem dados ou credenciais da instalação" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontColor=#657786;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1055" width="1610" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n5" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="55" y="170" width="290" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n6" value="Navegador / entrada.js" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p4-n5">
+          <mxGeometry x="16" y="12" width="258" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n7" value="GET /entrar&#xa;Recebe token CSRF no formulário" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p4-n5">
+          <mxGeometry x="16" y="54" width="258" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n8" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="480" y="170" width="320" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n9" value="API /autenticacao/entrar" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p4-n8">
+          <mxGeometry x="16" y="12" width="288" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n10" value="POST com e-mail e senha&#xa;X-CSRF-Token obrigatório" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p4-n8">
+          <mxGeometry x="16" y="54" width="288" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n11" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="955" y="170" width="350" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n12" value="autenticar()" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p4-n11">
+          <mxGeometry x="16" y="12" width="318" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n13" value="Valida formato e limites&#xa;Registra tentativa antes do hash&#xa;password_verify + conta ativa" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p4-n11">
+          <mxGeometry x="16" y="54" width="318" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n14" value="" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=18;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="955" y="480" width="350" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n15" value="MySQL" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p4-n14">
+          <mxGeometry x="16" y="25" width="318" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n16" value="usuarios + tentativas_acesso&#xa;5 tentativas/e-mail em 15 min&#xa;30 tentativas/IP em 15 min" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p4-n14">
+          <mxGeometry x="16" y="67" width="318" height="98" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n17" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="480" y="490" width="320" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n18" value="Sessão renovada" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p4-n17">
+          <mxGeometry x="16" y="12" width="288" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n19" value="Novo ID + novo CSRF&#xa;usuario_id e tempos no servidor&#xa;Assinatura SHA-256 do hash&#xa;Cookie HttpOnly / SameSite=Lax" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p4-n17">
+          <mxGeometry x="16" y="54" width="288" height="121" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n20" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="55" y="500" width="290" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n21" value="GET /painel" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p4-n20">
+          <mxGeometry x="16" y="12" width="258" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n22" value="Identidade vem do servidor&#xa;Somente campos públicos&#xa;HTML e JSON com escape" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p4-n20">
+          <mxGeometry x="16" y="54" width="258" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n23" value="1. enviar" edge="1" parent="1" source="p4-n5" target="p4-n8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n24" value="2. validar" edge="1" parent="1" source="p4-n8" target="p4-n11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n25" value="3. consultar / atualizar" edge="1" parent="1" source="p4-n11" target="p4-n14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n26" value="4. credenciais válidas" edge="1" parent="1" source="p4-n11" target="p4-n17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n27" value="5. abrir painel" edge="1" parent="1" source="p4-n17" target="p4-n20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n28" value="A CADA REQUISIÇÃO AUTENTICADA" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=18;fontColor=#075C35;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="810" width="1610" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n29" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#F0F3F5;strokeColor=#657786;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="55" y="860" width="730" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n30" value="usuario_atual()" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p4-n29">
+          <mxGeometry x="16" y="12" width="698" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n31" value="Reconsulta usuário ativo e perfil; compara assinatura da senha.&#xa;Expira após 30 minutos de inatividade ou 8 horas de duração (configuráveis)." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p4-n29">
+          <mxGeometry x="16" y="54" width="698" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n32" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#FCE9E9;strokeColor=#B04747;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="890" y="860" width="730" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n33" value="Recusa e saída" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p4-n32">
+          <mxGeometry x="16" y="12" width="698" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p4-n34" value="Sem sessão: API 401; página protegida redireciona para /entrar.&#xa;Conta desativada, senha redefinida ou logout invalidam o acesso." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p4-n32">
+          <mxGeometry x="16" y="54" width="698" height="76" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ctic-5" name="05 Solicitação de transporte">
+    <mxGraphModel dx="1700" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p5-n2" value="05  /  SOLICITAÇÃO DE TRANSPORTE" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#075C35;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="24" width="1610" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n3" value="O rascunho é da sessão; somente o envio final cria a viagem e seus passageiros no MySQL." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#56665F;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="78" width="1610" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n4" value="CTIC  •  Sistema de Transportes  •  Estado documentado em 16/11/2026  •  Sem dados ou credenciais da instalação" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontColor=#657786;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1055" width="1610" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n5" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="45" y="170" width="320" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n6" value="1. Dados da viagem" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p5-n5">
+          <mxGeometry x="16" y="12" width="288" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n7" value="/nova-solicitacao&#xa;Tipo, destino, finalidade, datas&#xa;Embarque, centro e justificativa" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p5-n5">
+          <mxGeometry x="16" y="54" width="288" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n8" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="465" y="170" width="320" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n9" value="2. Contato do responsável" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p5-n8">
+          <mxGeometry x="16" y="12" width="288" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n10" value="/solicitantes&#xa;Nome/e-mail da conta autenticada&#xa;Telefone, setor e vínculo" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p5-n8">
+          <mxGeometry x="16" y="54" width="288" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n11" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="885" y="170" width="320" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n12" value="3. Passageiros" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p5-n11">
+          <mxGeometry x="16" y="12" width="288" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n13" value="/passageiros&#xa;Seleciona cadastros próprios&#xa;De 1 a 50 no envio" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p5-n11">
+          <mxGeometry x="16" y="54" width="288" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n14" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1305" y="170" width="320" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n15" value="4. Revisão e declaração" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p5-n14">
+          <mxGeometry x="16" y="12" width="288" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n16" value="/revisao-envio&#xa;Revê todos os dados&#xa;Declaração precisa ser true" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p5-n14">
+          <mxGeometry x="16" y="54" width="288" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n17" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="465" y="445" width="740" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n18" value="Rascunho na sessão PHP" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p5-n17">
+          <mxGeometry x="16" y="12" width="708" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n19" value="PUT /api/solicitacoes/rascunho por etapa&#xa;Ainda não há solicitação gravada; descartar usa DELETE.&#xa;É compartilhado entre abas da mesma sessão." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p5-n17">
+          <mxGeometry x="16" y="54" width="708" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n20" value="" edge="1" parent="1" source="p5-n5" target="p5-n8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n21" value="" edge="1" parent="1" source="p5-n8" target="p5-n11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n22" value="" edge="1" parent="1" source="p5-n11" target="p5-n14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n23" value="salvar etapa" edge="1" parent="1" source="p5-n5" target="p5-n17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n24" value="salvar etapa" edge="1" parent="1" source="p5-n8" target="p5-n17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n25" value="salvar etapa" edge="1" parent="1" source="p5-n11" target="p5-n17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n26" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1305" y="465" width="320" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n27" value="POST /api/solicitacoes" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p5-n26">
+          <mxGeometry x="16" y="12" width="288" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n28" value="Validação completa no servidor&#xa;Declaração + CSRF + sessão" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p5-n26">
+          <mxGeometry x="16" y="54" width="288" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n29" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="885" y="775" width="740" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n30" value="Uma transação MySQL" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p5-n29">
+          <mxGeometry x="16" y="12" width="708" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n31" value="INSERT solicitacoes → cópias em passageiros → vínculos&#xa;INSERT histórico inicial com status pendente → COMMIT&#xa;Falha em qualquer etapa: ROLLBACK. Sucesso: limpa rascunho." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p5-n29">
+          <mxGeometry x="16" y="54" width="708" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n32" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="45" y="775" width="610" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n33" value="Confirmação e acompanhamento" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p5-n32">
+          <mxGeometry x="16" y="12" width="578" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n34" value="/solicitacao-enviada?id=... → protocolo real&#xa;/detalhes-solicitacao?id=... → dados e histórico&#xa;Listagem e painel consultam somente os pedidos permitidos." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p5-n32">
+          <mxGeometry x="16" y="54" width="578" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n35" value="" edge="1" parent="1" source="p5-n14" target="p5-n26" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n36" value="" edge="1" parent="1" source="p5-n26" target="p5-n29" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p5-n37" value="201 + identificador" edge="1" parent="1" source="p5-n29" target="p5-n32" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ctic-6" name="06 Estados da solicitação">
+    <mxGraphModel dx="1700" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p6-n2" value="06  /  ESTADOS DA SOLICITAÇÃO" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#075C35;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="24" width="1610" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n3" value="Transições reais de validar_transicao_solicitacao(). Operações repetidas no mesmo estado não geram novo histórico." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#56665F;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="78" width="1610" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n4" value="CTIC  •  Sistema de Transportes  •  Estado documentado em 16/11/2026  •  Sem dados ou credenciais da instalação" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontColor=#657786;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1055" width="1610" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n5" value="" style="rounded=1;arcSize=40;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="80" y="205" width="300" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n6" value="PENDENTE" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p6-n5">
+          <mxGeometry x="16" y="12" width="268" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n7" value="Estado inicial após o envio" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p6-n5">
+          <mxGeometry x="16" y="54" width="268" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n8" value="" style="rounded=1;arcSize=40;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="620" y="205" width="300" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n9" value="EM ANÁLISE" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p6-n8">
+          <mxGeometry x="16" y="12" width="268" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n10" value="Ação administrativa" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p6-n8">
+          <mxGeometry x="16" y="54" width="268" height="66" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n11" value="" style="rounded=1;arcSize=40;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="205" width="340" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n12" value="APROVADA" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p6-n11">
+          <mxGeometry x="16" y="12" width="308" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n13" value="Exige veículo e motorista&#xa;Ação administrativa" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p6-n11">
+          <mxGeometry x="16" y="54" width="308" height="86" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n14" value="" style="rounded=1;arcSize=40;html=0;whiteSpace=wrap;fillColor=#FCE9E9;strokeColor=#B04747;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="350" y="595" width="300" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n15" value="RECUSADA" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p6-n14">
+          <mxGeometry x="16" y="12" width="268" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n16" value="Estado terminal&#xa;Ação administrativa" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p6-n14">
+          <mxGeometry x="16" y="54" width="268" height="81" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n17" value="" style="rounded=1;arcSize=40;html=0;whiteSpace=wrap;fillColor=#FFF5D8;strokeColor=#A77B16;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="830" y="595" width="300" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n18" value="CANCELADA" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p6-n17">
+          <mxGeometry x="16" y="12" width="268" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n19" value="Estado terminal; exige motivo&#xa;Dono do pedido ou administrador" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p6-n17">
+          <mxGeometry x="16" y="54" width="268" height="81" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n20" value="" style="rounded=1;arcSize=40;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1305" y="595" width="300" height="145" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n21" value="CONCLUÍDA" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p6-n20">
+          <mxGeometry x="16" y="12" width="268" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n22" value="Estado terminal&#xa;Ação administrativa" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p6-n20">
+          <mxGeometry x="16" y="54" width="268" height="81" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n23" value="iniciar análise" edge="1" parent="1" source="p6-n5" target="p6-n8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=1;exitY=.5;entryX=0;entryY=.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n24" value="aprovar" edge="1" parent="1" source="p6-n8" target="p6-n11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=1;exitY=.5;entryX=0;entryY=.5;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n25" value="concluir" edge="1" parent="1" source="p6-n11" target="p6-n20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=.7;exitY=1;entryX=.5;entryY=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1398" y="470" />
+              <mxPoint x="1455" y="470" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p6-n26" value="aprovar diretamente" edge="1" parent="1" source="p6-n5" target="p6-n11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=.5;exitY=0;entryX=.5;entryY=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="230" y="145" />
+              <mxPoint x="1330" y="145" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p6-n27" value="recusar" edge="1" parent="1" source="p6-n5" target="p6-n14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=.3;exitY=1;entryX=.3;entryY=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="170" y="440" />
+              <mxPoint x="440" y="440" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p6-n28" value="recusar" edge="1" parent="1" source="p6-n8" target="p6-n14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=.25;exitY=1;entryX=.7;entryY=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="695" y="405" />
+              <mxPoint x="560" y="405" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p6-n29" value="cancelar" edge="1" parent="1" source="p6-n5" target="p6-n17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=.7;exitY=1;entryX=.25;entryY=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="290" y="505" />
+              <mxPoint x="905" y="505" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p6-n30" value="cancelar" edge="1" parent="1" source="p6-n8" target="p6-n17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=.75;exitY=1;entryX=.5;entryY=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="845" y="450" />
+              <mxPoint x="980" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p6-n31" value="cancelar" edge="1" parent="1" source="p6-n11" target="p6-n17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;exitX=.25;exitY=1;entryX=.75;entryY=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1245" y="490" />
+              <mxPoint x="1055" y="490" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p6-n32" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#F0F3F5;strokeColor=#657786;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="80" y="865" width="1525" height="125" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n33" value="Integridade do histórico" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p6-n32">
+          <mxGeometry x="16" y="12" width="1493" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p6-n34" value="SELECT ... FOR UPDATE bloqueia o pedido durante a mudança. Status, atendimento e histórico são gravados na mesma transação.&#xa;Pedido alheio retorna 404. Transição proibida retorna 409. Estados terminais não são reabertos pela API." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p6-n32">
+          <mxGeometry x="16" y="54" width="1493" height="61" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ctic-7" name="07 Passageiros e privacidade">
+    <mxGraphModel dx="1700" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p7-n2" value="07  /  PASSAGEIROS E PRIVACIDADE" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#075C35;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="24" width="1610" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n3" value="O catálogo reutilizável e os passageiros de uma viagem têm finalidades e ciclos de vida diferentes." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#56665F;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="78" width="1610" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n4" value="CTIC  •  Sistema de Transportes  •  Estado documentado em 16/11/2026  •  Sem dados ou credenciais da instalação" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontColor=#657786;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1055" width="1610" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n5" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="55" y="185" width="300" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n6" value="Usuário autenticado" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p7-n5">
+          <mxGeometry x="16" y="12" width="268" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n7" value="Cadastro é sempre privado por dono&#xa;Administrador também consulta&#xa;somente seu próprio catálogo" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p7-n5">
+          <mxGeometry x="16" y="54" width="268" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n8" value="" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=18;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="500" y="185" width="445" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n9" value="cadastros_passageiros" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p7-n8">
+          <mxGeometry x="16" y="25" width="413" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n10" value="Nome, CPF válido, telefone, setor e vínculo&#xa;CPF ativo único por usuario_id&#xa;GET / POST / PUT / DELETE na API&#xa;DELETE marca ativo=0; não apaga histórico" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p7-n8">
+          <mxGeometry x="16" y="67" width="413" height="153" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n11" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="185" width="470" height="230" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n12" value="Seleção para o rascunho" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p7-n11">
+          <mxGeometry x="16" y="12" width="438" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n13" value="passageiros_ids: inteiros distintos&#xa;Somente cadastros ativos do próprio usuário&#xa;Até 50; zero é aceito apenas no rascunho&#xa;API copia os dados para a sessão" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p7-n11">
+          <mxGeometry x="16" y="54" width="438" height="166" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n14" value="" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=18;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="500" y="630" width="445" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n15" value="passageiros + vínculo da viagem" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p7-n14">
+          <mxGeometry x="16" y="25" width="413" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n16" value="O envio final cria cópias independentes&#xa;Somente nome, setor, vínculo e usuario_id&#xa;solicitacao_passageiros faz a associação&#xa;Sem FK para o catálogo reutilizável" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p7-n14">
+          <mxGeometry x="16" y="67" width="413" height="143" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n17" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#FFF5D8;strokeColor=#A77B16;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1130" y="660" width="470" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n18" value="Editar ou remover depois" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p7-n17">
+          <mxGeometry x="16" y="12" width="438" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n19" value="Afeta apenas o catálogo&#xa;As cópias das viagens não mudam&#xa;Passageiros alheios retornam 404" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p7-n17">
+          <mxGeometry x="16" y="54" width="438" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n20" value="seu cadastro" edge="1" parent="1" source="p7-n5" target="p7-n8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n21" value="selecionar" edge="1" parent="1" source="p7-n8" target="p7-n11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n22" value="envio final" edge="1" parent="1" source="p7-n11" target="p7-n14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n23" value="manutenção" edge="1" parent="1" source="p7-n8" target="p7-n17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n24" value="não altera" edge="1" parent="1" source="p7-n17" target="p7-n14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p7-n25" value="A API legada também aceita passageiros informados diretamente no rascunho (nome, setor e vínculo); a interface atual usa o catálogo privado. Nenhum cadastro real ou dump com pessoas deve&#xa;acompanhar a entrega." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#213D30;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="55" y="925" width="1545" height="70" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ctic-8" name="08 Recuperação e troca de senha">
+    <mxGraphModel dx="1700" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p8-n2" value="08  /  RECUPERAÇÃO E TROCA DE SENHA" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#075C35;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="24" width="1610" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n3" value="O token bruto aparece somente no link gerado; o banco guarda seu hash. A recuperação não revela se uma conta existe." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#56665F;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="78" width="1610" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n4" value="CTIC  •  Sistema de Transportes  •  Estado documentado em 16/11/2026  •  Sem dados ou credenciais da instalação" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontColor=#657786;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1055" width="1610" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n5" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="45" y="175" width="340" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n6" value="Solicitar recuperação" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p8-n5">
+          <mxGeometry x="16" y="12" width="308" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n7" value="/recuperar-senha&#xa;POST /api/autenticacao/recuperar&#xa;E-mail válido + CSRF" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p8-n5">
+          <mxGeometry x="16" y="54" width="308" height="96" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n8" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="535" y="175" width="390" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n9" value="Servidor" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p8-n8">
+          <mxGeometry x="16" y="12" width="358" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n10" value="Limite: 5 pedidos por e-mail OU IP&#xa;Janela de 15 minutos&#xa;Mesmo texto para conta inexistente&#xa;Conta existente precisa estar ativa" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p8-n8">
+          <mxGeometry x="16" y="54" width="358" height="126" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n11" value="" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=18;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="175" width="520" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n12" value="recuperacoes_senha" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p8-n11">
+          <mxGeometry x="16" y="25" width="488" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n13" value="Token aleatório de 32 bytes (64 hex)&#xa;SHA-256 do token + assinatura do hash da senha&#xa;Expiração em 30 minutos&#xa;Marca de uso impede reutilização" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p8-n11">
+          <mxGeometry x="16" y="67" width="488" height="113" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n14" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#FFF5D8;strokeColor=#A77B16;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1090" y="530" width="520" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n15" value="Entrega da mensagem" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p8-n14">
+          <mxGeometry x="16" y="12" width="488" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n16" value="Local: TXT privado em armazenamento/emails&#xa;Externo: mail() com remetente e servidor configurados&#xa;Sem configuração, não há entrega externa." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p8-n14">
+          <mxGeometry x="16" y="54" width="488" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n17" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="535" y="530" width="390" height="205" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n18" value="Redefinir senha" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p8-n17">
+          <mxGeometry x="16" y="12" width="358" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n19" value="/redefinir-senha#token=...&#xa;Token sai da URL após leitura&#xa;POST /api/autenticacao/redefinir&#xa;12–72 bytes + confirmação&#xa;Validação e atualização transacionais" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p8-n17">
+          <mxGeometry x="16" y="54" width="358" height="141" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n20" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="45" y="550" width="340" height="175" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n21" value="Novo acesso" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p8-n20">
+          <mxGeometry x="16" y="12" width="308" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n22" value="Hash de senha é substituído&#xa;Todos os tokens pendentes são usados&#xa;Sessões antigas são recusadas&#xa;Usuário entra novamente" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p8-n20">
+          <mxGeometry x="16" y="54" width="308" height="111" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n23" value="" edge="1" parent="1" source="p8-n5" target="p8-n8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n24" value="somente conta ativa" edge="1" parent="1" source="p8-n8" target="p8-n11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n25" value="link com token bruto" edge="1" parent="1" source="p8-n11" target="p8-n14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n26" value="abrir link" edge="1" parent="1" source="p8-n14" target="p8-n17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n27" value="senha salva" edge="1" parent="1" source="p8-n17" target="p8-n20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n28" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#F0F3F5;strokeColor=#657786;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="45" y="875" width="1565" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n29" value="Outras duas formas de alterar senha" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p8-n28">
+          <mxGeometry x="16" y="12" width="1533" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p8-n30" value="Minha conta: exige a senha atual, preserva a sessão que fez a troca e invalida as outras.&#xa;Administração: administrador redefine a senha de uma conta; não envia e-mail nem exige troca no próximo login." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p8-n28">
+          <mxGeometry x="16" y="54" width="1533" height="56" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ctic-9" name="09 API e autorização">
+    <mxGraphModel dx="1700" dy="1210" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1210" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p9-n2" value="09  /  API E AUTORIZAÇÃO" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#075C35;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="24" width="1610" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n3" value="Todas as escritas exigem CSRF. Respostas usam JSON e dados pessoais nunca são retornados sem autorização." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#56665F;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="78" width="1610" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n4" value="CTIC  •  Sistema de Transportes  •  Estado documentado em 16/11/2026  •  Sem dados ou credenciais da instalação" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontColor=#657786;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1165" width="1610" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n5" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="45" y="170" width="490" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n6" value="Acesso público + CSRF nas escritas" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p9-n5">
+          <mxGeometry x="16" y="12" width="458" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n7" value="GET  /api/autenticacao/csrf&#xa;POST /api/autenticacao/entrar&#xa;POST /api/autenticacao/recuperar&#xa;POST /api/autenticacao/redefinir&#xa;Formatos e limites são validados no servidor." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p9-n5">
+          <mxGeometry x="16" y="54" width="458" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n8" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="605" y="170" width="490" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n9" value="Usuário autenticado" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p9-n8">
+          <mxGeometry x="16" y="12" width="458" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n10" value="GET /api/autenticacao/usuario&#xa;POST /api/autenticacao/sair&#xa;GET/PUT /api/conta&#xa;PUT /api/conta/senha&#xa;GET/POST /api/passageiros&#xa;GET/PUT/DELETE /api/passageiros/{id}" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p9-n8">
+          <mxGeometry x="16" y="54" width="458" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n11" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1165" y="170" width="490" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n12" value="Dono ou administrador: pedidos" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p9-n11">
+          <mxGeometry x="16" y="12" width="458" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n13" value="GET/POST /api/solicitacoes&#xa;GET/PUT/DELETE /.../rascunho&#xa;GET /api/solicitacoes/{id}&#xa;POST /api/solicitacoes/{id}/cancelar&#xa;Solicitante vê somente seus pedidos." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p9-n11">
+          <mxGeometry x="16" y="54" width="458" height="206" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n14" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="45" y="570" width="760" height="235" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n15" value="Somente administrador" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p9-n14">
+          <mxGeometry x="16" y="12" width="728" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n16" value="GET/POST /api/usuarios&#xa;PUT /api/usuarios/{id}&#xa;POST /api/usuarios/{id}/senha&#xa;PATCH /api/solicitacoes/{id}/status&#xa;POST /api/solicitacoes/{id}/analise" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p9-n14">
+          <mxGeometry x="16" y="54" width="728" height="171" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n17" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#F0F3F5;strokeColor=#657786;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="900" y="570" width="755" height="235" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n18" value="Matriz de acesso: solicitante / administrador" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p9-n17">
+          <mxGeometry x="16" y="12" width="723" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n19" value="Catálogo de passageiros: próprio / próprio&#xa;Pedidos: próprios / todos&#xa;Análise e status: não / sim&#xa;Cancelamento: próprio / qualquer pedido aberto&#xa;Administração de usuários: não / sim" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p9-n17">
+          <mxGeometry x="16" y="54" width="723" height="171" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n20" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#FFF5D8;strokeColor=#A77B16;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="45" y="925" width="1610" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n21" value="Respostas e proteções comuns" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p9-n20">
+          <mxGeometry x="16" y="12" width="1578" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p9-n22" value="400 JSON inválido • 401 sem sessão • 403 sem permissão • 404 inexistente ou alheio • 405 método incorreto&#xa;409 conflito / transição inválida • 413 corpo &gt;16 KiB • 415 tipo inválido • 419 CSRF • 422 validação • 429 limite • 503 serviço indisponível&#xa;Usuários ativos, perfil e assinatura da senha são conferidos pelo servidor; ocultar botões não é uma barreira de segurança." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p9-n20">
+          <mxGeometry x="16" y="54" width="1578" height="76" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ctic-10" name="10 Navegação das telas">
+    <mxGraphModel dx="1700" dy="1300" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1300" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p10-n2" value="10  /  NAVEGAÇÃO DAS TELAS" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#075C35;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="24" width="1610" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n3" value="Rotas atuais; os arquivos HTML antigos são redirecionados pelo controlador. O painel usa login.html por compatibilidade." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#56665F;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="78" width="1610" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n4" value="CTIC  •  Sistema de Transportes  •  Estado documentado em 16/11/2026  •  Sem dados ou credenciais da instalação" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontColor=#657786;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1255" width="1610" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n5" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="45" y="175" width="325" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n6" value="Acesso público" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p10-n5">
+          <mxGeometry x="16" y="12" width="293" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n7" value="/entrar&#xa;/recuperar-senha&#xa;/confirmar-email /redefinir-senha" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p10-n5">
+          <mxGeometry x="16" y="54" width="293" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n8" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="500" y="175" width="360" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n9" value="/painel" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p10-n8">
+          <mxGeometry x="16" y="12" width="328" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n10" value="Indicadores e pedidos recentes&#xa;Entrada após login real" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p10-n8">
+          <mxGeometry x="16" y="54" width="328" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n11" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="175" width="560" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n12" value="Consultas de solicitações" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p10-n11">
+          <mxGeometry x="16" y="12" width="528" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n13" value="/solicitacoes → /solicitacoes-filtradas&#xa;/detalhes-solicitacao?id=..." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p10-n11">
+          <mxGeometry x="16" y="54" width="528" height="76" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n14" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="45" y="465" width="455" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n15" value="Nova solicitação: quatro etapas" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p10-n14">
+          <mxGeometry x="16" y="12" width="423" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n16" value="/nova-solicitacao → /solicitantes&#xa;→ /passageiros → /revisao-envio&#xa;→ /solicitacao-enviada?id=...&#xa;/descartar-solicitacao limpa o rascunho" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p10-n14">
+          <mxGeometry x="16" y="54" width="423" height="156" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n17" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="600" y="465" width="455" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n18" value="Passageiros cadastrados" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p10-n17">
+          <mxGeometry x="16" y="12" width="423" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n19" value="/passageiros-cadastrados&#xa;/buscar-passageiro&#xa;/adicionar-passageiro /editar-passageiro&#xa;/passageiro-salvo /passageiro-removido" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p10-n17">
+          <mxGeometry x="16" y="54" width="423" height="156" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n20" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1155" y="465" width="455" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n21" value="Ações sobre um pedido" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p10-n20">
+          <mxGeometry x="16" y="12" width="423" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n22" value="/analisar-solicitacao?id=... (administrador)&#xa;Aprovar / recusar / iniciar análise&#xa;/cancelar-solicitacao?id=...&#xa;Concluir é uma ação nos detalhes" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p10-n20">
+          <mxGeometry x="16" y="54" width="423" height="156" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n23" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="45" y="890" width="455" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n24" value="Conta e sessão" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p10-n23">
+          <mxGeometry x="16" y="12" width="423" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n25" value="/minha-conta: perfil e troca de senha&#xa;/sair-da-conta: confirmação de saída" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p10-n23">
+          <mxGeometry x="16" y="54" width="423" height="126" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n26" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="600" y="890" width="455" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n27" value="Administração de usuários" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p10-n26">
+          <mxGeometry x="16" y="12" width="423" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n28" value="/usuarios (somente administrador)&#xa;Cadastro, edição, ativação e senha" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p10-n26">
+          <mxGeometry x="16" y="54" width="423" height="126" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n29" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#F0F3F5;strokeColor=#657786;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1155" y="890" width="455" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n30" value="Ajuda" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p10-n29">
+          <mxGeometry x="16" y="12" width="423" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n31" value="/como-funciona&#xa;Explica o fluxo e os estados do pedido" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p10-n29">
+          <mxGeometry x="16" y="54" width="423" height="126" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n32" value="login" edge="1" parent="1" source="p10-n5" target="p10-n8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n33" value="" edge="1" parent="1" source="p10-n8" target="p10-n11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n34" value="" edge="1" parent="1" source="p10-n8" target="p10-n14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n35" value="" edge="1" parent="1" source="p10-n8" target="p10-n17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n36" value="" edge="1" parent="1" source="p10-n11" target="p10-n20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n37" value="cadastrar e selecionar" edge="1" parent="1" source="p10-n14" target="p10-n17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;dashed=1;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p10-n38" value="perfil" edge="1" parent="1" source="p10-n8" target="p10-n23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="545" y="800" />
+              <mxPoint x="270" y="800" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="p10-n39" value="Os links para edição, detalhe, análise, cancelamento e confirmações carregam identificadores reais. O backend revalida o acesso ao registro." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#213D30;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1150" width="1565" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ctic-11" name="11 Preparação e operação">
+    <mxGraphModel dx="1700" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p11-n2" value="11  /  PREPARAÇÃO E OPERAÇÃO" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#075C35;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="24" width="1610" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n3" value="O instalador configura um MySQL existente; o Workbench serve para administrá-lo. Não inclui binários ou dados na entrega." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#56665F;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="78" width="1610" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n4" value="CTIC  •  Sistema de Transportes  •  Estado documentado em 16/11/2026  •  Sem dados ou credenciais da instalação" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontColor=#657786;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1055" width="1610" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n5" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#F0F3F5;strokeColor=#657786;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="45" y="180" width="340" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n6" value="Ambiente necessário" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p11-n5">
+          <mxGeometry x="16" y="12" width="308" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n7" value="PHP 8.1+ com PDO MySQL&#xa;MySQL com InnoDB e utf8mb4&#xa;Python 3.10+ para entrega/testes&#xa;draw.io para editar os diagramas" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p11-n5">
+          <mxGeometry x="16" y="54" width="308" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n8" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="525" y="180" width="470" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n9" value="configurar.cmd / configurar.ps1" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p11-n8">
+          <mxGeometry x="16" y="12" width="438" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n10" value="Recebe acesso administrativo local&#xa;Cria banco se ele não existe&#xa;Cria uma conta restrita à aplicação&#xa;Gera configuração e acesso locais" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p11-n8">
+          <mxGeometry x="16" y="54" width="438" height="136" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n11" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1155" y="180" width="460" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n12" value="preparar.php → migrar.php" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p11-n11">
+          <mxGeometry x="16" y="12" width="428" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n13" value="GET_LOCK evita preparações simultâneas&#xa;Aplica migrações SQL em ordem&#xa;Registra nomes e hashes SHA-256&#xa;Cria administrador somente se não existe" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p11-n11">
+          <mxGeometry x="16" y="54" width="428" height="136" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n14" value="" style="shape=cylinder3;boundedLbl=1;backgroundOutline=1;size=18;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1155" y="595" width="460" height="185" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n15" value="MySQL preparado" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p11-n14">
+          <mxGeometry x="16" y="25" width="428" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n16" value="001: autenticação&#xa;002: solicitações e histórico&#xa;003: catálogo e fluxos completos&#xa;Ledger: migracoes_aplicadas" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p11-n14">
+          <mxGeometry x="16" y="67" width="428" height="108" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n17" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="525" y="610" width="470" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n18" value="iniciar.cmd / iniciar.ps1" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p11-n17">
+          <mxGeometry x="16" y="12" width="438" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n19" value="php -S 127.0.0.1:8080 roteador.php&#xa;Linux: iniciar.sh com comandos/php.sh&#xa;Desenvolvimento local" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p11-n17">
+          <mxGeometry x="16" y="54" width="438" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n20" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#F0F3F5;strokeColor=#657786;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="45" y="610" width="340" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n21" value="Validação" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p11-n20">
+          <mxGeometry x="16" y="12" width="308" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n22" value="PHP: regras isoladas&#xa;Python: integração HTTP&#xa;Playwright: navegador&#xa;Entrega: testes sem banco" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p11-n20">
+          <mxGeometry x="16" y="54" width="308" height="106" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n23" value="" edge="1" parent="1" source="p11-n5" target="p11-n8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n24" value="" edge="1" parent="1" source="p11-n8" target="p11-n11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n25" value="" edge="1" parent="1" source="p11-n11" target="p11-n14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n26" value="configuração válida" edge="1" parent="1" source="p11-n14" target="p11-n17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n27" value="verificar" edge="1" parent="1" source="p11-n17" target="p11-n20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p11-n28" value="Hospedagem: DocumentRoot em public/, HTTPS, cookie_seguro=true, ambiente_local=false, remetente e serviço de e-mail configurados. As migrações atuais não contêm dados pessoais. DDL não é&#xa;revertido automaticamente pelo MySQL; faça backup antes de futuras mudanças de estrutura." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#213D30;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="900" width="1570" height="95" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="ctic-12" name="12 Entrega sem dados locais">
+    <mxGraphModel dx="1700" dy="1100" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1700" pageHeight="1100" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="p12-n2" value="12  /  ENTREGA SEM DADOS LOCAIS" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#075C35;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="24" width="1610" height="42" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n3" value="O caminho recomendado para compartilhar é o ZIP produzido pelo comando; um ZIP manual da pasta não passa por estas barreiras." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=15;fontColor=#56665F;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="78" width="1610" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n4" value="CTIC  •  Sistema de Transportes  •  Estado documentado em 16/11/2026  •  Sem dados ou credenciais da instalação" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=12;fontColor=#657786;fontStyle=0;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="1055" width="1610" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n5" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#F0F3F5;strokeColor=#657786;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="45" y="170" width="360" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n6" value="Projeto de trabalho" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p12-n5">
+          <mxGeometry x="16" y="12" width="328" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n7" value="Código + modelos + documentação&#xa;Credenciais e configuração privadas&#xa;Logs, mensagens, caches e banco local&#xa;Git e cópias de segurança" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p12-n5">
+          <mxGeometry x="16" y="54" width="328" height="146" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n8" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="555" y="170" width="490" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n9" value="entrega.py + entrega.json" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p12-n8">
+          <mxGeometry x="16" y="12" width="458" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n10" value="Lista de diretórios, arquivos e extensões&#xa;Recusa segredos identificados no conteúdo&#xa;Compara com as senhas locais sem exibi-las&#xa;Recusa vínculos e dumps com dados&#xa;Guarda só código e documentação revisáveis" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p12-n8">
+          <mxGeometry x="16" y="54" width="458" height="156" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n11" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#EAF1FB;strokeColor=#386AA3;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1205" y="170" width="420" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n12" value="entregas/*.zip" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p12-n11">
+          <mxGeometry x="16" y="12" width="388" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n13" value="Sem .git, *.local.*, .env ou credenciais&#xa;Sem armazenamento, dumps e backups&#xa;Manifesto com SHA-256 de cada arquivo&#xa;ZIP relido e conferido antes de liberar" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p12-n11">
+          <mxGeometry x="16" y="54" width="388" height="156" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n14" value="preparar-entrega.cmd" edge="1" parent="1" source="p12-n5" target="p12-n8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n15" value="ZIP verificado" edge="1" parent="1" source="p12-n8" target="p12-n11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n16" value="CAMADAS PARA GIT" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontFamily=Arial;fontSize=18;fontColor=#075C35;fontStyle=1;spacing=0;" vertex="1" parent="1">
+          <mxGeometry x="45" y="535" width="1610" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n17" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#F0F3F5;strokeColor=#657786;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="45" y="600" width="440" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n18" value=".gitignore / .gitattributes" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p12-n17">
+          <mxGeometry x="16" y="12" width="408" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n19" value="Ignora arquivos locais na preparação&#xa;export-ignore evita itens no git archive&#xa;Não remove segredos de commits antigos." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p12-n17">
+          <mxGeometry x="16" y="54" width="408" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n20" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="625" y="600" width="440" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n21" value="Gancho pre-commit" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p12-n20">
+          <mxGeometry x="16" y="12" width="408" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n22" value="Verifica os bytes do índice Git&#xa;Bloqueia arquivos privados rastreados&#xa;Não confia só no arquivo da pasta." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p12-n20">
+          <mxGeometry x="16" y="54" width="408" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n23" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#E5F4EC;strokeColor=#087443;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="1205" y="600" width="420" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n24" value="Gancho pre-push" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p12-n23">
+          <mxGeometry x="16" y="12" width="388" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n25" value="Inspeciona os commits a enviar&#xa;Detecta segredo apagado no commit seguinte&#xa;Não reescreve o histórico automaticamente." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p12-n23">
+          <mxGeometry x="16" y="54" width="388" height="116" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n26" value="git add / commit" edge="1" parent="1" source="p12-n17" target="p12-n20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n27" value="git push" edge="1" parent="1" source="p12-n20" target="p12-n23" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=0;endArrow=block;endFill=1;strokeColor=#61766B;strokeWidth=1.5;fontFamily=Arial;fontSize=12;labelBackgroundColor=#FFFFFF;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n28" value="" style="rounded=1;arcSize=8;html=0;whiteSpace=wrap;fillColor=#FFF5D8;strokeColor=#A77B16;strokeWidth=1.5;" vertex="1" parent="1">
+          <mxGeometry x="45" y="910" width="1580" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n29" value="Limite da automação" style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=middle;fontSize=16;fontFamily=Arial;fontStyle=1;fontColor=#163E2A;" vertex="1" parent="p12-n28">
+          <mxGeometry x="16" y="12" width="1548" height="34" as="geometry" />
+        </mxCell>
+        <mxCell id="p12-n30" value="Os ganchos são locais e podem ser ignorados manualmente; padrões não reconhecem todo dado pessoal em texto livre ou imagem.&#xa;Revise os arquivos permitidos e compartilhe somente o ZIP gerado. As credenciais locais continuam funcionando na sua instalação." style="text;html=0;whiteSpace=wrap;align=left;verticalAlign=top;fontSize=14;fontFamily=Arial;spacingTop=2;fontColor=#263E31;" vertex="1" parent="p12-n28">
+          <mxGeometry x="16" y="54" width="1548" height="36" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,64 @@
+{
+  "versao": 1,
+  "nome_projeto": "sistema-transporte-ctic",
+  "limite_arquivo_bytes": 5242880,
+  "arquivos": [
+    ".gitignore",
+    ".gitattributes",
+    "AGENTS.md",
+    ".htaccess",
+    ".githooks/pre-commit",
+    ".githooks/pre-push",
+    "index.php",
+    "roteador.php",
+    "configurar.cmd",
+    "iniciar.cmd",
+    "iniciar.ps1",
+    "iniciar.sh",
+    "preparar-entrega.cmd",
+    "configuracao/aplicacao.exemplo.php",
+    "configuracao/primeiro-usuario.exemplo.php",
+    "configuracao/entrega.json",
+    "public/.htaccess",
+    "public/index.php",
+    "public/views/img/uea-logo-verde.png",
+    "public/views/img/uea_new_logo_negativo_400.png",
+    "README.md"
+  ],
+  "diretorios": {
+    "aplicacao": [
+      ".php"
+    ],
+    "comandos": [
+      ".php",
+      ".py",
+      ".ps1",
+      ".sh"
+    ],
+    "banco-de-dados/migracoes": [
+      ".sql"
+    ],
+    "public/assets": [
+      ".css",
+      ".js",
+      ".svg"
+    ],
+    "public/views/css": [
+      ".css"
+    ],
+    "public/views/pages": [
+      ".html",
+      ".php"
+    ],
+    "testes": [
+      ".php",
+      ".py"
+    ],
+    "documentacao": [
+      ".txt",
+      ".drawio",
+      ".svg",
+      ".md"
+    ]
+  }
+}

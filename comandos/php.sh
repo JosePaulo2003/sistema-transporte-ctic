@@ -2,7 +2,7 @@
 set -eu
 # Carrega o driver apenas se ele ainda não estiver habilitado no PHP instalado.
 if ! command -v php >/dev/null 2>&1; then
-    echo 'PHP não encontrado. Consulte a instalação no LEIA-ME.md.' >&2
+    echo 'PHP não encontrado. Instale PHP 8.1 ou superior com o driver pdo_mysql.' >&2
     exit 1
 fi
 if ! php -r 'exit(version_compare(PHP_VERSION, "8.1", ">=") ? 0 : 1);'; then

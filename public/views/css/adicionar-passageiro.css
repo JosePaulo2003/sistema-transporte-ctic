@@ -1,0 +1,73 @@
+/* =========================
+   ADICIONAR PASSAGEIRO
+   ========================= */
+
+.secao-formulario {
+    max-width: 1000px;
+}
+
+.secao-formulario form {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.linha-inputs {
+    grid-template-columns: 1fr;
+    margin-bottom: 12px;
+}
+
+.input-grupo {
+    width: 100%;
+}
+
+.input-grupo select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background: var(--branco);
+    color: var(--texto);
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+.input-grupo select:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 0 3px rgb(0 104 55 / 10%);
+}
+
+#mensagem-erro {
+    color: #b42318;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+#mensagem-erro:empty {
+    display: none;
+}
+
+.botoes-acao {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+
+    .secao-formulario {
+        padding: 14px;
+    }
+
+    .botoes-acao {
+        flex-direction: column;
+    }
+
+    .botoes-acao button,
+    .botoes-acao a {
+        width: 100%;
+        min-height: 48px;
+    }
+
+}

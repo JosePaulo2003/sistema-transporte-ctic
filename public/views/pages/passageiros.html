@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -23,45 +24,83 @@
             <h2>Sistema de Transportes</h2>
         </div>
 
-        <div class="perfil-usuario">
+        <a href="minha-conta.html" class="perfil-usuario" aria-label="Minha conta">
             <div class="avatar" id="avatar-usuario">AM</div>
             <div class="dados-usuario">
                 <strong id="nome-usuario">Ana Martins</strong>
                 <span>CESIT</span>
             </div>
-        </div>
+        </a>
     </header>
 
     <div class="layout">
+
         <!-- MENU LATERAL -->
         <aside class="menu-lateral">
             <nav aria-label="Navegação principal">
                 <ul>
-                    <li><a href="login.html"><span class="icone-menu" aria-hidden="true">⌂</span> Visão geral</a></li>
-                    <li><a href="nova-solicitacao.html"><span class="icone-menu" aria-hidden="true">+</span> Nova solicitação</a></li>
-                    <li><a href="solicitacoes.html"><span class="icone-menu" aria-hidden="true">≡</span> Solicitações</a></li>
-                    <li class="ativo"><a href="passageiros.html"><span class="icone-menu" aria-hidden="true">●</span> Passageiros</a></li>
+                    <li>
+                        <a href="login.html">
+                            <span class="icone-menu" aria-hidden="true">⌂</span>
+                            Visão geral
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="nova-solicitacao.html">
+                            <span class="icone-menu" aria-hidden="true">+</span>
+                            Nova solicitação
+                        </a>
+                    </li>
+
+                    <li class="ativo">
+                        <a href="solicitacoes.html">
+                            <span class="icone-menu" aria-hidden="true">≡</span>
+                            Solicitações
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="passageiros-cadastrados.html">
+                            <span class="icone-menu" aria-hidden="true">●</span>
+                            Passageiros
+                        </a>
+                    </li>
                 </ul>
+
                 <p class="rotulo-ajuda">AJUDA</p>
+
                 <ul>
-                    <li><a href="#"><span class="icone-menu" aria-hidden="true">?</span> Como funciona</a></li>
+                    <li>
+                        <a href="como-funciona.html">
+                            <span class="icone-menu" aria-hidden="true">?</span>
+                            Como funciona
+                        </a>
+                    </li>
                 </ul>
             </nav>
-            <footer><small>v1.0 · CESIT/UEA</small></footer>
+
+            <footer>
+                <small>v1.0 · CESIT/UEA</small>
+            </footer>
         </aside>
 
         <!-- CONTEÚDO PRINCIPAL -->
         <main>
+
             <section class="titulo-pagina">
                 <div class="texto-titulo">
                     <h1>Passageiros</h1>
-                    <p class="texto-desktop">Adicione as pessoas que participarão do deslocamento.</p>
+                    <p class="texto-desktop">
+                        Adicione as pessoas que participarão do deslocamento.
+                    </p>
                 </div>
             </section>
 
             <!-- BARRA DE PROGRESSO -->
             <div class="progresso-etapa">
                 <p>Etapa 3 de 4</p>
+
                 <div class="barra-progresso">
                     <div class="progresso-preenchido"></div>
                 </div>
@@ -69,49 +108,61 @@
 
             <!-- CONTAINER DE PASSAGEIROS -->
             <section class="secao-formulario">
+
                 <div class="cabecalho-passageiros">
                     <h2>Passageiros adicionados</h2>
 
+                    <a href="adicionar-passageiro.html?origem=viagem" class="btn-adicionar-passageiro">
+                        + Adicionar passageiro
+                    </a>
                 </div>
 
-                <!-- LISTA DE CARDS DOS PASSAGEIROS -->
-                <!-- Os passageiros só são gravados definitivamente no envio da revisão. -->
-                <form id="form-passageiro">
-                    <div class="linha-inputs">
-                        <div class="input-grupo"><label for="passageiro-nome">Nome completo</label><input id="passageiro-nome" maxlength="150" required></div>
-                        <div class="input-grupo"><label for="passageiro-setor">Setor</label><input id="passageiro-setor" maxlength="100" required></div>
-                        <div class="input-grupo"><label for="passageiro-vinculo">Vínculo</label><input id="passageiro-vinculo" maxlength="100" required></div>
-                    </div>
-                    <button type="submit" class="btn-continuar">Adicionar passageiro</button>
-                </form>
-                <div class="lista-passageiros" aria-live="polite"></div>
+                <!-- LISTA DINÂMICA DE PASSAGEIROS -->
+                <div class="lista-passageiros" id="lista-passageiros">
+                    <!-- Os passageiros serão carregados pelo JavaScript -->
+                </div>
+
                 <!-- BOTÕES DE AÇÃO -->
                 <div class="botoes-acao">
-                    <a href="solicitantes.html" class="btn-voltar">Voltar</a>
-                    <a href="revisao-envio.html" class="btn-continuar">Revisar solicitação</a>
+                    <a href="solicitantes.html" class="btn-voltar">
+                        Voltar
+                    </a>
+
+                    <a href="revisao-envio.html" class="btn-continuar">
+                        Revisar solicitação
+                    </a>
                 </div>
+
             </section>
         </main>
     </div>
 
     <!-- NAVEGAÇÃO INFERIOR: CELULAR -->
     <nav class="mobile-bottom-nav" aria-label="Navegação para celular">
+
         <a href="login.html">
             <span class="nav-icon" aria-hidden="true">⌂</span>
             <span>Visão geral</span>
         </a>
+
         <a href="nova-solicitacao.html" class="active" aria-current="page">
             <span class="nav-icon" aria-hidden="true">+</span>
             <span>Nova</span>
         </a>
+
         <a href="solicitacoes.html">
             <span class="nav-icon" aria-hidden="true">≡</span>
             <span>Solicitações</span>
         </a>
+
+        <a href="passageiros-cadastrados.html">
+            <span class="nav-icon" aria-hidden="true">●</span>
+            <span>Passageiros</span>
+        </a>
+
     </nav>
 
-    <!-- SCRIPT PARA CARREGAR O NOME DO USUÁRIO LOGADO -->
-    <!-- O fluxo de transporte é compartilhado entre as etapas. -->
-<script src="/public/assets/js/solicitacoes.js" defer></script>
+    <!-- SCRIPT -->
+
 </body>
 </html>

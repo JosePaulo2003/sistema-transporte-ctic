@@ -8,5 +8,8 @@ return [
     ],
     'segundos_inatividade_sessao' => 1800,
     'segundos_duracao_sessao' => 28800,
-    'cookie_seguro' => false, // true em produção com HTTPS
+    'cookie_seguro' => false, // Eu ativo em produção com HTTPS, porque incidente não vem com aumento.
+    'ambiente_local' => true,
+    'endereco_aplicacao' => 'http://127.0.0.1:8080',
+    'emails' => ['transporte' => 'arquivo', 'remetente' => ''],
 ];

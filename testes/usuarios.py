@@ -2,6 +2,7 @@
 """Testa administração e isolamento. Mantém duas contas desativadas e um pedido de teste no banco."""
 import http.cookiejar
 import json
+import os
 from pathlib import Path
 import re
 import secrets
@@ -43,7 +44,7 @@ def conferir(condicao, mensagem):
 
 
 def executar():
-    configuracao = (Path(__file__).resolve().parent.parent / 'configuracao/primeiro-usuario.local.php').read_text()
+    configuracao = Path(os.environ.get('CTIC_TESTE_USUARIO', Path(__file__).resolve().parent.parent / 'configuracao/primeiro-usuario.local.php')).read_text(encoding='utf-8')
     email = re.search(r"'email'\s*=>\s*'([^']+)'", configuracao)[1]
     senha = re.search(r"'senha'\s*=>\s*'([^']+)'", configuracao)[1]
     administrador = ClienteTeste()

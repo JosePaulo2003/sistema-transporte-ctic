@@ -24,6 +24,7 @@ deve_rejeitar(fn()=>validar_viagem(array_replace($viagem, ['saida_em'=>'2026-02-
 deve_rejeitar(fn()=>validar_viagem(array_replace($viagem, ['retorno_em'=>'2026-11-19T18:00'])));
 deve_rejeitar(fn()=>validar_viagem(array_replace($viagem, ['saida_em'=>'2026-11-20T25:00'])));
 deve_rejeitar(fn()=>validar_contato(['telefone'=>'abcdefgh', 'setor'=>'CTIC', 'vinculo'=>'Servidor']));
+deve_rejeitar(fn()=>validar_contato(['telefone'=>'--------', 'setor'=>'CTIC', 'vinculo'=>'Servidor']));
 conferir(validar_contato(['telefone'=>'(92) 99999-0000', 'setor'=>'CTIC', 'vinculo'=>'Servidor'])['setor'] === 'CTIC', 'Contato válido rejeitado.');
 deve_rejeitar(fn()=>validar_passageiros([]));
 deve_rejeitar(fn()=>validar_passageiros(['nome'=>'Pessoa']));

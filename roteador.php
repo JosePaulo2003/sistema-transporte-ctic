@@ -1,5 +1,5 @@
 <?php
-// Roteador do servidor de desenvolvimento. Nunca exponha a raiz como arquivos estáticos.
+// Eu sirvo só os recursos públicos permitidos: expor a raiz seria arrumar plantão sem adicional.
 $caminho = rawurldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?: '/');
 $caminhoRecurso = str_starts_with($caminho, '/public/') ? substr($caminho, 7) : $caminho;
 $permitido = preg_match('~^/(assets/|views/(css|img)/)~', $caminhoRecurso)

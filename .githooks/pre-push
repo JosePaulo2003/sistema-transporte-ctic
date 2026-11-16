@@ -1,0 +1,10 @@
+#!/bin/sh
+# Eu confiro os commits enviados também: renomear o segredo não paga o retrabalho.
+if command -v python >/dev/null 2>&1; then
+    exec python comandos/entrega.py --pre-push
+elif command -v python3 >/dev/null 2>&1; then
+    exec python3 comandos/entrega.py --pre-push
+else
+    echo 'Push bloqueado: instale Python 3.10 ou superior para verificar a entrega.' >&2
+    exit 1
+fi

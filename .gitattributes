@@ -1,0 +1,29 @@
+**/*.local.* export-ignore
+.env export-ignore
+.env.* export-ignore
+**/.env export-ignore
+**/.env.* export-ignore
+**/*CREDENCIAIS* export-ignore
+**/*credentials* export-ignore
+armazenamento/** export-ignore
+entregas/** export-ignore
+legado/** export-ignore
+backups/** export-ignore
+node_modules/** export-ignore
+vendor/** export-ignore
+**/__pycache__/** export-ignore
+**/*.pyc export-ignore
+**/*.pyo export-ignore
+**/*.log export-ignore
+**/*.zip export-ignore
+**/*.bak export-ignore
+**/*.bkp export-ignore
+**/*.dtmp export-ignore
+**/.$* export-ignore
+**/*.pem export-ignore
+**/*.key export-ignore
+.idea/** export-ignore
+.vscode/** export-ignore
+
+.githooks/* text eol=lf
+*.sh text eol=lf

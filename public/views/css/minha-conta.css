@@ -1,0 +1,95 @@
+/* =========================
+   MINHA CONTA
+   ========================= */
+
+.secao-formulario {
+    max-width: 700px;
+    padding: clamp(20px, 3vw, 32px);
+}
+
+.perfil-cartao {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    background: #fbfdfc;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    margin-bottom: 24px;
+}
+
+.avatar-grande {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--verde);
+    color: var(--branco);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.dados-conta strong {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    color: #17231c;
+    margin-bottom: 4px;
+}
+
+.dados-conta p {
+    font-size: 13px;
+    color: var(--texto-suave);
+    margin: 2px 0;
+}
+
+.acoes-conta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.btn-conta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    color: var(--texto);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.btn-conta:hover {
+    border-color: var(--verde);
+    background: var(--verde-claro);
+}
+
+.btn-conta .seta {
+    color: var(--texto-suave);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.btn-sair {
+    color: #b42318;
+}
+
+.btn-sair:hover {
+    border-color: #b42318;
+    background: #fde8e8;
+}
+
+@media (max-width: 768px) {
+    .secao-formulario { padding: 16px; }
+    .perfil-cartao { padding: 18px; gap: 14px; }
+    .avatar-grande { width: 54px; height: 54px; font-size: 18px; }
+    .dados-conta strong { font-size: 16px; }
+}

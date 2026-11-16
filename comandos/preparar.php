@@ -11,21 +11,16 @@ try {
         throw new RuntimeException('Arquivo de configuração do primeiro usuário não encontrado.');
     }
     $usuario = require $arquivoUsuario;
+    require_once __DIR__ . '/../aplicacao/usuarios.php';
+    validar_senha_usuario($usuario['senha'] ?? null);
     if (!filter_var($usuario['email'] ?? '', FILTER_VALIDATE_EMAIL)
         || !is_string($usuario['senha'] ?? null) || strlen($usuario['senha']) < 12
         || !is_string($usuario['nome'] ?? null) || trim($usuario['nome']) === '') {
         throw new RuntimeException('Preencha nome, e-mail válido e senha com pelo menos 12 caracteres.');
     }
     $conexao = banco();
-    // Aplica as estruturas em ordem antes de verificar o administrador existente.
-    $arquivos = glob(RAIZ_PROJETO . '/banco-de-dados/migracoes/*.sql');
-    sort($arquivos);
-    foreach ($arquivos as $arquivo) {
-        $migracao = file_get_contents($arquivo);
-        foreach (explode(';', $migracao) as $instrucao) {
-            if (trim($instrucao) !== '') $conexao->exec($instrucao);
-        }
-    }
+    require_once __DIR__ . '/migrar.php';
+    aplicar_migracoes($conexao);
     $consulta = $conexao->prepare('SELECT id FROM usuarios WHERE email = ?');
     $consulta->execute([strtolower(trim($usuario['email']))]);
     if ($consulta->fetch()) {
@@ -35,8 +30,8 @@ try {
     $consulta = $conexao->prepare('INSERT INTO usuarios (nome, email, hash_senha, perfil, setor) VALUES (?, ?, ?, ?, ?)');
     $consulta->execute([trim($usuario['nome']), strtolower(trim($usuario['email'])),
         password_hash($usuario['senha'], PASSWORD_DEFAULT), 'administrador', $usuario['setor'] ?? 'CTIC']);
-    echo "Tabelas e primeiro administrador criados. Consulte CREDENCIAIS.local.md para entrar.\n";
+    echo "Tabelas e primeiro administrador criados. Consulte CREDENCIAIS.local.txt para entrar.\n";
 } catch (Throwable $erro) {
-    fwrite(STDERR, "Falha na preparação: " . $erro->getMessage() . "\nConsulte LEIA-ME.md e confira se o banco foi criado.\n");
+    fwrite(STDERR, "Falha na preparação: " . $erro->getMessage() . "\nExecute comandos/configurar.ps1 e confira se o MySQL está ativo.\n");
     exit(1);
 }

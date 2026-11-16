@@ -1,6 +1,28 @@
-'use strict';
-
-// Confere a sessão ao retornar à aba, inclusive se outra aba já tiver encerrado o acesso.
+ 'use strict';
+async function encerrarAcesso() {
+    await CTIC.requisitar('/api/autenticacao/sair', 'POST');
+    window.location.replace('/entrar');
+}
+const usuarioSessao = window.CTIC_USUARIO;
+const iniciaisSessao = usuarioSessao.nome.trim().split(/\s+/).map(parte => parte[0]).slice(0, 2).join('').toUpperCase();
+for (const identificador of ['nome-usuario','nome-conta']) {
+    const elemento = document.getElementById(identificador);
+    if (elemento) elemento.textContent = usuarioSessao.nome;
+}
+for (const identificador of ['avatar-usuario','avatar-grande']) {
+    const elemento = document.getElementById(identificador);
+    if (elemento) elemento.textContent = iniciaisSessao;
+}
+for (const seletor of ['.dados-usuario span','#setor-conta']) {
+    const elemento = document.querySelector(seletor);
+    if (elemento) elemento.textContent = usuarioSessao.setor;
+}
+const emailConta = document.getElementById('email-conta');
+if (emailConta) emailConta.textContent = usuarioSessao.email;
+for (const identificador of ['ctic-sair','confirmar-saida']) {
+    const botao = document.getElementById(identificador);
+    if (botao) CTIC.acao(botao, encerrarAcesso);
+}
 let verificandoSessao = false;
 async function verificarSessao() {
     if (verificandoSessao || document.hidden) return;
@@ -9,36 +31,8 @@ async function verificarSessao() {
         const resposta = await fetch('/api/autenticacao/usuario', {credentials: 'same-origin'});
         if (resposta.status === 401) window.location.replace('/entrar');
     } catch {
-        // Uma falha de rede não significa que a sessão tenha sido encerrada.
-    } finally {
-        verificandoSessao = false;
-    }
+        // Eu preservo a tela se a rede cair: reconectar já dá trabalho suficiente pelo mesmo salário.
+    } finally { verificandoSessao = false; }
 }
-
 document.addEventListener('visibilitychange', verificarSessao);
 window.addEventListener('pageshow', verificarSessao);
-
-const botaoSair = document.getElementById('ctic-sair');
-botaoSair.addEventListener('click', async () => {
-    botaoSair.disabled = true;
-    try {
-        const respostaToken = await fetch('/api/autenticacao/csrf', {credentials: 'same-origin'});
-        if (!respostaToken.ok) throw new Error('Não foi possível consultar a sessão.');
-        const dadosToken = await respostaToken.json();
-        const resposta = await fetch('/api/autenticacao/sair', {
-            method: 'POST', credentials: 'same-origin',
-            headers: {'X-CSRF-Token': dadosToken.csrf},
-        });
-        if (!resposta.ok && resposta.status !== 401) throw new Error('Não foi possível encerrar a sessão.');
-        localStorage.removeItem('nomeLogado');
-        localStorage.removeItem('iniciaisLogado');
-        window.location.replace('/entrar');
-    } catch (erro) {
-        alert(erro.message || 'Falha de conexão. Tente sair novamente.');
-        botaoSair.disabled = false;
-    }
-});
-
-// Atualiza o setor com o cadastro real, sem alterar a estrutura visual do cabeçalho.
-const setorUsuario = document.querySelector('.dados-usuario span');
-if (setorUsuario) setorUsuario.textContent = window.CTIC_USUARIO.setor;

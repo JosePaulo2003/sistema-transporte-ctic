@@ -2,6 +2,7 @@
 """Verifica a autenticação no servidor local já iniciado, sem pacotes adicionais."""
 import http.cookiejar
 import json
+import os
 from pathlib import Path
 import re
 import urllib.error
@@ -13,7 +14,7 @@ ENDERECO = 'http://127.0.0.1:8080'
 
 def executar():
     # Lê as credenciais locais sem imprimir senhas ou colocá-las nos argumentos do processo.
-    configuracao = (RAIZ / 'configuracao/primeiro-usuario.local.php').read_text()
+    configuracao = Path(os.environ.get('CTIC_TESTE_USUARIO', RAIZ / 'configuracao/primeiro-usuario.local.php')).read_text(encoding='utf-8')
     email = re.search(r"'email'\s*=>\s*'([^']+)'", configuracao)[1]
     senha = re.search(r"'senha'\s*=>\s*'([^']+)'", configuracao)[1]
     cookies = http.cookiejar.CookieJar()
@@ -44,7 +45,7 @@ def executar():
     codigo, destino, conteudo = requisitar('/painel')
     assert codigo == 200 and destino.endswith('/entrar'), 'O painel não redirecionou para a entrada.'
     assert 'formulario-entrada' in conteudo
-    for caminho in ['/configuracao/aplicacao.local.php', '/CREDENCIAIS.local.md',
+    for caminho in ['/configuracao/aplicacao.local.php', '/CREDENCIAIS.local.txt',
                     '/configuracao/primeiro-usuario.local.php', '/banco-de-dados/migracoes/001_autenticacao.sql']:
         codigo, _, _ = requisitar(caminho)
         assert codigo == 404, 'Um arquivo interno ficou acessível pela web.'

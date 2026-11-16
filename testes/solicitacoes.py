@@ -2,6 +2,7 @@
 """Testa o fluxo HTTP e cria uma solicitação identificada como teste no banco local."""
 import http.cookiejar
 import json
+import os
 from pathlib import Path
 import re
 import urllib.error
@@ -9,7 +10,7 @@ import urllib.request
 
 
 def executar():
-    configuracao = (Path(__file__).resolve().parent.parent / 'configuracao/primeiro-usuario.local.php').read_text()
+    configuracao = Path(os.environ.get('CTIC_TESTE_USUARIO', Path(__file__).resolve().parent.parent / 'configuracao/primeiro-usuario.local.php')).read_text(encoding='utf-8')
     email = re.search(r"'email'\s*=>\s*'([^']+)'", configuracao)[1]
     senha = re.search(r"'senha'\s*=>\s*'([^']+)'", configuracao)[1]
     navegador = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-// Normaliza somente os campos permitidos, impedindo alterações arbitrárias no cadastro.
+// Eu aceito só os campos previstos: corrigir cadastro adulterado não vem com adicional.
 function validar_cadastro_usuario(array $dados): array
 {
     $cadastro = [];
@@ -29,7 +29,7 @@ function validar_cadastro_usuario(array $dados): array
 
 function validar_senha_usuario(mixed $senha): string
 {
-    // O limite de 72 bytes evita o truncamento silencioso de senhas pelo bcrypt.
+    // Eu respeito os 72 bytes do bcrypt para não descobrir senha truncada no fim do expediente.
     if (!is_string($senha) || strlen($senha) < 12 || strlen($senha) > 72 || str_contains($senha, "\0") || trim($senha) === '') {
         throw new InvalidArgumentException('A senha deve conter de 12 a 72 bytes e não pode ser composta apenas de espaços.');
     }
@@ -51,7 +51,7 @@ function atender_usuarios(string $caminho, string $metodo): never
     if ($metodo !== 'GET') validar_csrf();
     $conexao = banco();
     if ($metodo === 'GET') {
-        // Nunca devolve o hash, mesmo na listagem administrativa.
+        // Eu deixo o hash no banco: nem administrador precisa desse problema na resposta.
         $consulta = $conexao->query('SELECT id,nome,email,setor,perfil,ativo,ultimo_acesso_em FROM usuarios ORDER BY nome,id');
         responder_json(['usuarios'=>$consulta->fetchAll()]);
     }
@@ -63,7 +63,7 @@ function atender_usuarios(string $caminho, string $metodo): never
         if (!$detalhe || isset($partes[2])) $senha = password_hash(validar_senha_usuario($dados['senha'] ?? null), PASSWORD_DEFAULT);
         $conexao->beginTransaction();
         try {
-            // Serializa a administração para impedir que duas alterações concorrentes removam o último administrador.
+            // Eu serializo as alterações para não perder o último administrador e ter de resolver isso pelo mesmo salário.
             $consulta = $conexao->query("SELECT id FROM usuarios WHERE perfil='administrador' AND ativo=1 ORDER BY id FOR UPDATE");
             $administradores = array_map('intval', $consulta->fetchAll(PDO::FETCH_COLUMN));
             if (!in_array((int)$administrador['id'], $administradores, true)) {

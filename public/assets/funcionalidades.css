@@ -1,0 +1,24 @@
+[hidden] { display: none !important; }
+main[aria-busy="true"] { pointer-events: none; opacity: .7; }
+button, input, select, textarea { font: inherit; }
+button.btn-continuar, button.btn-cancelar { cursor: pointer; border: 0; }
+button:disabled, [aria-disabled="true"] { opacity: .6; cursor: wait; }
+#aviso-sistema { padding: 14px; border-radius: 8px; margin: 12px 0; }
+.lista-passageiros label { display: flex; gap: 14px; align-items: center; cursor: pointer; }
+.lista-passageiros input[type="checkbox"] { width: 20px; height: 20px; flex: 0 0 20px; }
+.dados-passageiro { flex: 1; }
+.info-passageiro, .card-passageiro { gap: 12px; }
+.card-passageiro span { display: block; }
+.grupo-detalhes { margin-bottom: 24px; }
+.informacoes p, .historico p, .lista-resumo p { margin: 8px 0; overflow-wrap: anywhere; }
+.historico { display: block; }
+.acoes-registro { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.link-solicitacao { color: #006837; font-weight: 600; text-decoration: underline; }
+.status-cancelada { background: #f3e5e5; color: #9c2424; }
+.formulario-conta { margin-top: 28px; display: grid; gap: 12px; max-width: 600px; }
+.formulario-conta label { display: grid; gap: 6px; }
+.formulario-conta input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+.formulario-conta button { padding: 12px; background: #006837; color: white; border: 0; border-radius: 6px; }
+.passageiro-selecionavel { display: flex; gap: 12px; padding: 14px; border-bottom: 1px solid #ddd; }
+.container-checkbox input:focus-visible ~ .checkmark { outline: 2px solid #006837; outline-offset: 3px; }
+@media (max-width: 768px) { .acoes-registro { justify-content: flex-start; } }
