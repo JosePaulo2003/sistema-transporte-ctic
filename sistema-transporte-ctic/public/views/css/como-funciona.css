@@ -1,0 +1,83 @@
+/* =========================
+   COMO FUNCIONA
+   ========================= */
+
+.secao-formulario {
+    max-width: 1000px;
+    padding: clamp(20px, 3vw, 36px);
+}
+
+.grid-passos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.passo {
+    padding: 22px;
+    background: #fbfdfc;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+}
+
+.numero-passo {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--verde);
+    color: var(--branco);
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.passo h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: #17231c;
+    margin-bottom: 6px;
+}
+
+.passo p {
+    font-size: 13px;
+    color: var(--texto-suave);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.situacao-pedido {
+    padding: 20px 24px;
+    background: var(--verde-claro);
+    border-radius: 12px;
+    margin-bottom: 28px;
+}
+
+.situacao-pedido h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--verde-escuro);
+    margin-bottom: 8px;
+}
+
+.situacao-pedido p {
+    font-size: 13px;
+    color: #314438;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.situacao-pedido strong {
+    color: var(--verde-escuro);
+}
+
+@media (max-width: 768px) {
+    .secao-formulario { padding: 16px; }
+    .grid-passos { grid-template-columns: 1fr; gap: 14px; }
+    .passo { padding: 18px; }
+    .botoes-acao { flex-direction: column-reverse; }
+    .botoes-acao a { width: 100%; min-height: 48px; text-align: center; justify-content: center; }
+}

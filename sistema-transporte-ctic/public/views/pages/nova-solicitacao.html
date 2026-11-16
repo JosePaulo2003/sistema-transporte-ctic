@@ -23,13 +23,13 @@
             <h2>Sistema de Transportes</h2>
         </div>
 
-        <div class="perfil-usuario">
+        <a href="minha-conta.html" class="perfil-usuario" aria-label="Minha conta">
             <div class="avatar" id="avatar-usuario">--</div>
             <div class="dados-usuario">
                 <strong id="nome-usuario">Carregando...</strong>
                 <span>CESIT</span>
             </div>
-        </div>
+        </a>
     </header>
 
     <div class="layout">
@@ -40,11 +40,11 @@
                     <li><a href="login.html"><span class="icone-menu" aria-hidden="true">⌂</span> Visão geral</a></li>
                     <li class="ativo"><a href="nova-solicitacao.html"><span class="icone-menu" aria-hidden="true">+</span> Nova solicitação</a></li>
                     <li><a href="solicitacoes.html"><span class="icone-menu" aria-hidden="true">≡</span> Solicitações</a></li>
-                    <li><a href="passageiros.html"><span class="icone-menu" aria-hidden="true">●</span> Passageiros</a></li>
+                    <li><a href="passageiros-cadastrados.html"><span class="icone-menu" aria-hidden="true">●</span> Passageiros</a></li>
                 </ul>
                 <p class="rotulo-ajuda">AJUDA</p>
                 <ul>
-                    <li><a href="#"><span class="icone-menu" aria-hidden="true">?</span> Como funciona</a></li>
+                    <li><a href="como-funciona.html"><span class="icone-menu" aria-hidden="true">?</span> Como funciona</a></li>
                 </ul>
             </nav>
             <footer><small>v1.0 · CESIT/UEA</small></footer>
@@ -123,8 +123,8 @@
                     </div>
 
                     <div class="botoes-acao">
-                        <a href="login.html" class="btn-cancelar">Cancelar</a>
-                        <button type="submit" class="btn-continuar" id="btn-continuar">Continuar</button>
+                        <a href="descartar-solicitacao.html" class="btn-cancelar">Cancelar</a>
+                        <a href="solicitantes.html" class="btn-continuar" id="btn-continuar">Continuar</a>
                     </div>
                 </form>
             </section>
@@ -144,6 +144,10 @@
         <a href="solicitacoes.html">
             <span class="nav-icon" aria-hidden="true">≡</span>
             <span>Solicitações</span>
+        </a>
+        <a href="passageiros-cadastrados.html">
+            <span class="nav-icon">●</span>
+            <span>Passageiros</span>
         </a>
     </nav>
 

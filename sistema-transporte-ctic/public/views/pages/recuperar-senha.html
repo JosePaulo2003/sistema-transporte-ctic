@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+    <title>Recuperar senha - Sistema de Transportes - UEA</title>
+    <link rel="stylesheet" href="../css/recuperar-senha.css">
+</head>
+<body>
+    <header class="cabecalho">
+        <a class="identidade-uea" href="login.html" aria-label="Página inicial da UEA">
+            <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
+            <span class="logo-textos">
+                <strong>UEA</strong>
+                <small>Universidade do Estado do Amazonas</small>
+            </span>
+        </a>
+        <div class="titulo-sistema">
+            <h1>Sistema de Transportes</h1>
+        </div>
+    </header>
+
+    <main class="conteudo">
+        <section class="area-central" aria-labelledby="titulo-pagina">
+            <div class="introducao">
+                <h2 id="titulo-pagina">Recuperar senha</h2>
+                <p>Use seu e-mail institucional para recuperar o acesso.</p>
+            </div>
+
+            <form class="cartao" id="form-recuperar" novalidate>
+                <div class="campo">
+                    <label for="email">E-mail institucional</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="exemplo@uea.edu.br"
+                        autocomplete="email"
+                        required
+                    >
+                </div>
+
+                <p class="orientacao">Enviaremos um link para redefinir sua senha. Confira também a pasta de spam.</p>
+
+                <div class="acoes">
+                    <button type="submit" class="botao botao-principal">Enviar link</button>
+                    <a href="index.html" class="botao botao-secundario">Voltar ao acesso</a>
+                </div>
+                <p class="mensagem-erro" id="mensagem-erro" role="alert" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('form-recuperar').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const email = document.getElementById('email');
+            const mensagemErro = document.getElementById('mensagem-erro');
+            const valor = email.value.trim();
+
+            mensagemErro.textContent = '';
+
+            if (!valor) {
+                mensagemErro.textContent = 'Informe seu e-mail institucional.';
+                email.focus();
+                return;
+            }
+
+            if (!email.checkValidity()) {
+                mensagemErro.textContent = 'Informe um endereço de e-mail válido.';
+                email.focus();
+                return;
+            }
+
+            // Demonstração de navegação entre as telas. A integração real
+            // com o envio de e-mail deve ser feita pelo backend.
+            sessionStorage.setItem('emailRecuperacao', valor);
+            window.location.href = 'confirmar-email.html';
+        });
+    </script>
+</body>
+</html>

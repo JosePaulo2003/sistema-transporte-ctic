@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+    <title>Passageiros cadastrados - UEA</title>
+
+    <!-- CSS original compartilhado -->
+    <link rel="stylesheet" href="../css/nova-solicitacao.css">
+
+    <!-- CSS desta página -->
+    <link rel="stylesheet" href="../css/passageiros-cadastrados.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="background">
+            <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
+            <div class="logo-textos">
+                <h1>UEA</h1>
+                <p>Universidade do Estado do Amazonas</p>
+            </div>
+        </div>
+
+        <div class="titulo-sistema">
+            <h2>Sistema de Transportes</h2>
+        </div>
+
+        <a href="minha-conta.html" class="perfil-usuario" aria-label="Minha conta">
+            <div class="avatar" id="avatar-usuario">AM</div>
+            <div class="dados-usuario">
+                <strong id="nome-usuario">Ana Martins</strong>
+                <span>CESIT</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="layout">
+
+        <aside class="menu-lateral">
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li>
+                        <a href="login.html">
+                            <span class="icone-menu">⌂</span>
+                            Visão geral
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="nova-solicitacao.html">
+                            <span class="icone-menu">+</span>
+                            Nova solicitação
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="solicitacoes.html">
+                            <span class="icone-menu">≡</span>
+                            Solicitações
+                        </a>
+                    </li>
+
+                    <li class="ativo">
+                        <a href="passageiros-cadastrados.html">
+                            <span class="icone-menu">●</span>
+                            Passageiros
+                        </a>
+                    </li>
+                </ul>
+
+                <p class="rotulo-ajuda">AJUDA</p>
+
+                <ul>
+                    <li>
+                        <a href="como-funciona.html">
+                            <span class="icone-menu">?</span>
+                            Como funciona
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <footer>
+                <small>v1.0 · CESIT/UEA</small>
+            </footer>
+        </aside>
+
+        <main>
+
+            <section class="titulo-pagina">
+                <div class="texto-titulo">
+                    <h1>Passageiros cadastrados</h1>
+                    <p>Gerencie os dados e reutilize os cadastros em novas viagens.</p>
+                </div>
+            </section>
+
+            <section class="secao-formulario">
+
+                <div class="campo-busca">
+                    <label for="busca-passageiro">
+                        Buscar passageiro
+                    </label>
+
+                    <input
+                        type="search"
+                        id="busca-passageiro"
+                        placeholder="Nome, CPF ou setor"
+                    >
+                </div>
+
+                <div class="lista-passageiros" id="lista-passageiros">
+
+                    <article class="item-passageiro">
+                        <div class="avatar-passageiro">AM</div>
+
+                        <div class="dados-passageiro">
+                            <strong>Ana Martins</strong>
+                            <span>Solicitante · CESIT</span>
+                        </div>
+
+                        <button class="menu-opcoes" type="button"
+                            aria-label="Opções de Ana Martins">
+                            •••
+                        </button>
+                    </article>
+
+                    <article class="item-passageiro">
+                        <div class="avatar-passageiro">CN</div>
+
+                        <div class="dados-passageiro">
+                            <strong>Carlos Nascimento</strong>
+                            <span>Servidor · NTI</span>
+                        </div>
+
+                        <button class="menu-opcoes" type="button"
+                            aria-label="Opções de Carlos Nascimento">
+                            •••
+                        </button>
+                    </article>
+
+                    <article class="item-passageiro">
+                        <div class="avatar-passageiro">MS</div>
+
+                        <div class="dados-passageiro">
+                            <strong>Marina Souza</strong>
+                            <span>Colaboradora · CESIT</span>
+                        </div>
+
+                        <button class="menu-opcoes" type="button"
+                            aria-label="Opções de Marina Souza">
+                            •••
+                        </button>
+                    </article>
+
+                </div>
+
+                <p id="mensagem-vazia" hidden>
+                    Nenhum passageiro encontrado.
+                </p>
+
+                <div class="botoes-acao">
+                    <a href="adicionar-passageiro.html"
+                       class="btn-continuar">
+                        Adicionar passageiro
+                    </a>
+
+                    <a href="login.html" class="btn-cancelar">
+                        Voltar à visão geral
+                    </a>
+
+                    <a href="buscar-passageiro.html" class="btn-cancelar">
+                        Buscar passageiro
+                    </a>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <nav class="mobile-bottom-nav">
+        <a href="login.html">
+            <span class="nav-icon">⌂</span>
+            <span>Visão geral</span>
+        </a>
+
+        <a href="nova-solicitacao.html">
+            <span class="nav-icon">+</span>
+            <span>Nova</span>
+        </a>
+
+        <a href="solicitacoes.html">
+            <span class="nav-icon">≡</span>
+            <span>Solicitações</span>
+        </a>
+
+        <a href="passageiros-cadastrados.html" class="active">
+            <span class="nav-icon">●</span>
+            <span>Passageiros</span>
+        </a>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const nome = localStorage.getItem('nomeLogado');
+            const iniciais = localStorage.getItem('iniciaisLogado');
+
+            if (nome) {
+                document.getElementById('nome-usuario').textContent = nome;
+            }
+
+            if (iniciais) {
+                document.getElementById('avatar-usuario').textContent = iniciais;
+            }
+
+            const busca = document.getElementById('busca-passageiro');
+            const lista = document.getElementById('lista-passageiros');
+            const mensagem = document.getElementById('mensagem-vazia');
+
+            // Carregar passageiros cadastrados localmente
+            const cadastrados = JSON.parse(
+                localStorage.getItem('passageirosCadastrados') || '[]'
+            );
+
+            cadastrados.forEach(function(passageiro) {
+
+            const item = document.createElement('article');
+            item.className = 'item-passageiro';
+
+            const iniciais = passageiro.nome
+            .split(' ')
+            .filter(Boolean)
+            .map(parte => parte[0])
+            .slice(0, 2)
+            .join('')
+            .toUpperCase();
+
+            const avatar = document.createElement('div');
+            avatar.className = 'avatar-passageiro';
+            avatar.textContent = iniciais;
+
+            const dados = document.createElement('div');
+            dados.className = 'dados-passageiro';
+
+            const nome = document.createElement('strong');
+            nome.textContent = passageiro.nome;
+
+            const setor = document.createElement('span');
+            setor.textContent = `${passageiro.vinculo} · ${passageiro.setor}`;
+
+            dados.append(nome, setor);
+
+            const opcoes = document.createElement('button');
+            opcoes.className = 'menu-opcoes';
+            opcoes.type = 'button';
+            opcoes.textContent = '•••';
+
+            opcoes.addEventListener('click', function () {
+                localStorage.setItem('passageiroSelecionado', JSON.stringify(passageiro));
+                window.location.href = 'editar-passageiro.html';
+            });
+
+            item.append(avatar, dados, opcoes);
+            lista.appendChild(item);
+            });
+
+            busca.addEventListener('input', function () {
+
+                const termo = busca.value.toLowerCase().trim();
+                const passageiros = lista.querySelectorAll('.item-passageiro');
+
+                let encontrados = 0;
+
+                passageiros.forEach(function (item) {
+
+                    const texto = item.textContent.toLowerCase();
+                    const encontrou = texto.includes(termo);
+
+                    item.hidden = !encontrou;
+
+                    if (encontrou) {
+                        encontrados++;
+                    }
+                });
+
+                mensagem.hidden = encontrados > 0;
+            });
+
+
+            // Termo vindo da página "Buscar passageiro"
+            const termoUrl = new URLSearchParams(window.location.search).get('busca');
+
+            if (termoUrl) {
+                busca.value = termoUrl;
+                busca.dispatchEvent(new Event('input'));
+            }
+        });
+    </script>
+
+</body>
+</html>

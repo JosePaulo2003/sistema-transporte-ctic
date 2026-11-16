@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+    <title>Cancelar solicitação - UEA</title>
+    <link rel="stylesheet" href="../css/nova-solicitacao.css">
+    <link rel="stylesheet" href="../css/cancelar-solicitacao.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="background">
+            <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
+            <div class="logo-textos">
+                <h1>UEA</h1>
+                <p>Universidade do Estado do Amazonas</p>
+            </div>
+        </div>
+        <div class="titulo-sistema"><h2>Sistema de Transportes</h2></div>
+        <a href="minha-conta.html" class="perfil-usuario" aria-label="Minha conta">
+            <div class="avatar" id="avatar-usuario">AM</div>
+            <div class="dados-usuario">
+                <strong id="nome-usuario">Ana Martins</strong>
+                <span>CESIT</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="layout">
+        <aside class="menu-lateral">
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="login.html"><span class="icone-menu">⌂</span> Visão geral</a></li>
+                    <li><a href="nova-solicitacao.html"><span class="icone-menu">+</span> Nova solicitação</a></li>
+                    <li class="ativo"><a href="solicitacoes.html"><span class="icone-menu">≡</span> Solicitações</a></li>
+                    <li><a href="passageiros-cadastrados.html"><span class="icone-menu">●</span> Passageiros</a></li>
+                </ul>
+                <p class="rotulo-ajuda">AJUDA</p>
+                <ul>
+                    <li><a href="como-funciona.html"><span class="icone-menu">?</span> Como funciona</a></li>
+                </ul>
+            </nav>
+            <footer><small>v1.0 · CESIT/UEA</small></footer>
+        </aside>
+
+        <main>
+            <section class="titulo-pagina">
+                <div class="texto-titulo">
+                    <h1>Cancelar solicitação</h1>
+                    <p id="info-solicitacao">#0241 · Itacoatiara · 12 a 14/09/2026</p>
+                </div>
+            </section>
+
+            <section class="secao-formulario">
+                <div class="caixa-status pendente">
+                    <strong>Revise antes de confirmar</strong>
+                    <p>O pedido será cancelado e o motivo será registrado no histórico.</p>
+                </div>
+
+                <form id="form-cancelamento">
+                    <div class="linha-inputs">
+                        <div class="input-grupo">
+                            <label for="motivo-cancelamento">Motivo do cancelamento</label>
+                            <textarea
+                                id="motivo-cancelamento"
+                                rows="4"
+                                placeholder="Descreva o motivo do cancelamento..."
+                                required
+                            ></textarea>
+                        </div>
+                    </div>
+
+                    <p id="mensagem-erro" role="alert"></p>
+
+                    <div class="botoes-acao">
+                        <button type="submit" class="btn-continuar">
+                            Confirmar cancelamento
+                        </button>
+                        <a href="detalhes-solicitacao.html" class="btn-cancelar">
+                            Voltar aos detalhes
+                        </a>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <nav class="mobile-bottom-nav">
+        <a href="login.html"><span class="nav-icon">⌂</span><span>Visão geral</span></a>
+        <a href="nova-solicitacao.html"><span class="nav-icon">+</span><span>Nova</span></a>
+        <a href="solicitacoes.html" class="active"><span class="nav-icon">≡</span><span>Solicitações</span></a>
+        <a href="passageiros-cadastrados.html"><span class="nav-icon">●</span><span>Passageiros</span></a>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const nome = localStorage.getItem('nomeLogado');
+            const iniciais = localStorage.getItem('iniciaisLogado');
+            if (nome) document.getElementById('nome-usuario').textContent = nome;
+            if (iniciais) document.getElementById('avatar-usuario').textContent = iniciais;
+
+            document.getElementById('form-cancelamento').addEventListener('submit', function (e) {
+                e.preventDefault();
+                const motivo = document.getElementById('motivo-cancelamento').value.trim();
+                const erro = document.getElementById('mensagem-erro');
+
+                if (!motivo) {
+                    erro.textContent = 'Informe o motivo do cancelamento.';
+                    return;
+                }
+
+                localStorage.setItem('motivoCancelamento', motivo);
+                localStorage.setItem('statusSolicitacao', 'Cancelada');
+                alert('Cancelamento demonstrativo registrado. Em produção, integre ao backend.');
+                window.location.href = 'solicitacoes.html';
+            });
+        });
+    </script>
+
+</body>
+</html>

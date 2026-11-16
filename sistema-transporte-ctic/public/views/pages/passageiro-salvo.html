@@ -1,0 +1,369 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+
+    <title>Passageiro salvo - UEA</title>
+
+    <link rel="stylesheet" href="../css/nova-solicitacao.css">
+    <link rel="stylesheet" href="../css/passageiros-cadastrados.css">
+    <link rel="stylesheet" href="../css/passageiro-acoes.css">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+
+    <header class="cabecalho">
+
+        <div class="background">
+
+            <img src="../img/uea-logo-verde.png"
+                 alt="Logo da UEA"
+                 class="logo">
+
+            <div class="logo-textos">
+                <h1>UEA</h1>
+                <p>Universidade do Estado do Amazonas</p>
+            </div>
+
+        </div>
+
+        <div class="titulo-sistema">
+            <h2>Sistema de Transportes</h2>
+        </div>
+
+        <a href="minha-conta.html" class="perfil-usuario" aria-label="Minha conta">
+
+            <div class="avatar" id="avatar-usuario">AM</div>
+
+            <div class="dados-usuario">
+                <strong id="nome-usuario">Ana Martins</strong>
+                <span>CESIT</span>
+            </div>
+
+        </a>
+
+    </header>
+
+
+    <!-- LAYOUT -->
+
+    <div class="layout">
+
+        <!-- MENU LATERAL -->
+
+        <aside class="menu-lateral">
+
+            <nav aria-label="Navegação principal">
+
+                <ul>
+
+                    <li>
+                        <a href="login.html">
+                            <span class="icone-menu">⌂</span>
+                            Visão geral
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="nova-solicitacao.html">
+                            <span class="icone-menu">+</span>
+                            Nova solicitação
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="solicitacoes.html">
+                            <span class="icone-menu">≡</span>
+                            Solicitações
+                        </a>
+                    </li>
+
+                    <li class="ativo">
+                        <a href="passageiros-cadastrados.html">
+                            <span class="icone-menu">●</span>
+                            Passageiros
+                        </a>
+                    </li>
+
+                </ul>
+
+                <p class="rotulo-ajuda">AJUDA</p>
+
+                <ul>
+
+                    <li>
+                        <a href="como-funciona.html">
+                            <span class="icone-menu">?</span>
+                            Como funciona
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+            <footer>
+                <small>v1.0 · CESIT/UEA</small>
+            </footer>
+
+        </aside>
+
+
+        <!-- CONTEÚDO PRINCIPAL -->
+
+        <main>
+
+            <section class="titulo-pagina">
+
+                <div class="texto-titulo">
+
+                    <h1>Passageiro salvo</h1>
+
+                    <p>
+                        O cadastro está disponível para suas próximas solicitações.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <section class="secao-formulario">
+
+                <!-- MENSAGEM DE SUCESSO -->
+
+                <div class="mensagem-sucesso">
+
+                    <strong>Cadastro atualizado</strong>
+
+                    <p>
+                        Os dados do passageiro foram salvos.
+                    </p>
+
+                </div>
+
+
+                <!-- LISTA DE PASSAGEIROS -->
+
+                <div class="lista-passageiros" id="lista-passageiros">
+
+                    <!-- Os passageiros serão carregados automaticamente -->
+
+                </div>
+
+
+                <!-- MENSAGEM CASO NÃO EXISTAM CADASTROS -->
+
+                <p id="mensagem-vazia" hidden>
+                    Nenhum passageiro cadastrado.
+                </p>
+
+
+                <!-- BOTÕES -->
+
+                <div class="botoes-acao">
+
+                    <a href="passageiros.html"
+                       class="btn-continuar">
+
+                        Continuar solicitação
+
+                    </a>
+
+                    <a href="passageiros-cadastrados.html"
+                       class="btn-cancelar">
+
+                        Ir para passageiros
+
+                    </a>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- MENU MOBILE -->
+
+    <nav class="mobile-bottom-nav">
+
+        <a href="login.html">
+            <span class="nav-icon">⌂</span>
+            <span>Visão geral</span>
+        </a>
+
+        <a href="nova-solicitacao.html">
+            <span class="nav-icon">+</span>
+            <span>Nova</span>
+        </a>
+
+        <a href="solicitacoes.html">
+            <span class="nav-icon">≡</span>
+            <span>Solicitações</span>
+        </a>
+
+        <a href="passageiros-cadastrados.html" class="active">
+            <span class="nav-icon">●</span>
+            <span>Passageiros</span>
+        </a>
+
+    </nav>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+            // =========================
+            // DADOS DO USUÁRIO
+            // =========================
+
+            const nome = localStorage.getItem('nomeLogado');
+            const iniciais = localStorage.getItem('iniciaisLogado');
+
+            if (nome) {
+                document.getElementById('nome-usuario').textContent = nome;
+            }
+
+            if (iniciais) {
+                document.getElementById('avatar-usuario').textContent = iniciais;
+            }
+
+
+            // =========================
+            // CARREGAR PASSAGEIROS
+            // =========================
+
+            const lista = document.getElementById('lista-passageiros');
+            const mensagem = document.getElementById('mensagem-vazia');
+
+            const cadastrados = JSON.parse(
+                localStorage.getItem('passageirosCadastrados') || '[]'
+            );
+
+
+            // =========================
+            // GERAR INICIAIS
+            // =========================
+
+            function gerarIniciais(nome) {
+
+                return nome
+                    .split(' ')
+                    .filter(Boolean)
+                    .map(parte => parte[0])
+                    .slice(0, 2)
+                    .join('')
+                    .toUpperCase();
+
+            }
+
+
+            // =========================
+            // EXIBIR PASSAGEIROS
+            // =========================
+
+            function exibirPassageiros() {
+
+                lista.innerHTML = '';
+
+                if (cadastrados.length === 0) {
+
+                    mensagem.hidden = false;
+                    return;
+
+                }
+
+                mensagem.hidden = true;
+
+                cadastrados.forEach(function (passageiro, indice) {
+
+                    const item = document.createElement('article');
+                    item.className = 'item-passageiro';
+
+                    // AVATAR
+
+                    const avatar = document.createElement('div');
+                    avatar.className = 'avatar-passageiro';
+
+                    avatar.textContent = gerarIniciais(
+                        passageiro.nome || 'Passageiro'
+                    );
+
+
+                    // DADOS
+
+                    const dados = document.createElement('div');
+                    dados.className = 'dados-passageiro';
+
+                    const nomePassageiro = document.createElement('strong');
+
+                    nomePassageiro.textContent = passageiro.nome || 'Sem nome';
+
+                    const informacoes = document.createElement('span');
+
+                    informacoes.textContent =
+                        `${passageiro.vinculo || 'Não informado'} · ${passageiro.setor || 'Não informado'}`;
+
+                    dados.append(nomePassageiro, informacoes);
+
+
+                    // MENU DE OPÇÕES
+
+                    const opcoes = document.createElement('button');
+
+                    opcoes.className = 'menu-opcoes';
+                    opcoes.type = 'button';
+                    opcoes.textContent = '•••';
+
+                    opcoes.setAttribute(
+                        'aria-label',
+                        'Editar ' + passageiro.nome
+                    );
+
+                    opcoes.addEventListener('click', function () {
+
+                        localStorage.setItem(
+                            'passageiroSelecionado',
+                            JSON.stringify(passageiro)
+                        );
+
+                        window.location.href = 'editar-passageiro.html';
+
+                    });
+
+
+                    // MONTAR ITEM
+
+                    item.append(avatar, dados, opcoes);
+
+                    lista.appendChild(item);
+
+                });
+
+            }
+
+
+            // =========================
+            // INICIALIZAR PÁGINA
+            // =========================
+
+            exibirPassageiros();
+
+        });
+
+    </script>
+
+</body>
+</html>

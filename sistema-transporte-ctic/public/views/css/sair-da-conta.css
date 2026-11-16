@@ -1,0 +1,81 @@
+/* =========================
+   SAIR DA CONTA
+   ========================= */
+
+.secao-formulario {
+    max-width: 640px;
+    padding: clamp(20px, 3vw, 32px);
+}
+
+.caixa-alerta {
+    background: var(--verde-claro);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-bottom: 28px;
+}
+
+.caixa-alerta h3 {
+    color: var(--verde-escuro);
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.caixa-alerta p {
+    color: #314438;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.botoes-acao-vertical {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 250px;
+}
+
+.btn-descartar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: var(--verde);
+    color: var(--branco);
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-descartar:hover {
+    background: var(--verde-escuro);
+}
+
+.btn-continuar-preenchimento {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    background: var(--branco);
+    color: var(--verde);
+    border: 1px solid var(--verde);
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+.btn-continuar-preenchimento:hover {
+    background: var(--verde-claro);
+}
+
+@media (max-width: 768px) {
+    .secao-formulario { padding: 16px; }
+    .caixa-alerta { padding: 16px 18px; }
+    .botoes-acao-vertical { max-width: 100%; }
+    .botoes-acao-vertical button,
+    .botoes-acao-vertical a { width: 100%; min-height: 48px; }
+}

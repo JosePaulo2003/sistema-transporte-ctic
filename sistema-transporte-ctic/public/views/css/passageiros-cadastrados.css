@@ -1,0 +1,141 @@
+
+/* =========================
+   PASSAGEIROS CADASTRADOS
+   ========================= */
+
+.campo-busca {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 16px;
+}
+
+.campo-busca label {
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.campo-busca input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    outline: none;
+    font-family: inherit;
+    font-size: 14px;
+    background: var(--branco);
+}
+
+.campo-busca input:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 0 3px rgb(0 104 55 / 10%);
+}
+
+/* LISTA DE PASSAGEIROS */
+
+.lista-passageiros {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item-passageiro {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 10px 12px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background: var(--branco);
+    transition: border-color .2s ease;
+}
+
+.item-passageiro:hover {
+    border-color: #b5d5c2;
+}
+
+.avatar-passageiro {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--verde-claro);
+    color: var(--verde);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.dados-passageiro {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    line-height: 1.5;
+}
+
+.dados-passageiro strong {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.dados-passageiro span {
+    font-size: 11px;
+    color: var(--texto-suave);
+}
+
+.menu-opcoes {
+    padding: 8px;
+    border: none;
+    background: transparent;
+    color: var(--texto-suave);
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.menu-opcoes:hover {
+    color: var(--verde);
+}
+
+#mensagem-vazia {
+    padding: 15px 0;
+    color: var(--texto-suave);
+    font-size: 13px;
+}
+
+/* BOTÕES */
+
+.botoes-acao {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+
+@media (max-width: 768px) {
+
+    .item-passageiro {
+        min-height: 65px;
+        padding: 9px;
+    }
+
+    .dados-passageiro strong {
+        font-size: 12px;
+    }
+
+    .dados-passageiro span {
+        font-size: 10px;
+    }
+
+    .botoes-acao {
+        flex-direction: column;
+    }
+
+    .botoes-acao a {
+        width: 100%;
+        min-height: 46px;
+    }
+}

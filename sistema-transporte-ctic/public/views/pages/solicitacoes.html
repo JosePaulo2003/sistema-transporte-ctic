@@ -23,13 +23,13 @@
             <h2>Sistema de Transportes</h2>
         </div>
 
-        <div class="perfil-usuario">
+        <a href="minha-conta.html" class="perfil-usuario" aria-label="Minha conta">
             <div class="avatar" id="avatar-usuario">AM</div>
             <div class="dados-usuario">
                 <strong id="nome-usuario">Ana Martins</strong>
                 <span>CESIT</span>
             </div>
-        </div>
+        </a>
     </header>
 
     <div class="layout">
@@ -40,11 +40,11 @@
                     <li><a href="login.html"><span class="icone-menu" aria-hidden="true">⌂</span> Visão geral</a></li>
                     <li><a href="nova-solicitacao.html"><span class="icone-menu" aria-hidden="true">+</span> Nova solicitação</a></li>
                     <li class="ativo"><a href="solicitacoes.html"><span class="icone-menu" aria-hidden="true">≡</span> Solicitações</a></li>
-                    <li><a href="passageiros.html"><span class="icone-menu" aria-hidden="true">●</span> Passageiros</a></li>
+                    <li><a href="passageiros-cadastrados.html"><span class="icone-menu" aria-hidden="true">●</span> Passageiros</a></li>
                 </ul>
                 <p class="rotulo-ajuda">AJUDA</p>
                 <ul>
-                    <li><a href="#"><span class="icone-menu" aria-hidden="true">?</span> Como funciona</a></li>
+                    <li><a href="como-funciona.html"><span class="icone-menu" aria-hidden="true">?</span> Como funciona</a></li>
                 </ul>
             </nav>
             <footer><small>v1.0 · CESIT/UEA</small></footer>
@@ -106,7 +106,10 @@
             <section class="secao-tabela">
                 <div class="cabecalho-tabela">
                     <h2>Solicitações</h2>
-                    <span class="contador-registros" id="contador-registros">4 registros</span>
+                    <div class="acoes-tabela">
+                        <a href="solicitacoes-filtradas.html" class="link-filtradas" id="link-filtradas">Ver filtradas</a>
+                        <span class="contador-registros" id="contador-registros">4 registros</span>
+                    </div>
                 </div>
 
                 <!-- Tabela Tradicional (Desktop) -->
@@ -139,6 +142,10 @@
         <a href="solicitacoes.html" class="active" aria-current="page">
             <span class="nav-icon" aria-hidden="true">≡</span>
             <span>Solicitações</span>
+        </a>
+        <a href="passageiros-cadastrados.html">
+            <span class="nav-icon">●</span>
+            <span>Passageiros</span>
         </a>
     </nav>
 
@@ -198,7 +205,7 @@
 
                 const tr = document.createElement('tr');
                 tr.innerHTML = `
-                    <td class="col-codigo"><a href="#">${item.id}</a></td>
+                    <td class="col-codigo"><a href="detalhes-solicitacao.html">${item.id}</a></td>
                     <td class="col-nome">${item.nome}</td>
                     <td class="col-destino">${item.destino}</td>
                     <td class="col-data">${item.data}</td>
@@ -210,7 +217,7 @@
                 cardDiv.className = 'card-solicitacao-item';
                 cardDiv.innerHTML = `
                     <div class="card-topo">
-                        <span class="col-codigo"><a href="#">${item.id}</a></span>
+                        <span class="col-codigo"><a href="detalhes-solicitacao.html">${item.id}</a></span>
                         <span class="col-nome">${item.nome}</span>
                     </div>
                     <div class="card-rodape">
@@ -281,6 +288,13 @@
             });
 
             renderizarTabela(filtrados);
+
+            const parametros = new URLSearchParams();
+            if (termoBusca) parametros.set('busca', termoBusca);
+            if (statusFiltro) parametros.set('status', statusFiltro === 'em-analise' ? 'analise' : statusFiltro);
+            if (diasPeriodo) parametros.set('periodo', diasPeriodo);
+            const textoParametros = parametros.toString();
+            document.getElementById('link-filtradas').href = 'solicitacoes-filtradas.html' + (textoParametros ? '?' + textoParametros : '');
         }
 
         document.getElementById('input-busca').addEventListener('input', aplicarFiltros);

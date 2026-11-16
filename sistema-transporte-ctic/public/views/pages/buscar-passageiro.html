@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+    <title>Buscar passageiro - UEA</title>
+    <link rel="stylesheet" href="../css/buscar-passageiro.css">
+</head>
+<body>
+
+    <!-- CABEÇALHO SUPERIOR -->
+    <header class="cabecalho">
+        <div class="background">
+            <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
+            <div class="logo-textos">
+                <h1>UEA</h1>
+                <p>Universidade do Estado do Amazonas</p>
+            </div>
+        </div>
+
+        <div class="titulo-sistema">
+            <h2>Sistema de Transportes</h2>
+        </div>
+
+        <a href="minha-conta.html" class="perfil-usuario" aria-label="Minha conta">
+            <div class="avatar" id="avatar-usuario">AM</div>
+            <div class="dados-usuario">
+                <strong id="nome-usuario">Ana Martins</strong>
+                <span>CESIT</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="layout">
+
+        <!-- MENU LATERAL -->
+        <aside class="menu-lateral">
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li>
+                        <a href="login.html">
+                            <span class="icone-menu" aria-hidden="true">⌂</span>
+                            Visão geral
+                        </a>
+                    </li>
+                    <li>
+                        <a href="nova-solicitacao.html">
+                            <span class="icone-menu" aria-hidden="true">+</span>
+                            Nova solicitação
+                        </a>
+                    </li>
+                    <li>
+                        <a href="solicitacoes.html">
+                            <span class="icone-menu" aria-hidden="true">≡</span>
+                            Solicitações
+                        </a>
+                    </li>
+                    <li class="ativo">
+                        <a href="passageiros-cadastrados.html">
+                            <span class="icone-menu" aria-hidden="true">●</span>
+                            Passageiros
+                        </a>
+                    </li>
+                </ul>
+
+                <p class="rotulo-ajuda">AJUDA</p>
+
+                <ul>
+                    <li>
+                        <a href="como-funciona.html">
+                            <span class="icone-menu" aria-hidden="true">?</span>
+                            Como funciona
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <footer>
+                <small>v1.0 · CESIT/UEA</small>
+            </footer>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main>
+            <section class="titulo-pagina">
+                <div class="texto-titulo">
+                    <h1>Buscar passageiro</h1>
+                    <p>Encontre um cadastro para consultar ou editar.</p>
+                </div>
+            </section>
+
+            <section class="secao-formulario">
+                <form id="form-busca" action="passageiros-cadastrados.html" method="GET">
+                    
+                    <div class="linha-inputs">
+                        <div class="input-grupo">
+                            <label for="nome-cpf">Nome ou CPF</label>
+                            <input 
+                                type="text" 
+                                id="nome-cpf" 
+                                name="busca" 
+                                value="Carlos Nascimento"
+                                placeholder="Digite o nome ou CPF"
+                                required
+                            >
+                        </div>
+                    </div>
+
+                    <!-- BOTÕES DE AÇÃO -->
+                    <div class="botoes-acao-vertical">
+                        <button type="submit" class="btn-buscar">
+                            Buscar passageiro
+                        </button>
+                        <a href="passageiros-cadastrados.html" class="btn-cancelar">
+                            Cancelar
+                        </a>
+                    </div>
+
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- NAVEGAÇÃO INFERIOR: CELULAR -->
+    <nav class="mobile-bottom-nav" aria-label="Navegação para celular">
+        <a href="login.html">
+            <span class="nav-icon" aria-hidden="true">⌂</span>
+            <span>Visão geral</span>
+        </a>
+        <a href="nova-solicitacao.html">
+            <span class="nav-icon" aria-hidden="true">+</span>
+            <span>Nova</span>
+        </a>
+        <a href="solicitacoes.html">
+            <span class="nav-icon" aria-hidden="true">≡</span>
+            <span>Solicitações</span>
+        </a>
+        <a href="passageiros-cadastrados.html" class="active" aria-current="page">
+            <span class="nav-icon" aria-hidden="true">●</span>
+            <span>Passageiros</span>
+        </a>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const nomeSalvo = localStorage.getItem('nomeLogado');
+            const iniciaisSalvas = localStorage.getItem('iniciaisLogado');
+
+            if (nomeSalvo) document.getElementById('nome-usuario').textContent = nomeSalvo;
+            if (iniciaisSalvas) document.getElementById('avatar-usuario').textContent = iniciaisSalvas;
+        });
+    </script>
+</body>
+</html>

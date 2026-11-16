@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#006837">
     <title>Revisão e Envio - Sistema de Transportes - UEA</title>
+    
+    <link rel="stylesheet" href="../css/nova-solicitacao.css">
     <link rel="stylesheet" href="../css/revisao-envio.css">
+    <link rel="stylesheet" href="../css/botoes-compartilhados.css">
 </head>
 <body>
 
-    <!-- CABEÇALHO SUPERIOR -->
     <header class="cabecalho">
         <div class="background">
             <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
@@ -23,34 +25,32 @@
             <h2>Sistema de Transportes</h2>
         </div>
 
-        <div class="perfil-usuario">
+        <a href="minha-conta.html" class="perfil-usuario" aria-label="Minha conta">
             <div class="avatar" id="avatar-usuario">AM</div>
             <div class="dados-usuario">
                 <strong id="nome-usuario">Ana Martins</strong>
                 <span>CESIT</span>
             </div>
-        </div>
+        </a>
     </header>
 
     <div class="layout">
-        <!-- MENU LATERAL -->
         <aside class="menu-lateral">
             <nav aria-label="Navegação principal">
                 <ul>
                     <li><a href="login.html"><span class="icone-menu" aria-hidden="true">⌂</span> Visão geral</a></li>
                     <li class="ativo"><a href="nova-solicitacao.html"><span class="icone-menu" aria-hidden="true">+</span> Nova solicitação</a></li>
                     <li><a href="solicitacoes.html"><span class="icone-menu" aria-hidden="true">≡</span> Solicitações</a></li>
-                    <li><a href="passageiros.html"><span class="icone-menu" aria-hidden="true">●</span> Passageiros</a></li>
+                    <li><a href="passageiros-cadastrados.html"><span class="icone-menu" aria-hidden="true">●</span> Passageiros</a></li>
                 </ul>
                 <p class="rotulo-ajuda">AJUDA</p>
                 <ul>
-                    <li><a href="#"><span class="icone-menu" aria-hidden="true">?</span> Como funciona</a></li>
+                    <li><a href="como-funciona.html"><span class="icone-menu" aria-hidden="true">?</span> Como funciona</a></li>
                 </ul>
             </nav>
             <footer><small>v1.0 · CESIT/UEA</small></footer>
         </aside>
 
-        <!-- CONTEÚDO PRINCIPAL -->
         <main>
             <section class="titulo-pagina">
                 <div class="texto-titulo">
@@ -59,7 +59,6 @@
                 </div>
             </section>
 
-            <!-- BARRA DE PROGRESSO (ETAPA 4 DE 4: 100%) -->
             <div class="progresso-etapa">
                 <p>Etapa 4 de 4</p>
                 <div class="barra-progresso">
@@ -67,75 +66,77 @@
                 </div>
             </div>
 
-            <!-- CONTAINER DE REVISÃO -->
             <section class="secao-formulario">
-                <!-- GRID DOS CARDS DE RESUMO (3 COLUNAS) -->
-                <div class="grid-resumo">
-                    <!-- CARD 1: DADOS DA VIAGEM -->
-                    <article class="card-resumo">
-                        <div class="cabecalho-card-resumo">
-                            <h3>Dados da viagem</h3>
-                            <a href="nova-solicitacao.html" class="link-editar">Editar</a>
-                        </div>
-                        <ul class="lista-resumo">
-                            <li>Itacoatiara — AM</li>
-                            <li>12 a 14/09/2026</li>
-                            <li>Visita técnica</li>
-                        </ul>
-                    </article>
+                
+                <article class="card-resumo">
+                    <div class="cabecalho-card-resumo">
+                        <h3>Dados da viagem</h3>
+                    </div>
+                    <div class="lista-resumo">
+                        <p><strong>Destino:</strong> Itacoatiara — AM</p>
+                        <p><strong>Período:</strong> 12 a 14/09/2026</p>
+                        <p><strong>Finalidade:</strong> Visita técnica</p>
+                        <p><strong>Saída:</strong> 12/09/2026 às 07:00</p>
+                        <p><strong>Retorno:</strong> 14/09/2026 às 18:00</p>
+                        <p><strong>Embarque:</strong> Campus EST — Av. Darcy Vargas</p>
+                        <p><strong>Centro de custo:</strong> CESIT</p>
+                        <p><strong>Justificativa:</strong> Manutenção preventiva e inventário dos equipamentos de rede.</p>
+                    </div>
+                    <div class="acoes-card">
+                        <a href="nova-solicitacao.html" class="btn-voltar">Editar viagem</a>
+                    </div>
+                </article>
 
-                    <!-- CARD 2: SOLICITANTE -->
-                    <article class="card-resumo">
-                        <div class="cabecalho-card-resumo">
-                            <h3>Solicitante</h3>
-                            <a href="solicitantes.html" class="link-editar">Editar</a>
-                        </div>
-                        <ul class="lista-resumo">
-                            <li>Ana Martins · CESIT</li>
-                            <li>ana.martins@uea.edu.br</li>
-                            <li>(92) 99999-2244</li>
-                        </ul>
-                    </article>
+                <article class="card-resumo">
+                    <div class="cabecalho-card-resumo">
+                        <h3>Solicitante</h3>
+                    </div>
+                    <div class="lista-resumo">
+                        <p><strong>Nome:</strong> Ana Martins · CESIT · Servidora</p>
+                        <p><strong>E-mail:</strong> ana.martins@uea.edu.br</p>
+                        <p><strong>Telefone:</strong> (92) 99999-2244</p>
+                    </div>
+                    <div class="acoes-card">
+                        <a href="solicitantes.html" class="btn-voltar">Editar solicitante</a>
+                    </div>
+                </article>
 
-                    <!-- CARD 3: PASSAGEIROS -->
-                    <article class="card-resumo">
-                        <div class="cabecalho-card-resumo">
-                            <h3>Passageiros (3)</h3>
-                            <a href="passageiros.html" class="link-editar">Editar</a>
-                        </div>
-                        <ul class="lista-resumo">
-                            <li>Ana Martins</li>
-                            <li>Carlos Nascimento</li>
-                            <li>Marina Souza</li>
-                        </ul>
-                    </article>
-                </div>
+                <article class="card-resumo">
+                    <div class="cabecalho-card-resumo">
+                        <h3>Passageiros (4)</h3>
+                    </div>
+                    <div class="lista-resumo">
+                        <p>Ana Martins · Carlos Nascimento · Marina Souza · Pedro Almeida</p>
+                    </div>
+                    <div class="acoes-card">
+                        <a href="passageiros.html" class="btn-voltar">Editar passageiros</a>
+                    </div>
+                </article>
 
-                <!-- ALERTA DE AVISO (AMARELO/BEGE) -->
                 <div class="alerta-analise">
-                    <span class="icone-alerta" aria-hidden="true">!</span>
-                    <p>Após o envio, a solicitação ficará aguardando análise da supervisão.</p>
+                    <div>
+                        <h3 style="font-size: 16px; font-weight: 600; margin-bottom: 6px;">Análise da supervisão</h3>
+                        <p style="font-size: 13px; margin: 0;">Após o envio, a solicitação ficará pendente de análise.</p>
+                    </div>
                 </div>
 
-                <!-- CHECKBOX DE DECLARAÇÃO -->
                 <div class="grupo-declaracao">
                     <label class="container-checkbox">
-                        <input type="checkbox" id="declaracao-normas" required>
+                        <input type="checkbox" id="declaracao-normas">
                         <span class="checkmark"></span>
-                        <span class="texto-checkbox">Declaro que as informações estão corretas e estou ciente das normas.</span>
+                        <span class="texto-checkbox">Declaro que os dados estão corretos.</span>
                     </label>
                 </div>
 
-                <!-- BOTÕES DE AÇÃO -->
+                <!-- BOTÕES FINAIS - O de enviar começa desabilitado (disabled) -->
                 <div class="botoes-acao">
                     <a href="passageiros.html" class="btn-voltar">Voltar</a>
-                    <a href="solicitacoes.html" class="btn-continuar" onclick="enviarSolicitacao()">Enviar solicitação</a>
+                    <button id="btn-enviar" class="btn-continuar" disabled onclick="enviarSolicitacao()">Enviar solicitação</button>
                 </div>
             </section>
         </main>
     </div>
 
-    <!-- NAVEGAÇÃO INFERIOR: CELULAR -->
     <nav class="mobile-bottom-nav" aria-label="Navegação para celular">
         <a href="login.html">
             <span class="nav-icon" aria-hidden="true">⌂</span>
@@ -149,25 +150,46 @@
             <span class="nav-icon" aria-hidden="true">≡</span>
             <span>Solicitações</span>
         </a>
+        <a href="passageiros-cadastrados.html">
+            <span class="nav-icon" aria-hidden="true">●</span>
+            <span>Passageiros</span>
+        </a>
     </nav>
 
-    <!-- SCRIPT PARA CARREGAR O NOME E ACIONAR O ALERTA DE SUCESSO -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // 1. Carrega o nome do usuário
             const nomeSalvo = localStorage.getItem('nomeLogado');
             const iniciaisSalvas = localStorage.getItem('iniciaisLogado');
 
             if (nomeSalvo) {
                 const elNome = document.getElementById('nome-usuario');
                 const elAvatar = document.getElementById('avatar-usuario');
-
                 if (elNome) elNome.textContent = nomeSalvo;
                 if (elAvatar && iniciaisSalvas) elAvatar.textContent = iniciaisSalvas;
             }
+
+            // 2. Lógica do Checkbox e do Botão Enviar
+            const checkbox = document.getElementById('declaracao-normas');
+            const btnEnviar = document.getElementById('btn-enviar');
+
+            // Escuta o clique no checkbox para habilitar/desabilitar o botão
+            checkbox.addEventListener('change', function() {
+                if (this.checked) {
+                    btnEnviar.removeAttribute('disabled'); // Fica verde e clicável
+                } else {
+                    btnEnviar.setAttribute('disabled', 'disabled'); // Fica cinza e bloqueado
+                }
+            });
         });
 
         function enviarSolicitacao() {
-            localStorage.setItem('solicitacaoEnviada', 'true');
+            // Só envia se não estiver desabilitado
+            const btn = document.getElementById('btn-enviar');
+            if (!btn.disabled) {
+                localStorage.setItem('solicitacaoEnviada', 'true');
+                window.location.href = 'solicitacao-enviada.html';
+            }
         }
     </script>
 </body>

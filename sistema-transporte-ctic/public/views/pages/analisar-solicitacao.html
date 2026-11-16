@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+    <title>Analisar solicitação - UEA</title>
+
+    <link rel="stylesheet" href="../css/nova-solicitacao.css">
+    <link rel="stylesheet" href="../css/analisar-solicitacao.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+
+        <div class="background">
+            <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
+
+            <div class="logo-textos">
+                <h1>UEA</h1>
+                <p>Universidade do Estado do Amazonas</p>
+            </div>
+        </div>
+
+        <div class="titulo-sistema">
+            <h2>Sistema de Transportes</h2>
+        </div>
+
+        <a href="minha-conta.html" class="perfil-usuario" aria-label="Minha conta">
+            <div class="avatar" id="avatar-usuario">AM</div>
+
+            <div class="dados-usuario">
+                <strong id="nome-usuario">Ana Martins</strong>
+                <span>CESIT</span>
+            </div>
+        </a>
+
+    </header>
+
+    <div class="layout">
+
+        <aside class="menu-lateral">
+
+            <nav aria-label="Navegação principal">
+
+                <ul>
+
+                    <li>
+                        <a href="login.html">
+                            <span class="icone-menu">⌂</span>
+                            Visão geral
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="nova-solicitacao.html">
+                            <span class="icone-menu">+</span>
+                            Nova solicitação
+                        </a>
+                    </li>
+
+                    <li class="ativo">
+                        <a href="solicitacoes.html">
+                            <span class="icone-menu">≡</span>
+                            Solicitações
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="passageiros-cadastrados.html">
+                            <span class="icone-menu">●</span>
+                            Passageiros
+                        </a>
+                    </li>
+
+                </ul>
+
+                <p class="rotulo-ajuda">AJUDA</p>
+
+                <ul>
+                    <li>
+                        <a href="como-funciona.html">
+                            <span class="icone-menu">?</span>
+                            Como funciona
+                        </a>
+                    </li>
+                </ul>
+
+            </nav>
+
+            <footer>
+                <small>v1.0 · CESIT/UEA</small>
+            </footer>
+
+        </aside>
+
+        <main>
+
+            <section class="titulo-pagina">
+
+                <div class="texto-titulo">
+                    <h1>Analisar solicitação</h1>
+                    <p>#0241 · Itacoatiara — AM · Ana Martins</p>
+                </div>
+
+            </section>
+
+            <section class="secao-formulario">
+
+                <!-- SITUAÇÃO -->
+
+                <div class="caixa-status em-analise">
+
+                    <strong>Situação: Em análise</strong>
+
+                    <p>
+                        Acompanhe os dados e o histórico deste pedido.
+                    </p>
+
+                </div>
+
+                <!-- DADOS DA VIAGEM -->
+
+                <section class="grupo-detalhes">
+
+                    <h2>Dados da viagem</h2>
+
+                    <div class="informacoes">
+
+                        <p>Intermunicipal · Visita técnica</p>
+
+                        <p>Saída: 12/09/2026 às 07:00</p>
+
+                        <p>Retorno: 14/09/2026 às 18:00</p>
+
+                        <p>Embarque: Campus EST — Av. Darcy Vargas</p>
+
+                        <p>Centro de custo: CESIT</p>
+
+                    </div>
+
+                </section>
+
+                <!-- JUSTIFICATIVA -->
+
+                <section class="grupo-detalhes">
+
+                    <h2>Justificativa</h2>
+
+                    <div class="informacoes">
+
+                        <p>
+                            Realização de manutenção preventiva e inventário
+                            dos equipamentos de rede.
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <!-- SOLICITANTE E PASSAGEIROS -->
+
+                <section class="grupo-detalhes">
+
+                    <h2>Solicitante e passageiros</h2>
+
+                    <div class="informacoes">
+
+                        <p>Ana Martins · CESIT</p>
+
+                        <p>
+                            ana.martins@uea.edu.br · (92) 99999-2244
+                        </p>
+
+                        <p>
+                            Passageiros: Ana Martins, Carlos Nascimento
+                            e Marina Souza
+                        </p>
+
+                    </div>
+
+                </section>
+
+                <!-- HISTÓRICO -->
+
+                <section class="grupo-detalhes">
+
+                    <h2>Histórico</h2>
+
+                    <div class="historico">
+
+                        <span class="etapa-concluida">
+                            Solicitação enviada
+                        </span>
+
+                        <span class="seta-historico">›</span>
+
+                        <span class="etapa-concluida">
+                            Aguardando análise
+                        </span>
+
+                        <span class="seta-historico">›</span>
+
+                        <span class="etapa-atual">
+                            Análise iniciada
+                        </span>
+
+                    </div>
+
+                </section>
+
+                <!-- FORMULÁRIO DE ANÁLISE -->
+
+                <form id="form-analise">
+
+                    <div class="linha-inputs">
+
+                        <div class="input-grupo">
+
+                            <label for="veiculo">
+                                Veículo
+                            </label>
+
+                            <select id="veiculo" required>
+
+                                <option value="">
+                                    Selecione um veículo
+                                </option>
+
+                                <option value="Van institucional · 15 lugares">
+                                    Van institucional · 15 lugares
+                                </option>
+
+                                <option value="Micro-ônibus institucional">
+                                    Micro-ônibus institucional
+                                </option>
+
+                                <option value="Carro institucional">
+                                    Carro institucional
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="linha-inputs">
+
+                        <div class="input-grupo">
+
+                            <label for="motorista">
+                                Motorista
+                            </label>
+
+                            <input
+                                type="text"
+                                id="motorista"
+                                placeholder="Motorista designado pela supervisão"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                    <p id="mensagem-erro" role="alert"></p>
+
+                    <!-- BOTÕES -->
+
+                    <div class="botoes-acao">
+
+                        <button
+                            type="submit"
+                            class="btn-continuar">
+                            Aprovar solicitação
+                        </button>
+
+                        <button
+                            type="button"
+                            class="btn-cancelar"
+                            id="recusar-solicitacao">
+                            Recusar solicitação
+                        </button>
+
+                        <a href="detalhes-solicitacao.html"
+                            class="btn-cancelar">
+                            Voltar aos detalhes
+                        </a>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <nav class="mobile-bottom-nav">
+
+        <a href="login.html">
+            <span class="nav-icon">⌂</span>
+            <span>Visão geral</span>
+        </a>
+
+        <a href="nova-solicitacao.html">
+            <span class="nav-icon">+</span>
+            <span>Nova</span>
+        </a>
+
+        <a href="solicitacoes.html" class="active">
+            <span class="nav-icon">≡</span>
+            <span>Solicitações</span>
+        </a>
+
+        <a href="passageiros-cadastrados.html">
+            <span class="nav-icon">●</span>
+            <span>Passageiros</span>
+        </a>
+
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            const nome = localStorage.getItem('nomeLogado');
+            const iniciais = localStorage.getItem('iniciaisLogado');
+
+            if (nome) {
+                document.getElementById('nome-usuario').textContent = nome;
+            }
+
+            if (iniciais) {
+                document.getElementById('avatar-usuario').textContent = iniciais;
+            }
+
+            const formulario = document.getElementById('form-analise');
+            const veiculo = document.getElementById('veiculo');
+            const motorista = document.getElementById('motorista');
+            const erro = document.getElementById('mensagem-erro');
+
+            // Aprovar solicitação
+            formulario.addEventListener('submit', function (event) {
+
+                event.preventDefault();
+
+                erro.textContent = '';
+
+                if (!veiculo.value) {
+                    erro.textContent = 'Selecione um veículo.';
+                    veiculo.focus();
+                    return;
+                }
+
+                if (!motorista.value.trim()) {
+                    erro.textContent = 'Informe o motorista.';
+                    motorista.focus();
+                    return;
+                }
+
+                const confirmar = confirm(
+                    'Deseja realmente aprovar esta solicitação?'
+                );
+
+                if (confirmar) {
+
+                    localStorage.setItem('statusSolicitacao', 'Aprovada');
+
+                    localStorage.setItem(
+                        'dadosAnalise',
+                        JSON.stringify({
+                            veiculo: veiculo.value,
+                            motorista: motorista.value.trim()
+                        })
+                    );
+
+                    alert(
+                        'Aprovação demonstrativa. Os dados foram guardados localmente neste navegador.'
+                    );
+
+                }
+
+            });
+
+            // Recusar solicitação
+            document.getElementById('recusar-solicitacao')
+                .addEventListener('click', function () {
+
+                    const confirmar = confirm(
+                        'Deseja realmente recusar esta solicitação?'
+                    );
+
+                    if (confirmar) {
+
+                        localStorage.setItem(
+                            'statusSolicitacao',
+                            'Recusada'
+                        );
+
+                        alert(
+                            'Recusa demonstrativa. É necessário integrar ao backend para registrar a alteração.'
+                        );
+
+                    }
+
+                });
+
+        });
+    </script>
+
+</body>
+</html>

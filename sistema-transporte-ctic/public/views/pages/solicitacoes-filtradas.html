@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#006837">
+    <title>Solicitações filtradas - UEA</title>
+    <link rel="stylesheet" href="../css/solicitacoes.css">
+    <link rel="stylesheet" href="../css/solicitacoes-filtradas.css">
+</head>
+<body>
+
+    <header class="cabecalho">
+        <div class="background">
+            <img src="../img/uea-logo-verde.png" alt="Logo da UEA" class="logo">
+            <div class="logo-textos">
+                <h1>UEA</h1>
+                <p>Universidade do Estado do Amazonas</p>
+            </div>
+        </div>
+        <div class="titulo-sistema"><h2>Sistema de Transportes</h2></div>
+        <a href="minha-conta.html" class="perfil-usuario" aria-label="Minha conta">
+            <div class="avatar" id="avatar-usuario">AM</div>
+            <div class="dados-usuario">
+                <strong id="nome-usuario">Ana Martins</strong>
+                <span>CESIT</span>
+            </div>
+        </a>
+    </header>
+
+    <div class="layout">
+        <aside class="menu-lateral">
+            <nav aria-label="Navegação principal">
+                <ul>
+                    <li><a href="login.html"><span class="icone-menu">⌂</span> Visão geral</a></li>
+                    <li><a href="nova-solicitacao.html"><span class="icone-menu">+</span> Nova solicitação</a></li>
+                    <li class="ativo"><a href="solicitacoes.html"><span class="icone-menu">≡</span> Solicitações</a></li>
+                    <li><a href="passageiros-cadastrados.html"><span class="icone-menu">●</span> Passageiros</a></li>
+                </ul>
+                <p class="rotulo-ajuda">AJUDA</p>
+                <ul>
+                    <li><a href="como-funciona.html"><span class="icone-menu">?</span> Como funciona</a></li>
+                </ul>
+            </nav>
+            <footer><small>v1.0 · CESIT/UEA</small></footer>
+        </aside>
+
+        <main>
+            <section class="titulo-pagina">
+                <div class="texto-titulo">
+                    <h1>Solicitações filtradas</h1>
+                    <p id="resumo-filtros">Status: Pendente · Destino: Itacoatiara · Últimos 30 dias</p>
+                </div>
+            </section>
+
+            <section class="secao-tabela">
+                <div class="cabecalho-tabela">
+                    <h2>Resultados</h2>
+                    <span class="contador-registros" id="contador-resultados">1 registro encontrado</span>
+                </div>
+
+                <div class="cards-solicitacoes-mobile" id="cards-resultado"></div>
+
+                <div id="estado-vazio" hidden>
+                    <div class="mensagem-vazia">
+                        <strong>Nenhum resultado</strong>
+                        <p>Não encontramos solicitações para esta busca.</p>
+                        <p class="dica">Tente outro destino, nome ou ID, ou remova os filtros aplicados.</p>
+                    </div>
+                </div>
+
+                <div class="botoes-acao">
+                    <a href="solicitacoes.html" class="btn-continuar">Alterar filtros</a>
+                    <a href="solicitacoes.html" class="btn-cancelar">Limpar filtros</a>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <nav class="mobile-bottom-nav">
+        <a href="login.html"><span class="nav-icon">⌂</span><span>Visão geral</span></a>
+        <a href="nova-solicitacao.html"><span class="nav-icon">+</span><span>Nova</span></a>
+        <a href="solicitacoes.html" class="active"><span class="nav-icon">≡</span><span>Solicitações</span></a>
+        <a href="passageiros-cadastrados.html"><span class="nav-icon">●</span><span>Passageiros</span></a>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const nome = localStorage.getItem('nomeLogado');
+            const iniciais = localStorage.getItem('iniciaisLogado');
+            if (nome) document.getElementById('nome-usuario').textContent = nome;
+            if (iniciais) document.getElementById('avatar-usuario').textContent = iniciais;
+
+            // Lê parâmetros da URL
+            const params = new URLSearchParams(window.location.search);
+            const statusFiltro = params.get('status') || '';
+            const destinoFiltro = params.get('destino') || params.get('busca') || '';
+            const periodo = params.get('periodo') || '';
+
+            let lista = JSON.parse(localStorage.getItem('dadosSolicitacoes') || '[]');
+            const hoje = new Date();
+
+            const filtrados = lista.filter(item => {
+                const matchStatus = !statusFiltro || item.status === statusFiltro;
+                const matchDestino = !destinoFiltro ||
+                    item.destino.toLowerCase().includes(destinoFiltro.toLowerCase()) ||
+                    item.nome.toLowerCase().includes(destinoFiltro.toLowerCase()) ||
+                    item.id.toLowerCase().includes(destinoFiltro.toLowerCase());
+
+                let matchPeriodo = true;
+                if (periodo && item.dataIso) {
+                    const diff = (hoje - new Date(item.dataIso)) / (1000 * 60 * 60 * 24);
+                    matchPeriodo = diff <= parseInt(periodo);
+                }
+                return matchStatus && matchDestino && matchPeriodo;
+            });
+
+            // Atualiza resumo
+            const partes = [];
+            if (statusFiltro) partes.push(`Status: ${statusFiltro}`);
+            if (destinoFiltro) partes.push(`Destino: ${destinoFiltro}`);
+            if (periodo) partes.push(`Últimos ${periodo} dias`);
+            document.getElementById('resumo-filtros').textContent = partes.join(' · ') || 'Todos os registros';
+
+            const container = document.getElementById('cards-resultado');
+            const contador = document.getElementById('contador-resultados');
+            const vazio = document.getElementById('estado-vazio');
+
+            if (filtrados.length === 0) {
+                container.style.display = 'none';
+                vazio.hidden = false;
+                contador.textContent = '0 registros';
+            } else {
+                contador.textContent = `${filtrados.length} registro${filtrados.length > 1 ? 's' : ''} encontrado${filtrados.length > 1 ? 's' : ''}`;
+                filtrados.forEach(item => {
+                    const card = document.createElement('div');
+                    card.className = 'card-solicitacao-item';
+                    card.innerHTML = `
+                        <div class="card-topo">
+                            <span class="col-codigo"><a href="detalhes-solicitacao.html">${item.id}</a></span>
+                            <span class="col-nome">${item.nome}</span>
+                        </div>
+                        <div class="card-rodape">
+                            <span class="col-destino">${item.destino}</span>
+                            <span class="tag-status status-${item.status}">${item.textoStatus}</span>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>
